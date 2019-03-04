@@ -1,0 +1,194 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>python3 笔记 1 导学 2 安装 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="Life is short，I use Python
+1-1 导学Python 不是一门新兴的语言，诞生于上世纪 90 年代初。选取版本 Python 3.6课程梗概：基础语法、面向对象、常见错误、,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">python3 笔记 3 理解代码及基本类型</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">python3 笔记 3 理解代码及基本类型</h1>
+        <div class="stuff">
+            <span>三月 04, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/python/">python</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="3-1-什么是代码-什么是写代码"><a href="#3-1-什么是代码-什么是写代码" class="headerlink" title="3-1 什么是代码 什么是写代码"></a>3-1 什么是代码 什么是写代码</h3><p>代码是现实世界事物在计算机世界中的映射<br>写代码是将现实世界中的事物用计算机语言来描述</p>
+<hr>
+<h3 id="3-2-数字：整形与浮点型"><a href="#3-2-数字：整形与浮点型" class="headerlink" title="3-2 数字：整形与浮点型"></a>3-2 数字：整形与浮点型</h3><p>整数：int浮点数：float在 Python 中没有单双精度之分，Python 中的 float 就是其他语言中的 double在 Python 中没有 short,long 之分，只用 int<br>利用 type() 查看其类型：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(<span class="number">1</span>)&lt;<span class="class"><span class="keyword">class</span> '<span class="title">int</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(<span class="number">-1</span>)</span>&lt;<span class="title">class</span> '<span class="title">int</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(<span class="number">1.1</span>)</span>&lt;<span class="title">class</span> '<span class="title">float</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(<span class="number">1.111111111111111111</span>)</span>&lt;<span class="title">class</span> '<span class="title">float</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(<span class="number">1</span> + <span class="number">0.1</span>)</span>&lt;<span class="title">class</span> '<span class="title">float</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(<span class="number">1</span> + <span class="number">1</span>)</span>&lt;<span class="title">class</span> '<span class="title">int</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(<span class="number">1</span> + <span class="number">1.0</span>)</span>&lt;<span class="title">class</span> '<span class="title">float</span>'&gt;    //2.0 属于 <span class="title">float</span> 型</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(<span class="number">1</span> * <span class="number">1</span>)</span>&lt;<span class="title">class</span> '<span class="title">int</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(<span class="number">1</span> * <span class="number">1.0</span>)</span>&lt;<span class="title">class</span> '<span class="title">float</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(<span class="number">2</span> / <span class="number">2</span>)</span>&lt;<span class="title">class</span> '<span class="title">float</span>'&gt;    // 牢记：两个 <span class="title">int</span> 相除为 <span class="title">float</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(<span class="number">2</span> // <span class="number">2</span>)</span>&lt;<span class="title">class</span> '<span class="title">int</span>'&gt;    // 双斜杠相除得 <span class="title">int</span></span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="3-3-10、2、8、16-进制"><a href="#3-3-10、2、8、16-进制" class="headerlink" title="3-3 10、2、8、16 进制"></a>3-3 10、2、8、16 进制</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">1</span> // <span class="number">20</span>    // 双斜杠理解成整除，只保留整数部分</span><br></pre></td></tr></table></figure>
+<p>进制基本概念，不做赘述</p>
+<hr>
+<h3 id="3-4-各进制的表示与转换"><a href="#3-4-各进制的表示与转换" class="headerlink" title="3-4 各进制的表示与转换"></a>3-4 各进制的表示与转换</h3><p>进制的表示：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0b10</span>2    //Python 中用 <span class="number">0</span>b 表示 <span class="number">2</span> 进制，回车默认转换 <span class="number">10</span> 进制</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0b11</span>3    </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0o10</span>8    //Python 中用 <span class="number">0</span>o 表示 <span class="number">8</span> 进制</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">0x1016</span>    //Python 中用 <span class="number">0</span>x 表示 <span class="number">16</span> 进制</span><br></pre></td></tr></table></figure></p>
+<p>进制的转换：其他进制向二进制转换用<code>bin()</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin(<span class="number">10</span>)<span class="string">'0b1010'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin(<span class="number">0o7</span>)<span class="string">'0b111'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>bin(<span class="number">0xE</span>)<span class="string">'0b1110'</span></span><br></pre></td></tr></table></figure></p>
+<p>其他进制向十进制转换用<code>int()</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="number">0b111</span>)<span class="number">7</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>int(<span class="number">0o77</span>)<span class="number">63</span></span><br></pre></td></tr></table></figure></p>
+<p>其他进制向十六进制转换用<code>hex()</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>hex(<span class="number">888</span>)<span class="string">'0x378'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>hex(<span class="number">0o777</span>)<span class="string">'0x1ff'</span></span><br></pre></td></tr></table></figure></p>
+<p>其他进制向八进制转换用<code>oct()</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>oct(<span class="number">0b111</span>)<span class="string">'0o7'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>oct(<span class="number">0x777</span>)<span class="string">'0o3567'</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="3-5-数字：布尔类型与复数"><a href="#3-5-数字：布尔类型与复数" class="headerlink" title="3-5 数字：布尔类型与复数"></a>3-5 数字：布尔类型与复数</h3><p>bool：真 / 假<br>complex：复数<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(<span class="literal">True</span>)&lt;<span class="class"><span class="keyword">class</span> '<span class="title">bool</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">type</span><span class="params">(False)</span>&lt;<span class="title">class</span> '<span class="title">bool</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">bool</span><span class="params">(<span class="number">1</span>)</span><span class="title">True</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">bool</span><span class="params">(<span class="number">2.2</span>)</span><span class="title">True</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">bool</span><span class="params">(<span class="number">-1</span>)</span><span class="title">True</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">bool</span><span class="params">(<span class="number">0</span>)</span><span class="title">False</span>    // 非 0 为真，0 为假</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">bool</span><span class="params">(<span class="string">'abc'</span>)</span><span class="title">True</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">bool</span><span class="params">(<span class="string">''</span>)</span><span class="title">False</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">bool</span><span class="params">([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>])</span><span class="title">True</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">bool</span><span class="params">([])</span><span class="title">False</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">bool</span><span class="params">(&#123;<span class="number">1</span>,<span class="number">2</span>&#125;)</span><span class="title">True</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">bool</span><span class="params">(&#123;&#125;)</span><span class="title">False</span>    // 空值被认为是 <span class="title">False</span></span></span><br><span class="line"><span class="class">&gt;&gt;&gt; <span class="title">bool</span><span class="params">(None)</span><span class="title">False</span></span></span><br></pre></td></tr></table></figure></p>
+<p>复数表示：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="number">36j</span>36j</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="3-6-字符串：单引号与双引号"><a href="#3-6-字符串：单引号与双引号" class="headerlink" title="3-6 字符串：单引号与双引号"></a>3-6 字符串：单引号与双引号</h3><p>str：字符串单引号、双引号、三引号表示字符串<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'hello'</span><span class="string">'hello'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"hello"</span><span class="string">'hello'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>type(<span class="string">'1'</span>)&lt;<span class="class"><span class="keyword">class</span> '<span class="title">str</span>'&gt;</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; "<span class="title">let</span>'<span class="title">s</span> <span class="title">go</span>""<span class="title">let</span>'<span class="title">s</span> <span class="title">go</span>"</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; '<span class="title">let</span>"<span class="title">s</span> <span class="title">go</span>''<span class="title">let</span>"<span class="title">s</span> <span class="title">go</span>'    // 两个单引号中间加上双引号也是没有问题的</span></span><br><span class="line"><span class="class">&gt;&gt;&gt; '<span class="title">let</span>\'<span class="title">s</span> <span class="title">go</span>'"<span class="title">let</span>'<span class="title">s</span> <span class="title">go</span>"    // 反斜杠 \ 为转义字符</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="3-7-多行字符串"><a href="#3-7-多行字符串" class="headerlink" title="3-7 多行字符串"></a>3-7 多行字符串</h3><p>每行最多 79 个字符，可用三引号换行，三个单引号与三个双引号皆可<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'''hello worldhello worldhello world''</span></span><br><span class="line"><span class="string">''hello world\nhello world\nhello world\n'    // \n 为回车</span></span><br><span class="line"><span class="string"><span class="meta">&gt;&gt;&gt; </span>"""hello world\n hello world"""</span></span><br><span class="line"><span class="string">'hello world\n hello world'</span></span><br></pre></td></tr></table></figure></p>
+<p>用<code>print()</code>函数能够看到转义字符转译之后的格式：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">"""hello world\nhello world"""</span>)</span><br><span class="line">hello worldhello world</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"""helloworld"""</span><span class="string">'hello\nworld'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'hello\world'</span>        // 单引号可以加上反斜杠换行</span><br><span class="line"><span class="string">'helloworld'</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="3-8-转义字符"><a href="#3-8-转义字符" class="headerlink" title="3-8 转义字符"></a>3-8 转义字符</h3><p>特殊的字符：无法“看见”的字符或与语言本身语法冲突的字符<br>\n  换行<br>\‘  单引号<br>\t  横向制表符<br>\r  回车<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">'hello \\n world'</span>)</span><br><span class="line">hello \n world</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">'c:\\north\\west'</span>)</span><br><span class="line">c:\north\west</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="3-9-原始字符串"><a href="#3-9-原始字符串" class="headerlink" title="3-9 原始字符串"></a>3-9 原始字符串</h3><p>字符串前面加上 r 或者 R 变为原始字符串，所见即所得<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>print(<span class="string">r'c:\north\west'</span>)</span><br><span class="line">c:\north\west</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="3-10-字符串运算一"><a href="#3-10-字符串运算一" class="headerlink" title="3-10 字符串运算一"></a>3-10 字符串运算一</h3><p>拼接：<code>+</code><br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"hello"</span> + <span class="string">"world"</span></span><br><span class="line"><span class="string">'helloworld'</span></span><br></pre></td></tr></table></figure></p>
+<p>重复：<code>*</code><br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"hello"</span> * <span class="number">3</span></span><br><span class="line"><span class="string">'hellohellohello'</span>    // 只能和数字相乘</span><br></pre></td></tr></table></figure></p>
+<p>截取任意字符：<code>[int]</code><br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"hello world"</span>[<span class="number">0</span>]<span class="string">'h'</span>    // 下标序号从 <span class="number">0</span> 开始</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"hello world"</span>[<span class="number">3</span>]<span class="string">'l'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"hello world"</span>[<span class="number">-3</span>]<span class="string">'r'</span>    // 正数代表获取字符序号，复数代表末尾数 n 次得到的字符</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="3-11-字符串运算二"><a href="#3-11-字符串运算二" class="headerlink" title="3-11 字符串运算二"></a>3-11 字符串运算二</h3><p>截取一组字符：<code>[起点: 终点的下一位]</code><br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"hello world"</span>[<span class="number">0</span>:<span class="number">5</span>]</span><br><span class="line"><span class="string">'hello'</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"hello world"</span>[<span class="number">0</span>:<span class="number">-1</span>]</span><br><span class="line"><span class="string">'hello worl'</span>    // 步长</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"hello world"</span></span><br><span class="line">[<span class="number">2</span>:<span class="number">-3</span>]<span class="string">'llo wo'</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="3-12-字符串运算三"><a href="#3-12-字符串运算三" class="headerlink" title="3-12 字符串运算三"></a>3-12 字符串运算三</h3><p>输入数字大于其最大值则定义为其最大值<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"hello world"</span>[<span class="number">6</span>:<span class="number">30</span>]</span><br><span class="line"><span class="string">'world'</span></span><br></pre></td></tr></table></figure></p>
+<p><code>[int:]</code>代表着截取到最后：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"hello world"</span>[<span class="number">6</span>:]</span><br><span class="line"><span class="string">'world'</span></span><br></pre></td></tr></table></figure></p>
+<p><code>[:int]</code>代表着从开始开始截取：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"hello world"</span>[:<span class="number">-5</span>]</span><br><span class="line"><span class="string">'hello'</span></span><br></pre></td></tr></table></figure></p>
+<p><code>[负数:]</code>代表从倒数位开始截取到最后：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"hello world"</span>[<span class="number">-4</span>:]</span><br><span class="line"><span class="string">'orld'</span></span><br></pre></td></tr></table></figure></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="/mp3/1.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="2" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-什么是代码-什么是写代码"><span class="toc-number">1.</span> <span class="toc-text">3-1 什么是代码 什么是写代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-数字：整形与浮点型"><span class="toc-number">2.</span> <span class="toc-text">3-2 数字：整形与浮点型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-10、2、8、16-进制"><span class="toc-number">3.</span> <span class="toc-text">3-3 10、2、8、16 进制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-各进制的表示与转换"><span class="toc-number">4.</span> <span class="toc-text">3-4 各进制的表示与转换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-数字：布尔类型与复数"><span class="toc-number">5.</span> <span class="toc-text">3-5 数字：布尔类型与复数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-字符串：单引号与双引号"><span class="toc-number">6.</span> <span class="toc-text">3-6 字符串：单引号与双引号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-多行字符串"><span class="toc-number">7.</span> <span class="toc-text">3-7 多行字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-转义字符"><span class="toc-number">8.</span> <span class="toc-text">3-8 转义字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-9-原始字符串"><span class="toc-number">9.</span> <span class="toc-text">3-9 原始字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-10-字符串运算一"><span class="toc-number">10.</span> <span class="toc-text">3-10 字符串运算一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-11-字符串运算二"><span class="toc-number">11.</span> <span class="toc-text">3-11 字符串运算二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-12-字符串运算三"><span class="toc-number">12.</span> <span class="toc-text">3-12 字符串运算三</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
