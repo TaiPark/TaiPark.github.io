@@ -1,0 +1,250 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>欢迎来到Tai Park的博客 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="
+"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">python3 笔记 10 正则表达式与JSON</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">python3 笔记 10 正则表达式与JSON</h1>
+        <div class="stuff">
+            <span>三月 12, 2017</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/python/">python</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <hr>
+<h3 id="10-1-初识正则表达式"><a href="#10-1-初识正则表达式" class="headerlink" title="10-1 初识正则表达式"></a>10-1 初识正则表达式</h3><p>是一个特殊的私服序列，可以帮助检测一个字符串是否与我们所设定的字符序列相匹配。</p>
+<p>可以实现快速检索文本、实现替换文本的操作。</p>
+<p>1、检测一串数字是否是电话号码</p>
+<p>2、检测一个字符串是否符合 e-mail 格式</p>
+<p>3、把一个文本里指定的单词替换为另外一个单词</p>
+<p>平时处理：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="string">'C|C++|Java|Python'</span></span><br><span class="line">print(a.index(<span class="string">'Python'</span>) &gt; <span class="number">-1</span>)</span><br><span class="line">print(<span class="string">'Python'</span> <span class="keyword">in</span> a)</span><br></pre></td></tr></table></figure></p>
+<p>用正则表达式处理：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">a = <span class="string">'C|C++|Java|Python'</span></span><br><span class="line">r = re.findall(<span class="string">'Python'</span>,a)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> len(r) &gt; <span class="number">0</span>:</span><br><span class="line">    print(<span class="string">'字符串中包含 Python'</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    print(<span class="string">'No'</span>)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="10-2-元字符与普通字符"><a href="#10-2-元字符与普通字符" class="headerlink" title="10-2 元字符与普通字符"></a>10-2 元字符与普通字符</h3><p>提取字符串中所有的数字：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">a = <span class="string">'C2C++4Java7Python6'</span></span><br><span class="line">r = re.findall(<span class="string">'\d'</span>,a)</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#['2', '4', '7', '6']</span></span><br></pre></td></tr></table></figure></p>
+<p><code>\d</code>：表示所有数字</p>
+<p><code>‘Python’</code>普通字符，<code>&#39;\d&#39;</code>元字符。正则表达式就是由一系列普通字符和元字符组成的。 </p>
+<p>提取字符串中所有的非数字：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">a = <span class="string">'C2C++4Java7Python6'</span></span><br><span class="line">r = re.findall(<span class="string">'\D'</span>,a)    <span class="comment">#\D 为非数字</span></span><br><span class="line">print(r)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="10-3-字符集"><a href="#10-3-字符集" class="headerlink" title="10-3 字符集"></a>10-3 字符集</h3><p>中间一个字符是 c 或者 f 的单词：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">s = <span class="string">'abc,acc,adc,aec,afc,ahc'</span></span><br><span class="line">r = re.findall(<span class="string">'a[cf]c'</span>,s)</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#['acc', 'afc']</span></span><br></pre></td></tr></table></figure></p>
+<p><code>[]</code>：字符集，<strong>或</strong>关系</p>
+<p>普通字符定界，确定某一个小段</p>
+<p>中间一个字符不是 c 或者 f 的单词：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">s = <span class="string">'abc,acc,adc,aec,afc,ahc'</span></span><br><span class="line">r = re.findall(<span class="string">'a[^cf]c'</span>,s)</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#['abc', 'adc', 'aec', 'ahc']</span></span><br></pre></td></tr></table></figure></p>
+<p><code>^</code>取反操作</p>
+<p>利用字符顺序省略字符，匹配 c,d,e,f：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">s = <span class="string">'abc,acc,adc,aec,afc,ahc'</span></span><br><span class="line">r = re.findall(<span class="string">'a[c-f]c'</span>,s)</span><br><span class="line">print(r)</span><br></pre></td></tr></table></figure></p>
+<p><code>-</code>：省略中间字符</p>
+<hr>
+<h3 id="10-4-概括字符集"><a href="#10-4-概括字符集" class="headerlink" title="10-4 概括字符集"></a>10-4 概括字符集</h3><p><code>\d</code>可以用<code>[0-9]</code> 表示：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">a = <span class="string">'python1111java678php'</span></span><br><span class="line">r = re.findall(<span class="string">'[0-9]'</span>,a)</span><br><span class="line">print(r)</span><br></pre></td></tr></table></figure></p>
+<p><code>\w</code>匹配所有的数字和字符：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">a = <span class="string">'python1111&amp;_java678  \nph\rp'</span></span><br><span class="line">r = re.findall(<span class="string">'\w'</span>,a)</span><br><span class="line">print(r)</span><br></pre></td></tr></table></figure></p>
+<p><code>\w</code>只能匹配单词字符，也就是<code>den[A-Za-z0-9_]</code></p>
+<p><code>\W</code>只匹配非单词字符，如空格、<code>&amp;</code>、<code>\n</code>、<code>\r</code> 等都为非单词字符</p>
+<p><code>\s</code>代表空白字符：空格、<code>\n</code>、<code>\r</code> 等：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">a = <span class="string">'python1111&amp;_java678 \nph\rp'</span></span><br><span class="line">r = re.findall(<span class="string">'\s'</span>,a)</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#['',' ','\n','\r']</span></span><br></pre></td></tr></table></figure></p>
+<p>常用的概括字符集：<code>\d \D \w \W \s \S</code></p>
+<p><code>.</code> ：匹配除换行符 <code>\ n</code>之外的其他所有字符</p>
+<hr>
+<h3 id="10-5-数量词"><a href="#10-5-数量词" class="headerlink" title="10-5 数量词"></a>10-5 数量词</h3><p>匹配三个字母的单词：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">a = <span class="string">'python1111 java678php'</span></span><br><span class="line">r = re.findall(<span class="string">'[a-z]&#123;3&#125;'</span>,a)</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#['pyt', 'hon', 'jav', 'php']</span></span><br></pre></td></tr></table></figure></p>
+<p>匹配完整的单词：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">a = <span class="string">'python1111 java678php'</span></span><br><span class="line">r = re.findall(<span class="string">'[a-z]&#123;3,6&#125;'</span>,a)</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#['python', 'java', 'php']</span></span><br></pre></td></tr></table></figure></p>
+<p>利用数量词 {数量} 多次重复</p>
+<hr>
+<h3 id="10-6-贪婪与非贪婪"><a href="#10-6-贪婪与非贪婪" class="headerlink" title="10-6 贪婪与非贪婪"></a>10-6 贪婪与非贪婪</h3><p>数量词有贪婪和非贪婪之分，一般来说 Python 倾向于贪婪的匹配方式。</p>
+<p><code>{数量} ?</code>变成非贪婪模式<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">a = <span class="string">'python1111 java678php'</span></span><br><span class="line">r = re.findall(<span class="string">'[a-z]&#123;3,6&#125;?'</span>,a)</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#['pyt', 'hon', 'jav', 'php']</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="10-7-匹配-0-次-1-次或者无限多次"><a href="#10-7-匹配-0-次-1-次或者无限多次" class="headerlink" title="10-7 匹配 0 次 1 次或者无限多次"></a>10-7 匹配 0 次 1 次或者无限多次</h3><p>用 * 匹配 0 次或者无限多次:<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">a = <span class="string">'pytho0python1pythonn2'</span></span><br><span class="line">r = re.findall(<span class="string">'python*'</span>,a)</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#['pytho', 'python', 'pythonn']</span></span><br></pre></td></tr></table></figure></p>
+<p>用 + 匹配一次或者无限多次：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">a = <span class="string">'pytho0python1pythonn2'</span></span><br><span class="line">r = re.findall(<span class="string">'python+'</span>,a)</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#['python', 'pythonn']</span></span><br></pre></td></tr></table></figure></p>
+<p>用<code>?</code>匹配 0 次或者一次：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">a = <span class="string">'pytho0python1pythonn2'</span></span><br><span class="line">r = re.findall(<span class="string">'python?'</span>,a)</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#['pytho', 'python', 'python']</span></span><br></pre></td></tr></table></figure></p>
+<p>多出来的 n 会被去掉，因为读到 python 时就满足了</p>
+<p>用<code>?</code>来进行去重复的操作。</p>
+<p><code>{</code>3，6}?<code>和</code>python? `时的问号用法不一样。 </p>
+<hr>
+<h3 id="10-8-边界匹配符"><a href="#10-8-边界匹配符" class="headerlink" title="10-8 边界匹配符"></a>10-8 边界匹配符</h3><p>QQ 号的位数是否符合 4-8 位：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">qq = <span class="string">'10000004531'</span></span><br><span class="line">r = re.findall(<span class="string">'^\d&#123;4,8&#125;$'</span>,qq)</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#[]</span></span><br></pre></td></tr></table></figure></p>
+<p>^ $ 组成边界匹配符</p>
+<p>^ 从字符串开头开始匹配</p>
+<p>$ 从字符串末尾开始匹配</p>
+<p>000$：最后三位是 000</p>
+<p>^000：开始三位是 000</p>
+<hr>
+<h3 id="10-9-组"><a href="#10-9-组" class="headerlink" title="10-9 组"></a>10-9 组</h3><p>python 字符串是否重复出现三次：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">a = <span class="string">'pythonpythonpythonpythonpython'</span></span><br><span class="line">r = re.findall(<span class="string">'(python)&#123;3&#125;'</span>,a)</span><br><span class="line">print(r)</span><br></pre></td></tr></table></figure></p>
+<p>一个括号对应一组。</p>
+<p><code>[]</code>里的字符是或关系</p>
+<p><code>()</code> 里的字符是且关系</p>
+<hr>
+<h3 id="10-10-匹配模式参数"><a href="#10-10-匹配模式参数" class="headerlink" title="10-10 匹配模式参数"></a>10-10 匹配模式参数</h3><p>忽略大小写：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">a = <span class="string">'pythonC#\nJavaPHP'</span></span><br><span class="line">r = re.findall(<span class="string">'c#'</span>,a,re.I|re.S)</span><br><span class="line">print(r)</span><br></pre></td></tr></table></figure></p>
+<p><code>re.I</code>：忽略大小写，多个模式之间用 |, 这里的 | 是且的关系</p>
+<p><code>re.S</code>：匹配包括 \ n 在内的任意字符</p>
+<hr>
+<h3 id="10-11-re-sub-正则替换"><a href="#10-11-re-sub-正则替换" class="headerlink" title="10-11 re.sub 正则替换"></a>10-11 re.sub 正则替换</h3><p>查找并替换：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">a = <span class="string">'PythonC#\nJavaPHP'</span></span><br><span class="line">r = re.sub(<span class="string">'C#'</span>,<span class="string">'GO'</span>,a,<span class="number">0</span>)    <span class="comment">#0：把所有的 C# 换成 GO，1：只有第一个匹配到的被替换成 GO</span></span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#PythonGO</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#JavaPHP</span></span><br></pre></td></tr></table></figure></p>
+<p>常规替换可以使用 <code>replace()</code> 函数：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">a = <span class="string">'PythonC#\nJavaPHP'</span></span><br><span class="line">r = re.sub(<span class="string">'C#'</span>,<span class="string">'GO'</span>,a,<span class="number">0</span>)</span><br><span class="line">a = a.replace(<span class="string">'C#'</span>,<span class="string">'GO'</span>)    <span class="comment">#是 sub 的简化版</span></span><br><span class="line">print(r)</span><br><span class="line">print(a)</span><br></pre></td></tr></table></figure></p>
+<p><code>sub</code> 强大的地方在于其第二个参数可以是一个函数：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert</span><span class="params">(value)</span>:</span></span><br><span class="line">    matched = value.group()    <span class="comment">#从对象中提取字符串</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'!!'</span> + matched + <span class="string">'!!'</span></span><br><span class="line">a = <span class="string">'PythonC#JavaPHP'</span></span><br><span class="line">r = re.sub(<span class="string">'C#'</span>,convert,a)</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#Python!!C#!!JavaPHP</span></span><br></pre></td></tr></table></figure></p>
+<p><code>sub</code> 匹配到第一个结果会传到 <code>convert</code>函数中去，返回的结果是新的字符串用来替换匹配到的词。</p>
+<hr>
+<h3 id="10-12-把函数作为参数传递"><a href="#10-12-把函数作为参数传递" class="headerlink" title="10-12 把函数作为参数传递"></a>10-12 把函数作为参数传递</h3><p>找出数字，大于等于 6 的替换成 9，小于 6 的替换成 0：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">convert</span><span class="params">(value)</span>:</span></span><br><span class="line">    matched = value.group()</span><br><span class="line">    <span class="keyword">if</span> int(matched) &gt;= <span class="number">6</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'9'</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">return</span> <span class="string">'0'</span></span><br><span class="line"></span><br><span class="line">s = <span class="string">'A8C3721D86'</span></span><br><span class="line">r = re.sub(<span class="string">'\d'</span>,convert,s)</span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#A9C0900D99</span></span><br></pre></td></tr></table></figure></p>
+<p>函数调用函数的方式很灵活。</p>
+<hr>
+<h3 id="10-13-search-与-match-函数"><a href="#10-13-search-与-match-函数" class="headerlink" title="10-13 search 与 match 函数"></a>10-13 search 与 match 函数</h3><p><code>match</code>：从字符串开始的地方开始匹配 (首字母开始匹配)。<br><code>search</code>：搜索整个字符串，直到找到第一个满足的结果并返回。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">s = <span class="string">'A8C3721D86'</span></span><br><span class="line">r = re.match(<span class="string">'\d'</span>,s)</span><br><span class="line">print(r)</span><br><span class="line">r1 = re.search(<span class="string">'\d'</span>,s)</span><br><span class="line">print(r1)</span><br><span class="line"></span><br><span class="line"><span class="comment">#None</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#&lt;re.Match object; span=(1, 2), match='8'&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>match</code> 和 <code>search</code> 返回的是对象，且只匹配一次，不会像 <code>findall</code> 一样匹配所有。</p>
+<p><code>r.group()</code> 返回字符串</p>
+<p><code>r.span()</code> 返回位置</p>
+<hr>
+<h3 id="10-14-group-分组"><a href="#10-14-group-分组" class="headerlink" title="10-14 group 分组"></a>10-14 group 分组</h3><p>提取 life 和 python 之间的字符：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">s = <span class="string">'life is short,i use python'</span></span><br><span class="line">r = re.search(<span class="string">'life(.*)python'</span>,s)</span><br><span class="line">print(r.group(<span class="number">1</span>))</span><br></pre></td></tr></table></figure></p>
+<p><code>group(0)</code> 是完整匹配结果<br>其他的组将从 <code>group(1)</code> 开始：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">s = <span class="string">'life is short,i use python,i love python'</span></span><br><span class="line">r = re.search(<span class="string">'life(.*)python(.*)python'</span>,s)</span><br><span class="line">print(r.group(<span class="number">0</span>))</span><br><span class="line">print(r.group(<span class="number">1</span>))</span><br><span class="line">print(r.group(<span class="number">2</span>))</span><br><span class="line"><span class="comment">#life is short,i use python,i love python</span></span><br><span class="line"><span class="comment">#is short,i use</span></span><br><span class="line"><span class="comment">#,i love</span></span><br></pre></td></tr></table></figure></p>
+<p><code>r.groups()</code> 返回除完整以外的结果：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">s = <span class="string">'life is short,i use python,i love python'</span></span><br><span class="line">r = re.search(<span class="string">'life(.*)python(.*)python'</span>,s)</span><br><span class="line">print(r.groups())</span><br><span class="line"></span><br><span class="line"><span class="comment">#('is short,i use', ',i love')</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="10-15-一些关于学习正则的建议"><a href="#10-15-一些关于学习正则的建议" class="headerlink" title="10-15 一些关于学习正则的建议"></a>10-15 一些关于学习正则的建议</h3><p>python 绝大多数用在爬虫上，需要用到正则表达式</p>
+<p>搜索’常用正则表达式’并加以分析</p>
+<hr>
+<h3 id="10-16-理解-JSON"><a href="#10-16-理解-JSON" class="headerlink" title="10-16 理解 JSON"></a>10-16 理解 JSON</h3><p>JavaScript Object Notation， 是一种轻量级 (与 XML 比) 的<strong>数据交换格式</strong>。</p>
+<p>字符串是 JSON 的表现形式，符合 JSON 格式的字符串就是 JSON 字符串。</p>
+<p>适合做<strong>跨语言</strong>交换数据。</p>
+<hr>
+<h3 id="10-17-反序列化"><a href="#10-17-反序列化" class="headerlink" title="10-17 反序列化"></a>10-17 反序列化</h3><p>利用 python 内部的 json 解析 JSON 数据：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">json_str = <span class="string">'&#123;"name":"tai","age":23&#125;'</span>    <span class="comment">#json 内用双引号，则外部用单引号表示 str</span></span><br><span class="line">student = json.loads(json_str)</span><br><span class="line">print(type(student))</span><br><span class="line">print(student)</span><br><span class="line">print(student[<span class="string">'name'</span>])</span><br><span class="line">print(student[<span class="string">'age'</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment">#&lt;class 'dict'&gt;    #解析出来是字典</span></span><br><span class="line"><span class="comment">#&#123;'name': 'tai', 'age': 23&#125;</span></span><br><span class="line"><span class="comment">#tai</span></span><br><span class="line"><span class="comment">#23</span></span><br></pre></td></tr></table></figure></p>
+<p>同样的 JSON 字符串，不同的语言会装换成不同的类型。其中对应到 Python 中是字典类型。</p>
+<p>解析 JSON 数组：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">json_str = <span class="string">'[&#123;"name":"tai","age":23,"flag":false&#125;,&#123;"name":"tai","age":23&#125;]'</span></span><br><span class="line">print(type(student))</span><br><span class="line">print(student)</span><br><span class="line"></span><br><span class="line"><span class="comment">#&lt;class 'list'&gt;    #数组转成了列表</span></span><br><span class="line"><span class="comment">#[&#123;'name': 'tai', 'age': 23, 'flag': False&#125;, &#123;'name': 'tai', 'age': 23&#125;]   # 列表中两个元素，每个元素是一个字典</span></span><br></pre></td></tr></table></figure></p>
+<p>字符串 -&gt; 语言下某一数据结构的过程：反序列化</p>
+<hr>
+<h3 id="10-18-序列化"><a href="#10-18-序列化" class="headerlink" title="10-18 序列化"></a>10-18 序列化</h3><p>json 到 Python 对应的数据转换类型</p>
+<p>序列化：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> json</span><br><span class="line">student = [&#123;<span class="string">"name"</span>:<span class="string">"tai"</span>,<span class="string">"age"</span>:<span class="number">23</span>,<span class="string">"flag"</span>:<span class="literal">False</span>&#125;,&#123;<span class="string">"name"</span>:<span class="string">"tai"</span>,<span class="string">"age"</span>:<span class="number">23</span>&#125;]</span><br><span class="line">json_str = json.dumps(student)</span><br><span class="line">print(type(json_str))</span><br><span class="line">print(json_str)</span><br><span class="line"></span><br><span class="line"><span class="comment">#&lt;class 'str'&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#[&#123;"name": "tai", "age": 23, "flag": false&#125;, &#123;"name": "tai", "age": 23&#125;]</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="10-19-小谈-JSON、JSON-对象与-JSON-字符串"><a href="#10-19-小谈-JSON、JSON-对象与-JSON-字符串" class="headerlink" title="10-19 小谈 JSON、JSON 对象与 JSON 字符串"></a>10-19 小谈 JSON、JSON 对象与 JSON 字符串</h3><p>JSON 某种程度上是与 Javascript 平级的语言。<br>JSON 对象、JSON、JSON 字符串。<br>A 语言数据类型 —JSON(中间数据类型)—&gt; B 语言数据类型<br>JSON 有自己的数据类型，虽然和 Javascript 的数据类型差不多。<br>REST 服务的标准格式，使用 JSON。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-初识正则表达式"><span class="toc-number">1.</span> <span class="toc-text">10-1 初识正则表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-2-元字符与普通字符"><span class="toc-number">2.</span> <span class="toc-text">10-2 元字符与普通字符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-3-字符集"><span class="toc-number">3.</span> <span class="toc-text">10-3 字符集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-4-概括字符集"><span class="toc-number">4.</span> <span class="toc-text">10-4 概括字符集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-5-数量词"><span class="toc-number">5.</span> <span class="toc-text">10-5 数量词</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-6-贪婪与非贪婪"><span class="toc-number">6.</span> <span class="toc-text">10-6 贪婪与非贪婪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-7-匹配-0-次-1-次或者无限多次"><span class="toc-number">7.</span> <span class="toc-text">10-7 匹配 0 次 1 次或者无限多次</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-8-边界匹配符"><span class="toc-number">8.</span> <span class="toc-text">10-8 边界匹配符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-9-组"><span class="toc-number">9.</span> <span class="toc-text">10-9 组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-10-匹配模式参数"><span class="toc-number">10.</span> <span class="toc-text">10-10 匹配模式参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-11-re-sub-正则替换"><span class="toc-number">11.</span> <span class="toc-text">10-11 re.sub 正则替换</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-12-把函数作为参数传递"><span class="toc-number">12.</span> <span class="toc-text">10-12 把函数作为参数传递</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-13-search-与-match-函数"><span class="toc-number">13.</span> <span class="toc-text">10-13 search 与 match 函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-14-group-分组"><span class="toc-number">14.</span> <span class="toc-text">10-14 group 分组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-15-一些关于学习正则的建议"><span class="toc-number">15.</span> <span class="toc-text">10-15 一些关于学习正则的建议</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-16-理解-JSON"><span class="toc-number">16.</span> <span class="toc-text">10-16 理解 JSON</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-17-反序列化"><span class="toc-number">17.</span> <span class="toc-text">10-17 反序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-18-序列化"><span class="toc-number">18.</span> <span class="toc-text">10-18 序列化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-19-小谈-JSON、JSON-对象与-JSON-字符串"><span class="toc-number">19.</span> <span class="toc-text">10-19 小谈 JSON、JSON 对象与 JSON 字符串</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
