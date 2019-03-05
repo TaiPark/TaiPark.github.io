@@ -1,0 +1,214 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>欢迎来到Tai Park的博客 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="
+"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">python3 笔记 14 Pythonic与Python杂记</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">python3 笔记 14 Pythonic与Python杂记</h1>
+        <div class="stuff">
+            <span>三月 15, 2017</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/python/">python</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="14-2-用字典映射代替-switch-case-语句"><a href="#14-2-用字典映射代替-switch-case-语句" class="headerlink" title="14-2 用字典映射代替 switch case 语句"></a>14-2 用字典映射代替 switch case 语句</h3><p><code>if/else</code> 可以代替 <code>switch</code> 但是非常不合适。</p>
+<p>用字典代替 <code>switch</code>：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">day = <span class="number">5</span></span><br><span class="line"></span><br><span class="line">switcher = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="number">0</span>:<span class="string">'Sunday'</span>,</span><br><span class="line"></span><br><span class="line">    <span class="number">1</span>:<span class="string">'Monday'</span>,</span><br><span class="line"></span><br><span class="line">    <span class="number">2</span>:<span class="string">'Tuesday'</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">day_name = switcher.get(day,<span class="string">'Unknow'</span>)</span><br><span class="line"></span><br><span class="line">print(day_name)</span><br></pre></td></tr></table></figure></p>
+<p>利用<code>get()</code> 完整模拟。</p>
+<p>在字典中模拟带函数的 <code>switch</code>：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">day = <span class="number">6</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_sunday</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Sunday'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_monday</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Monday'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_tuesday</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Tuesday'</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_default</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Unknow'</span></span><br><span class="line"></span><br><span class="line">switcher = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="number">0</span>:get_sunday,</span><br><span class="line"></span><br><span class="line">    <span class="number">1</span>:get_monday,</span><br><span class="line"></span><br><span class="line">    <span class="number">2</span>:get_tuesday</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">day_name = switcher.get(day,get_default)()</span><br><span class="line"></span><br><span class="line">print(day_name)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="14-3-列表推导式"><a href="#14-3-列表推导式" class="headerlink" title="14-3 列表推导式"></a>14-3 列表推导式</h3><p>根据已经存在的列表创建新的列表：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">b = [i * i <span class="keyword">for</span> i <span class="keyword">in</span> a]</span><br><span class="line"></span><br><span class="line">print(b)</span><br><span class="line"></span><br><span class="line"><span class="comment">#[1, 4, 9, 16, 25, 36, 49, 64]</span></span><br></pre></td></tr></table></figure></p>
+<p>或者 <code>i**2</code> 也事代表 <code>i</code> 的平方。</p>
+<p>条件筛选：用列表推导式<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">b = [i**<span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> a <span class="keyword">if</span> i&gt;= <span class="number">5</span>]</span><br><span class="line"></span><br><span class="line">print(b)</span><br><span class="line"></span><br><span class="line"><span class="comment">#[25, 36, 49, 64]</span></span><br></pre></td></tr></table></figure></p>
+<p><code>map</code> 要结合 <code>filter</code> 才能实现。</p>
+<p>a 是集合、字典、元组也可以被推导：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">a = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>&#125;</span><br><span class="line"></span><br><span class="line">b = &#123;i**<span class="number">2</span> <span class="keyword">for</span> i <span class="keyword">in</span> a <span class="keyword">if</span> i&gt;= <span class="number">5</span>&#125;</span><br><span class="line"></span><br><span class="line">print(b)</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="14-4-字典如何编写列表推导式"><a href="#14-4-字典如何编写列表推导式" class="headerlink" title="14-4 字典如何编写列表推导式"></a>14-4 字典如何编写列表推导式</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">students = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="string">'tai'</span>:<span class="number">18</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">'park'</span>:<span class="number">32</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">'a'</span>:<span class="number">12</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b = [key <span class="keyword">for</span> key,value <span class="keyword">in</span> students.items()]</span><br><span class="line"></span><br><span class="line">print(b)</span><br><span class="line"></span><br><span class="line">students = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="string">'tai'</span>:<span class="number">18</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">'park'</span>:<span class="number">32</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">'a'</span>:<span class="number">12</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b = &#123;value:key <span class="keyword">for</span> key,value <span class="keyword">in</span> students.items()&#125;</span><br><span class="line"></span><br><span class="line">print(b)</span><br><span class="line"></span><br><span class="line">students = &#123;</span><br><span class="line"></span><br><span class="line">    <span class="string">'tai'</span>:<span class="number">18</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">'park'</span>:<span class="number">32</span>,</span><br><span class="line"></span><br><span class="line">    <span class="string">'a'</span>:<span class="number">12</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b = (key <span class="keyword">for</span> key,value <span class="keyword">in</span> students.items())</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> b:</span><br><span class="line"></span><br><span class="line">print(x)</span><br></pre></td></tr></table></figure>
+<hr>
+<h3 id="14-5-iterator-与-generator"><a href="#14-5-iterator-与-generator" class="headerlink" title="14-5 iterator 与 generator"></a>14-5 iterator 与 generator</h3><p><strong>迭代器：</strong></p>
+<p>可迭代对象和迭代器</p>
+<p>可迭代对象 (iterable)：可被<code>for in</code> 循环遍历的对象</p>
+<p>迭代器 (iterator)：是一个对象，可被<code>for in</code> 循环遍历。一定是个可迭代对象。</p>
+<p>普通对象变成迭代器需要实现<code>__iter__()</code> 和<code>__next__()</code>：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">BookCollection</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">        self.data = [<span class="string">'《往事》'</span>,<span class="string">'[《回味》]'</span>]</span><br><span class="line"></span><br><span class="line">        self.cur = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__iter__</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> self</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__next__</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> self.cur &gt;= len(self.data):</span><br><span class="line"></span><br><span class="line">            <span class="keyword">raise</span> StopIteration()</span><br><span class="line"></span><br><span class="line">        r = self.data[self.cur]</span><br><span class="line"></span><br><span class="line">        self.cur += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> r</span><br><span class="line"></span><br><span class="line">books = BookCollection()</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> book <span class="keyword">in</span> books:</span><br><span class="line"></span><br><span class="line">print(book)</span><br></pre></td></tr></table></figure></p>
+<p>除了 <code>for in</code>遍历，还可以调用 <code>next</code>方法：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">books = BookCollection()</span><br><span class="line"></span><br><span class="line">print(next(books))</span><br><span class="line"></span><br><span class="line">print(next(books))</span><br><span class="line"></span><br><span class="line">print(next(books))</span><br></pre></td></tr></table></figure></p>
+<p>迭代器具有一次性，只能遍历一次。若想再次遍历需要实例化一个新的对象。或者：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> copy</span><br><span class="line"></span><br><span class="line">books = BookCollection()</span><br><span class="line"></span><br><span class="line">books_copy = copy.copy(books)    <span class="comment">#浅拷贝</span></span><br></pre></td></tr></table></figure></p>
+<p>若想实现深拷贝的话：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">books = BookCollection()</span><br><span class="line"></span><br><span class="line">books_copy = copy.deepcopy(books)    <span class="comment">#生成器</span></span><br></pre></td></tr></table></figure></p>
+<p><strong>生成器：</strong></p>
+<p>打印从 0-10000 的数字：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">n = [i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10001</span>)]</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> n :</span><br><span class="line"></span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure></p>
+<p>可以实现但是太消耗内存。<code>n</code> 是一个列表，列表存储需要消耗内存的。</p>
+<p>更好的方法：<strong>生成器</strong></p>
+<p>迭代器是针对一个对象的，生成器是针对一个函数的。</p>
+<p>函数实现法：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gen</span><span class="params">(max)</span>:</span></span><br><span class="line"></span><br><span class="line">    n = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> n &lt;= max:</span><br><span class="line"></span><br><span class="line">        print(n)</span><br><span class="line"></span><br><span class="line">        n += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">gen(<span class="number">100000</span>)</span><br></pre></td></tr></table></figure></p>
+<p>每次打印的都是实时计算出来的结果，不是都存储起来再打印。</p>
+<p>不应该在函数内部实现如 <code>print()</code> 这样的操作。</p>
+<p>生成器：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gen</span><span class="params">(max)</span>:</span></span><br><span class="line"></span><br><span class="line">    n = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> n &lt;= max:</span><br><span class="line"></span><br><span class="line">        n += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">yield</span> n</span><br><span class="line"></span><br><span class="line">g = gen(<span class="number">100000</span>)</span><br><span class="line"></span><br><span class="line">next(g)</span><br><span class="line"></span><br><span class="line">next(g)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> g:</span><br><span class="line"></span><br><span class="line">    print(i)</span><br><span class="line"></span><br><span class="line"><span class="keyword">yield</span> 会接着返回的地方继续执行。</span><br><span class="line"></span><br><span class="line">n = (i <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>,<span class="number">10001</span>))</span><br></pre></td></tr></table></figure></p>
+<p>此时 n 也为生成器。</p>
+<hr>
+<h3 id="14-6-None"><a href="#14-6-None" class="headerlink" title="14-6 None"></a>14-6 None</h3><p><code>None</code> 空，不等于空字符串、空列表、0、False</p>
+<p>不仅在类型上不同，而且在值的比较上也不相同。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">NoneType</span></span></span><br></pre></td></tr></table></figure></p>
+<p>判空操作：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">a = fun()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> a:</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'s'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'f'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> a <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'s'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'f'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#s</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#s</span></span><br></pre></td></tr></table></figure></p>
+<p>如果 <code>a = []</code>则会进入到不同的分支中去。</p>
+<p>推荐<code>if a</code>/<code>if not a</code> 来判空。</p>
+<p><code>None</code> 不存在，<code>False</code> 假 </p>
+<hr>
+<h3 id="14-7-对象存在并不一定是-True"><a href="#14-7-对象存在并不一定是-True" class="headerlink" title="14-7 对象存在并不一定是 True"></a>14-7 对象存在并不一定是 True</h3><p><code>None</code> 永远对应 <code>False</code></p>
+<p>自定义的对象：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__len__</span><span class="params">(self)</span>:</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line"></span><br><span class="line">test = Test()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> test:</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'s'</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'f'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#f    #进的是 False 分支</span></span><br></pre></td></tr></table></figure></p>
+<p>test 存在也有可能是 <code>False</code>，需要考虑<code>__len__</code>与<code>__bool__</code>方法。</p>
+<hr>
+<h3 id="14-8-len与bool内置方法"><a href="#14-8-len与bool内置方法" class="headerlink" title="14-8 len与bool内置方法"></a>14-8 <strong>len</strong>与<strong>bool</strong>内置方法</h3><p>如果没有定义<code>__len__</code>与<code>__bool__</code>方法则默认为 <code>True</code>。</p>
+<p><code>__len__</code>返回 0 则为<code>False</code>，<code>__len__</code>代表长度，只能用<code>int</code> 返回。</p>
+<p>例外：<code>__len__</code>可返回 <code>True</code>和 <code>False</code></p>
+<p>调用 <code>len()</code>时，则会调用<code>__len__</code>，如果没有<code>__len__</code>，求长度的时候会报错。</p>
+<p>一旦加入了<code>__bool__</code>则由<code>__bool__</code>来控制对象的取值。</p>
+<p><code>__bool__</code>只能返回布尔型。</p>
+<hr>
+<h3 id="14-9-装饰器的副作用"><a href="#14-9-装饰器的副作用" class="headerlink" title="14-9 装饰器的副作用"></a>14-9 装饰器的副作用</h3><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">        print(time.time())</span><br><span class="line"></span><br><span class="line">        func()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="comment">#@decorator</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    print(f1.__name__)</span><br><span class="line"></span><br><span class="line">f1()</span><br><span class="line"></span><br><span class="line"><span class="comment">#f1            # 不加装饰器的函数名字</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">        print(time.time())</span><br><span class="line"></span><br><span class="line">        func()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@decorator</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    print(f1.__name__)</span><br><span class="line"></span><br><span class="line">f1()</span><br><span class="line"></span><br><span class="line"><span class="comment">#1532492964.0116718</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#wrapper    #加装饰器的函数名字</span></span><br></pre></td></tr></table></figure>
+<p><code>wrapper</code> 来字闭包函数。</p>
+<p>python-&gt;<code>help(len)</code>-&gt; 打印出内置说明</p>
+<p>我们可以通过注释书写 <code>help()</code> 的内容</p>
+<p>加了装饰器之后就无法找到函数的 <code>help()</code> 了</p>
+<p>保证名字不改变：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> wraps</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line">    @wraps(func)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">        print(time.time())</span><br><span class="line"></span><br><span class="line">        func()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@decorator</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    print(f1.__name__)</span><br><span class="line"></span><br><span class="line">f1()</span><br><span class="line"></span><br><span class="line"><span class="comment">#1532493245.2623913</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#f1</span></span><br></pre></td></tr></table></figure></p>
+<p><code>wraps</code> 传入了原有函数，所以得知了原函数的信息，然后复制到闭包函数上，则信息得以保存。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#14-2-用字典映射代替-switch-case-语句"><span class="toc-number">1.</span> <span class="toc-text">14-2 用字典映射代替 switch case 语句</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-3-列表推导式"><span class="toc-number">2.</span> <span class="toc-text">14-3 列表推导式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-4-字典如何编写列表推导式"><span class="toc-number">3.</span> <span class="toc-text">14-4 字典如何编写列表推导式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-5-iterator-与-generator"><span class="toc-number">4.</span> <span class="toc-text">14-5 iterator 与 generator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-6-None"><span class="toc-number">5.</span> <span class="toc-text">14-6 None</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-7-对象存在并不一定是-True"><span class="toc-number">6.</span> <span class="toc-text">14-7 对象存在并不一定是 True</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-8-len与bool内置方法"><span class="toc-number">7.</span> <span class="toc-text">14-8 len与bool内置方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-9-装饰器的副作用"><span class="toc-number">8.</span> <span class="toc-text">14-9 装饰器的副作用</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
