@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>欢迎来到Tai Park的博客 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="
+"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">python3 笔记 11 函数式编程————匿名函数、高阶函数、装饰器</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">python3 笔记 11 函数式编程————匿名函数、高阶函数、装饰器</h1>
+        <div class="stuff">
+            <span>三月 14, 2017</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/python/">python</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="12-1-lambda-表达式"><a href="#12-1-lambda-表达式" class="headerlink" title="12-1 lambda 表达式"></a>12-1 lambda 表达式</h3><p>匿名函数：定义函数得时候不需要定义函数名：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#普通函数</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x,y)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line"><span class="comment">#匿名函数</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">lambda</span> x,y: x + y</span><br></pre></td></tr></table></figure></p>
+<p>调用匿名函数：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f = <span class="keyword">lambda</span> x,y: x + y    <span class="comment">#赋值后可以调用</span></span><br><span class="line"></span><br><span class="line">print(f(<span class="number">1</span>,<span class="number">2</span>))</span><br></pre></td></tr></table></figure></p>
+<p><code>lambda</code> 中只能进行简单的表达式操作，不能进行赋值操作。</p>
+<hr>
+<h3 id="12-2-三元表达式"><a href="#12-2-三元表达式" class="headerlink" title="12-2 三元表达式"></a>12-2 三元表达式</h3><p>格式为：条件为真时返回的结果 <code>if</code> 条件判断 <code>else</code> 条件为假时返回的结果<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">2</span></span><br><span class="line"></span><br><span class="line">y = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">r = x <span class="keyword">if</span> x &gt; y <span class="keyword">else</span> y</span><br><span class="line"></span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#2</span></span><br></pre></td></tr></table></figure></p>
+<p>三元表达式在 <code>lambda</code> 中运用比较多。</p>
+<hr>
+<h3 id="12-3-map"><a href="#12-3-map" class="headerlink" title="12-3 map"></a>12-3 map</h3><p><code>map(函数，序列)</code>，把序列中所有值依次传到函数中并依次接受返回结果组成一个 <code>list</code>。</p>
+<p>其实是一个函数的映射。</p>
+<p>求平方：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">list_x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">square</span><span class="params">(x)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> x * x</span><br><span class="line"></span><br><span class="line">r = map(square,list_x)</span><br><span class="line"></span><br><span class="line">print(list(r))</span><br><span class="line"></span><br><span class="line"><span class="comment">#[1, 4, 9, 16, 25, 36, 49, 64]</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="12-4-map-与-lambda"><a href="#12-4-map-与-lambda" class="headerlink" title="12-4 map 与 lambda"></a>12-4 map 与 lambda</h3><p>将 <code>map</code> 和 <code>lambda</code> 函数结合：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">list_x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">r = map(<span class="keyword">lambda</span> x: x * x,list_x)</span><br><span class="line"></span><br><span class="line">print(list(r))</span><br></pre></td></tr></table></figure></p>
+<p>接受多个参数：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list_x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">list_y = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">r = map(<span class="keyword">lambda</span> x,y: x * x + y,list_x,list_y)</span><br><span class="line"></span><br><span class="line">print(list(r))</span><br></pre></td></tr></table></figure></p>
+<p>若个数不相等，不会报错，但只能计算到最少的那位。</p>
+<hr>
+<h3 id="12-5-reduce"><a href="#12-5-reduce" class="headerlink" title="12-5 reduce"></a>12-5 reduce</h3><p>做连续的计算，连续的调用 <code>lambda</code> 表达式。</p>
+<p><code>reduce</code> 下的函数一定要有两个参数。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line"></span><br><span class="line">list_x = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>,<span class="number">8</span>]</span><br><span class="line"></span><br><span class="line">r = reduce(<span class="keyword">lambda</span> x,y:x + y,list_x)</span><br><span class="line"></span><br><span class="line">print(r)</span><br><span class="line"></span><br><span class="line"><span class="comment">#36</span></span><br></pre></td></tr></table></figure></p>
+<p>初始取前两位，之后将计算结果作为 <code>x</code> 传进去继续顺序取：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">（（（<span class="number">1</span> + <span class="number">2</span>）+<span class="number">3</span>） + <span class="number">4</span>）+ <span class="number">5</span></span><br></pre></td></tr></table></figure></p>
+<p>继续做什么操作是 <code>lambda</code> 确定的，不仅只能够相加。</p>
+<p>最后一位可以设定初始值，在第一次计算中就进行计算了：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">r = reduce(<span class="keyword">lambda</span> x,y:x + y,list_x,<span class="number">10</span>)</span><br></pre></td></tr></table></figure></p>
+<p>大数据计算模型：<code>map/reduce</code> 编程模型，映射 / 归约解决并行计算。</p>
+<hr>
+<h3 id="12-6-filter"><a href="#12-6-filter" class="headerlink" title="12-6 filter"></a>12-6 filter</h3><p><code>filter</code> 可以过滤掉不符合规则的数据。</p>
+<p>剔除数据为 0 的元素：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list_x = [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">r = filter(<span class="keyword">lambda</span> x: <span class="literal">True</span> <span class="keyword">if</span> x == <span class="number">1</span> <span class="keyword">else</span> <span class="literal">False</span>,list_x)</span><br><span class="line"></span><br><span class="line">print(list(r))</span><br><span class="line"></span><br><span class="line"><span class="comment">#[1, 1, 1, 1, 1]</span></span><br></pre></td></tr></table></figure></p>
+<p>简化为：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">list_x = [<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">r = filter(<span class="keyword">lambda</span> x: x ,list_x)</span><br><span class="line"></span><br><span class="line">print(list(r))</span><br><span class="line"></span><br><span class="line"><span class="comment">#[1, 1, 1, 1, 1]</span></span><br></pre></td></tr></table></figure></p>
+<p><code>filter</code> 返回值的要是真和假才能完成过滤</p>
+<hr>
+<h3 id="12-7-命令式编程-vs-函数式编程"><a href="#12-7-命令式编程-vs-函数式编程" class="headerlink" title="12-7 命令式编程 vs 函数式编程"></a>12-7 命令式编程 vs 函数式编程</h3><p><code>map reduce filter lambda</code> 属于函数式编程</p>
+<p>命令式编程涉及到 <code>def  if else for</code></p>
+<p>函数式编程涉及到 <code>map reduce filter lambda（算子）</code></p>
+<p><code>map reduce filter</code> 理论上可以替换 <code>def  if else for</code></p>
+<p>函数式编程鼻祖：<code>lisp</code>，人工智能领域应用较多。</p>
+<hr>
+<h3 id="12-8-装饰器-一"><a href="#12-8-装饰器-一" class="headerlink" title="12-8 装饰器 一"></a>12-8 装饰器 一</h3><p>用到最多的高阶知识。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    print(time.time())</span><br><span class="line"></span><br><span class="line">    print(<span class="string">'This is a function'</span>)</span><br><span class="line"></span><br><span class="line">f1()</span><br><span class="line"></span><br><span class="line"><span class="comment">#1532404967.3804688    #Unix 时间戳</span></span><br><span class="line"></span><br><span class="line"><span class="number">3</span>   <span class="comment">#This is a function</span></span><br></pre></td></tr></table></figure></p>
+<p>如果很多的函数都要获取时间的功能：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">'This is a function'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f2</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">'This is a function'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">print_current_time</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line">    print(time.time())</span><br><span class="line"></span><br><span class="line">    func()</span><br><span class="line"></span><br><span class="line">print_current_time(f1)</span><br><span class="line"></span><br><span class="line">print_current_time(f2)</span><br></pre></td></tr></table></figure></p>
+<p>这种需求变更方案的缺点：打印时间的需求是属于每个函数本身的，并不是新增加的，并没有体现函数本身的特性。</p>
+<p>这就是装饰器所要解决的问题。</p>
+<hr>
+<h3 id="12-9-装饰器-二"><a href="#12-9-装饰器-二" class="headerlink" title="12-9 装饰器 二"></a>12-9 装饰器 二</h3><p>编写装饰器：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">        print(time.time())</span><br><span class="line"></span><br><span class="line">        func()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">'This is a function'</span>)</span><br><span class="line"></span><br><span class="line">f = decorator(f1)    <span class="comment">#f 得到了 return 的 wrapper</span></span><br><span class="line"></span><br><span class="line">f()</span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="12-10-装饰器-三"><a href="#12-10-装饰器-三" class="headerlink" title="12-10 装饰器 三"></a>12-10 装饰器 三</h3><p>语法糖：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">        print(time.time())</span><br><span class="line"></span><br><span class="line">        func()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@decorator    #@符号</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">'This is a function'</span>)</span><br><span class="line"></span><br><span class="line">f1()</span><br></pre></td></tr></table></figure></p>
+<p>没有改变调用的逻辑也没有改变函数编码。是装饰器的意义所在。</p>
+<p><code>@decorator</code> 相当于对 <code>f1()</code>装饰。</p>
+<p>AOP 的编程思想</p>
+<hr>
+<h3 id="12-11-装饰器-四"><a href="#12-11-装饰器-四" class="headerlink" title="12-11 装饰器 四"></a>12-11 装饰器 四</h3><p>带参函数的装饰器：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(func_name)</span>:</span></span><br><span class="line"></span><br><span class="line">        print(time.time())</span><br><span class="line"></span><br><span class="line">        func(func_name)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@decorator</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">(func_name)</span>:</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">'This is a function named'</span> + func_name)</span><br><span class="line"></span><br><span class="line">f1(<span class="string">'test_func'</span>)</span><br></pre></td></tr></table></figure></p>
+<p>若多个函数接受不同数量的参数：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args)</span>:</span></span><br><span class="line"></span><br><span class="line">        print(time.time())</span><br><span class="line"></span><br><span class="line">        func(*args)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@decorator</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">(func_name)</span>:</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">'This is a function named'</span> + func_name)</span><br><span class="line"></span><br><span class="line"><span class="meta">@decorator</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f2</span><span class="params">(func_name1,func_name2)</span>:</span></span><br><span class="line"></span><br><span class="line">    print(func_name1 + func_name2)</span><br><span class="line"></span><br><span class="line">f1(<span class="string">'test_func'</span>)</span><br><span class="line"></span><br><span class="line">f2(<span class="string">'123'</span>,<span class="string">'234'</span>)    <span class="comment">#可以支持不同参数个数的函数</span></span><br></pre></td></tr></table></figure></p>
+<hr>
+<h3 id="12-12-装饰器-五"><a href="#12-12-装饰器-五" class="headerlink" title="12-12 装饰器 五"></a>12-12 装饰器 五</h3><p><code>*args</code> 不支持 <code>**</code> 关键字参数</p>
+<p>支持关键字参数：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">decorator</span><span class="params">(func)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">wrapper</span><span class="params">(*args,**kw)</span>:</span>    <span class="comment">#加入 **kw，较为完整</span></span><br><span class="line"></span><br><span class="line">        print(time.time())</span><br><span class="line"></span><br><span class="line">        func(*args,**kw)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> wrapper</span><br><span class="line"></span><br><span class="line"><span class="meta">@decorator</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f1</span><span class="params">(func_name)</span>:</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">'This is a function named'</span> + func_name)</span><br><span class="line"></span><br><span class="line"><span class="meta">@decorator</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f2</span><span class="params">(func_name1,func_name2)</span>:</span></span><br><span class="line"></span><br><span class="line">    print(func_name1 + func_name2)</span><br><span class="line"></span><br><span class="line"><span class="meta">@decorator</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">f3</span><span class="params">(func_name1,func_name2,**kw)</span>:</span></span><br><span class="line"></span><br><span class="line">    print(func_name1 + func_name2)</span><br><span class="line"></span><br><span class="line">    print(kw)</span><br><span class="line"></span><br><span class="line">f1(<span class="string">'test_func'</span>)</span><br><span class="line"></span><br><span class="line">f2(<span class="string">'123'</span>,<span class="string">'234'</span>)</span><br><span class="line"></span><br><span class="line">f3(<span class="string">'123'</span>,<span class="string">'234'</span>,a = <span class="number">1</span>, b = <span class="number">2</span>,c = <span class="string">'123'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#1532408656.565761</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#This is a function namedtest_func</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#1532408656.5667255</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#123234</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#1532408656.5677273</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#123234</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#&#123;'a': 1, 'b': 2, 'c': '123'&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p><code>func(*args,**kw)</code>这个形式，无论什么方式都可以调用。</p>
+<hr>
+<h3 id="12-13-装饰器-六"><a href="#12-13-装饰器-六" class="headerlink" title="12-13 装饰器 六"></a>12-13 装饰器 六</h3><p>如果想对某个封装单元修改，可以加上装饰器。</p>
+<p>不需要破坏代码实现，易于代码复用。</p>
+<p>一个函数能够有多个装饰器。</p>
+<p>需要验证身份的函数上加上专门的装饰器之类的用途。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#12-1-lambda-表达式"><span class="toc-number">1.</span> <span class="toc-text">12-1 lambda 表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2-三元表达式"><span class="toc-number">2.</span> <span class="toc-text">12-2 三元表达式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-3-map"><span class="toc-number">3.</span> <span class="toc-text">12-3 map</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-4-map-与-lambda"><span class="toc-number">4.</span> <span class="toc-text">12-4 map 与 lambda</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-5-reduce"><span class="toc-number">5.</span> <span class="toc-text">12-5 reduce</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-6-filter"><span class="toc-number">6.</span> <span class="toc-text">12-6 filter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-7-命令式编程-vs-函数式编程"><span class="toc-number">7.</span> <span class="toc-text">12-7 命令式编程 vs 函数式编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-8-装饰器-一"><span class="toc-number">8.</span> <span class="toc-text">12-8 装饰器 一</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-9-装饰器-二"><span class="toc-number">9.</span> <span class="toc-text">12-9 装饰器 二</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-10-装饰器-三"><span class="toc-number">10.</span> <span class="toc-text">12-10 装饰器 三</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-11-装饰器-四"><span class="toc-number">11.</span> <span class="toc-text">12-11 装饰器 四</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-12-装饰器-五"><span class="toc-number">12.</span> <span class="toc-text">12-12 装饰器 五</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-13-装饰器-六"><span class="toc-number">13.</span> <span class="toc-text">12-13 装饰器 六</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
