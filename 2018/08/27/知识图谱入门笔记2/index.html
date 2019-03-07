@@ -1,0 +1,348 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>欢迎来到Tai Park的博客 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="
+· 阿泰同学 ·· 计算机技术研一在读 ·· 熟练掌握机器学习、数据挖掘、区块链、知识图谱等词的书写方法 ·· 国家一级退堂鼓演员 ·· 诚信肥宅 ·· 暴雪全家桶拥有者 ·· 教研室可爱等级天花,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">知识图谱入门笔记2</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">知识图谱入门笔记2</h1>
+        <div class="stuff">
+            <span>八月 27, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/知识图谱/">知识图谱</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="知识抽取任务定义和相关比赛"><a href="#知识抽取任务定义和相关比赛" class="headerlink" title="知识抽取任务定义和相关比赛"></a>知识抽取任务定义和相关比赛</h1><p>知识可以来自于关系型数据库、外部的开放知识图谱的数据、客户的日志等结构化数据以及表格、关键词、引用等半结构化数据和文本数据、多媒体数据等非结构化数据。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Data acquisition-&gt;LD Dataset(Vocabulary Mapping-&gt;Interlinking-&gt;Cleansing-&gt;Integrated Dataset)-&gt;Access(Publishing-&gt;SPARQL Endpoint)-&gt;Application</span><br></pre></td></tr></table></figure></p>
+<p>知识抽取技术：</p>
+<p>从不同来源、不同结构的数据中进行知识提取，形成知识存入到 KG</p>
+<p>实体抽取</p>
+<p>关系抽取</p>
+<p>事件抽取</p>
+<p>从结构化数据库中获取知识：D2R——复杂表数据的处理</p>
+<p>从连接数据中获取知识：图映射——数据对齐</p>
+<p>从半结构化 (网站) 数据中获取知识：使用包装器——方便的包装器定义方法，包装器自动生成、更新与维护</p>
+<p>从文本中获取知识：信息抽取——结果的准确率与覆盖率</p>
+<p>子任务：</p>
+<p>命名实体识别：检测 / 分类</p>
+<p>术语抽取：从语料中发现多个单词组成的相关术语</p>
+<p>关系抽取：特定指二元关系</p>
+<p>确定触发词 -&gt; 根据触发词下特定的槽抽取宾语</p>
+<p>共指消解 (主语的确定)</p>
+<p>比赛：</p>
+<p>MUC：</p>
+<p>正规文本抽取</p>
+<p>命名实体识别——NER</p>
+<p>共指消解——CR</p>
+<p>ACE：</p>
+<p>对 MUC 融合、分类、细化</p>
+<p>实体检测和识别——EDR——细化了实体分类 (person/organizations…..)</p>
+<p>数值检测与识别——VAL(百分比 / 钱 / 邮箱…….)</p>
+<p>事件表达检测与识别——TERN</p>
+<p>关系检测与识别——RDR</p>
+<p>事件检测与识别——VDR</p>
+<p>KBP：</p>
+<p>对 ACE 的进一步修订</p>
+<p>实体发现与链接——EDL——需要知识库中唯一 URL 去链接实体</p>
+<p>槽填充——SF——事件 / 多元关系抽取，对于谓语填充主语和宾语</p>
+<p>事件抽取——Event</p>
+<p>信念和情感——BeSt——抽取知识的额外描述</p>
+<p>整合任务：端到端冷启动知识构建——对数据层进行学习和扩充</p>
+<p>SemEval：</p>
+<p>国际权威的词义消歧评测</p>
+<h3 id="一、面向非结构化数据的知识抽取"><a href="#一、面向非结构化数据的知识抽取" class="headerlink" title="一、面向非结构化数据的知识抽取"></a><strong>一、面向非结构化数据的知识抽取</strong></h3><h4 id="1、实体抽取："><a href="#1、实体抽取：" class="headerlink" title="1、实体抽取："></a>1、实体抽取：</h4><p>抽取文本中的原子信息元素 (person/organizations…..)</p>
+<p>序列标注方法：</p>
+<p>人工特征 (词本身的特征 / 前后缀特征 / 字本身的特征)</p>
+<p>IOB 标注体系：O(Others)/B-ORG(组织开始字)/I-ORG(组织中间词)….</p>
+<p>HMM：隐马尔科夫模型——有向图模型 / 生成式模型 / 假设特征之间是独立的</p>
+<p>CRF：条件随机场——无向图模型 / 判别式模型 / 没有关于特征之间是独立的</p>
+<p>LSTM+CRF：深度学习和机器学习相结合</p>
+<p>word embeddings-&gt;Bi-LSTM encoder-&gt;CRF Layer</p>
+<p><strong>实体识别与链接：</strong></p>
+<p>小白，我想听一首<strong>海阔天空</strong> (应对新兴实体)-&gt;rdf:type MuisicWork(处理大规模细粒度实体识别)-&gt; 找到音乐 KG 中的内容 -&gt; 执行消歧 -&gt; 完成链接</p>
+<p>文本 -&gt; 实体指称识别 -&gt; 候选实体生成 -&gt; 候选实体消歧 -&gt; 链接</p>
+<p>开源工具：</p>
+<p>Wikipedia Miner</p>
+<p>DBpedia Spotligth</p>
+<p>OpenCalais</p>
+<h4 id="2、关系抽取："><a href="#2、关系抽取：" class="headerlink" title="2、关系抽取："></a><strong>2、关系抽取：</strong></h4><p>信息抽取研究领域任务之一，从文本中抽取两个或多个实体之间的语义关系</p>
+<p>抽取元组 -&gt; 清理 -&gt; 融合 -&gt; 人工审核 -&gt;KG</p>
+<p><strong>基于模板：</strong></p>
+<p>基于触发词的 Pattern</p>
+<p>基于依存句法分析的 Pattern：以动词为起点，构建规则，对节点上的词性和边上的依存关系进行限定</p>
+<p><strong>监督学习：</strong></p>
+<p>确定实体对之后根据上下文对实体关系预测</p>
+<p>轻量级特征——字</p>
+<p>中等量级特征——词组</p>
+<p>重量级特征——句</p>
+<p><strong>Pipeline：</strong></p>
+<p>实体识别与关系分类完全分离 (串联)</p>
+<p>CR-CNN(卷积神经网络)</p>
+<p>词向量和位置向量作为输入</p>
+<p>F1=84.1</p>
+<p>Att-CNN</p>
+<p>调整权重</p>
+<p>应用注意力机制，针对不同关系优化</p>
+<p>F1=88.0</p>
+<p>Att-BLSTM</p>
+<p>输入层 -&gt;embedding 层 -&gt;LSTM 层 -&gt; 注意力层 -&gt; 输出层</p>
+<p><strong>Joint Model：</strong></p>
+<p>实体识别与关系分类的过程共同优化 (并联)，实现全局的最优化，但是参数空间会变大</p>
+<p>LSTM-RNNs</p>
+<p>Bi-LSTM-&gt;Bi-TreeLSTM(依存关系 -&gt; 依存树)-&gt;PHYS</p>
+<p><strong>半监督学习：</strong></p>
+<p>存在语义漂移</p>
+<p><strong>远程监督：</strong></p>
+<p>从知识库中抽取存在的关系的实体对 -&gt; 从非结构化的文本中抽取含有实体对的句子作为训练样例</p>
+<p>PCNNs</p>
+<p>piecewise max-pooling：实体分为几段做 maxpooling，刻画更精准</p>
+<p>多实例学习：找到处理句中实体同时出现且句型相似的句子做句子级别的 Attention</p>
+<p>Bootstrapping</p>
+<p>可以去学模板</p>
+<p>给定种子集合 -&gt; 发现 Pattern-&gt; 利用冗余性进行频率统计 -&gt; 归纳 Pattern-&gt; 将抽取出的 Pattern 去文档集中匹配 -&gt; 根据 Pattern 抽取出信的文档如种子库、迭代直到收敛为止</p>
+<h4 id="3、事件抽取："><a href="#3、事件抽取：" class="headerlink" title="3、事件抽取："></a><strong>3、事件抽取：</strong></h4><p>多元关系抽取</p>
+<p>事件描述 -&gt; 事件触发 -&gt; 事件元素 -&gt; 元素角色</p>
+<p>事件嵌套：</p>
+<p>事件会发展，有跟踪后续</p>
+<p>通过更大事件集合嵌套小事件</p>
+<p>pipeline</p>
+<p>事件识别 Trigger Classifier-&gt; 元素抽取 Argument Classifier-&gt; 属性分类 Role Classifier-&gt; 可报告性判别 Reportable-Event Classifier</p>
+<p>性能会衰减</p>
+<p>Joint Inference</p>
+<p>构建 n 个模型，集成学习</p>
+<p>max(f1+f2+…+fn)</p>
+<p>避免性能衰减</p>
+<p>Joint Modeling</p>
+<p>多任务学习，共享底层特征</p>
+<p>避免性能衰减</p>
+<p>动态多池化层</p>
+<p><strong>扩充语料：</strong></p>
+<p>FrameNet / 从网络获取事件信息 (多源整合获得完整信息)</p>
+<h3 id="二、面向结构化数据的知识抽取"><a href="#二、面向结构化数据的知识抽取" class="headerlink" title="二、面向结构化数据的知识抽取"></a><strong>二、面向结构化数据的知识抽取</strong></h3><p>关系数据库——shema+mapping——&gt;KG</p>
+<p>W3C 标准 Mapping languages：R2RML</p>
+<p>工具：D2R/Virtuoso</p>
+<p>直接映射 direct mapping</p>
+<p>关联类别 -&gt; 每一行形成三元组 -&gt; 外键对应</p>
+<p>没办法灵活定制</p>
+<p>R2RML</p>
+<p>OnTop</p>
+<h3 id="三、面向半结构化数据的知识抽取"><a href="#三、面向半结构化数据的知识抽取" class="headerlink" title="三、面向半结构化数据的知识抽取"></a><strong>三、面向半结构化数据的知识抽取</strong></h3><p>有一定结构且相对好抽取</p>
+<p><strong>百科类知识抽取：</strong></p>
+<p>DBpedia</p>
+<p>基于 Wikimedia 抽取</p>
+<p>Generic Infobox Extraction(同义属性不做映射)/Mapping-based Infobox Extraction(二次处理，属性对齐)</p>
+<p><strong>Web 网页数据抽取：包装器生成</strong></p>
+<p>手工方法：</p>
+<p>XPath 表达式 (XML 路径语言)/CSS 选择器表达式</p>
+<p>手工方法 / 包装器归纳 / 自动抽取 -&gt; 生成包装器 -&gt; 输入网页 -&gt; 输出需要的信息</p>
+<p>包装器归纳: 网页输入 -&gt; 网页清洗 -&gt; 网页标注 -&gt;Wrapper Space 生成 -&gt;Wrapper 评估 -&gt; 输出包装器</p>
+<p>包装器评估: 准确率 / 召回率</p>
+<p>自动抽取:</p>
+<p>包装器训练 / 包装器应用</p>
+<p>页面比较后替换 -&gt; 形成包装器</p>
+<p>RoadRunner</p>
+<p>Web tables</p>
+<p>表格实体消歧: 位于相同行 / 列的字符可能相关, 可以去做联合的消歧</p>
+<p><strong>在线知识抽取:</strong></p>
+<p>Category(人工观察分类)-&gt;命名规则方法 -&gt;主语融合 (同名不同实体 / 同实体不同名)-&gt; 谓词融合 -&gt;宾语融合 (单值属性 / 多值属性)-&gt; 对 infobox 补全</p>
+<hr>
+<h1 id="面向文本的知识抽取"><a href="#面向文本的知识抽取" class="headerlink" title="面向文本的知识抽取"></a>面向文本的知识抽取</h1><p>关系抽取方法:特征向量/核函数/深度学习/通用模型/模板匹配/图推理</p>
+<p>DeepDive关系抽取实战</p>
+<p>KBC系统</p>
+<p>填充,融合不同来源的知识</p>
+<p>输入:非结构化的期刊文章/半结构化的html,table等</p>
+<p>输出:结构化知识库</p>
+<p>特征工程+distant supervision+图优化</p>
+<p>考虑全局最优而不是某三元组最优</p>
+<p>文本预处理-&gt;特征抽取(OCR/NLP)-&gt;统计推理与学习-&gt;迭代优化-&gt;自定义datalog语言调控-&gt;挂接分布式数据库</p>
+<p>框架实战:抽取上市公司中股权交易关系</p>
+<p>工程组成:</p>
+<p>主程序文件app.ddlog:数据表定义/调用用户脚本udf/因子图定义</p>
+<p>数据库文件db.url:定义数据表的存储位置</p>
+<p>工程配置文件deepdive.conf:定义采样及训练方法</p>
+<p>输入文件夹input</p>
+<p>udf</p>
+<p>开放域关系抽取</p>
+<p>开放域IE-&gt;通用模型/不需要预定义关系/依赖于句法特征/全网规模但精度低</p>
+<p>TextRunner</p>
+<p>WOE</p>
+<p>面临的挑战：</p>
+<p>关系不一致，不准确</p>
+<p>提取关系不包含有效信息</p>
+<p>Reverb</p>
+<p>基于动词的关系抽取</p>
+<p>OLLIE</p>
+<p>增加了基于名词和形容词抽取</p>
+<p>Clause IE</p>
+<p>基于子句的抽取</p>
+<p>将句子拆分成各个从句，定义从句类型</p>
+<p>OpenIE</p>
+<p>可以回答不同用户提出的不同领域中的问题</p>
+<p>知识挖掘</p>
+<h3 id="一、实体消歧与链接"><a href="#一、实体消歧与链接" class="headerlink" title="一、实体消歧与链接"></a>一、实体消歧与链接</h3><p>实体链接：给定一篇文本中的实体指称mention，确定这些指称在给定知识库中的目标实体</p>
+<h3 id="二、知识规则挖掘"><a href="#二、知识规则挖掘" class="headerlink" title="二、知识规则挖掘"></a>二、知识规则挖掘</h3><p>ILP基于归纳逻辑编程</p>
+<p>ARM关联规则挖掘：OWL2公理可以被转换为关联规则</p>
+<p>事物表Transaction Table</p>
+<p>SRL统计关系学习：根据已知三元组对未知三元组成立的可能性进行预测</p>
+<p>将链接两个实体的路径作为特征来预测其间可能存在的关系</p>
+<p>通用关系学习框架generic relational learning framework</p>
+<p>Path Ranking Algorithm</p>
+<h3 id="三、知识图谱表示学习"><a href="#三、知识图谱表示学习" class="headerlink" title="三、知识图谱表示学习"></a>三、知识图谱表示学习</h3><p>实体预测与推理</p>
+<p>TransE/TransS/TransH</p>
+<p>区分属性和关系学习</p>
+<p>PRA和TransE可以互补</p>
+<p>Triple Context = Triple + Path Context + Neighbor Context</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#知识抽取任务定义和相关比赛"><span class="toc-number">1.</span> <span class="toc-text">知识抽取任务定义和相关比赛</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、面向非结构化数据的知识抽取"><span class="toc-number">1.0.1.</span> <span class="toc-text">一、面向非结构化数据的知识抽取</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1、实体抽取："><span class="toc-number">1.0.1.1.</span> <span class="toc-text">1、实体抽取：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2、关系抽取："><span class="toc-number">1.0.1.2.</span> <span class="toc-text">2、关系抽取：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3、事件抽取："><span class="toc-number">1.0.1.3.</span> <span class="toc-text">3、事件抽取：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、面向结构化数据的知识抽取"><span class="toc-number">1.0.2.</span> <span class="toc-text">二、面向结构化数据的知识抽取</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、面向半结构化数据的知识抽取"><span class="toc-number">1.0.3.</span> <span class="toc-text">三、面向半结构化数据的知识抽取</span></a></li></ol></li></ol><li class="toc-item toc-level-1"><a class="toc-link" href="#面向文本的知识抽取"><span class="toc-number">2.</span> <span class="toc-text">面向文本的知识抽取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#一、实体消歧与链接"><span class="toc-number">2.0.1.</span> <span class="toc-text">一、实体消歧与链接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二、知识规则挖掘"><span class="toc-number">2.0.2.</span> <span class="toc-text">二、知识规则挖掘</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#三、知识图谱表示学习"><span class="toc-number">2.0.3.</span> <span class="toc-text">三、知识图谱表示学习</span></a></li></ol></li>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-135683623-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>
