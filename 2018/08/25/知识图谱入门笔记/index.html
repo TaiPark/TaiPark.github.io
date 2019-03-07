@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>欢迎来到Tai Park的博客 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="
+· 阿泰同学 ·· 计算机技术研一在读 ·· 熟练掌握机器学习、数据挖掘、区块链、知识图谱等词的书写方法 ·· 国家一级退堂鼓演员 ·· 诚信肥宅 ·· 暴雪全家桶拥有者 ·· 教研室可爱等级天花,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">知识图谱入门笔记</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">知识图谱入门笔记</h1>
+        <div class="stuff">
+            <span>八月 25, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/知识图谱/">知识图谱</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="知识图谱与语义技术概述："><a href="#知识图谱与语义技术概述：" class="headerlink" title="知识图谱与语义技术概述："></a>知识图谱与语义技术概述：</h2><p>Vannevar Bush</p>
+<p>Sir Tim Berners-Lee：以链接为中心的系统</p>
+<p>语义网：从链接文本到链接数据</p>
+<p>语义网络 (Semantic Network)-&gt; 本体论 (Ontology)-&gt;Web-&gt;The Semantic Web-&gt;Link Data-&gt; 知识图谱(Knowledge Graph,KG)</p>
+<p>KG 辅助搜索，从文本搜索变为语义搜索。</p>
+<p>手工众包，格式转化，元组抽取，实体融合，链接预测，推理补全，语义嵌入。</p>
+<p>KG 辅助问答，输入自然语言，返回精确答案。</p>
+<p>给万物都挂接一个背景知识库。</p>
+<p>KG 辅助决策。</p>
+<p>预先抽取语义 -&gt; 建立数据链接，不规范数据表达 -&gt; 规范数据表达，粗糙数据 -&gt; 可计算数据。</p>
+<p>Palantir：动态本体、Kensho：金融知识图谱。</p>
+<p>KG 辅助 AI，常识推理。</p>
+<p>KG 的本质：</p>
+<p>Web 视角：像建立文本之间的超链接一样，建立数据之间的语义链接，并支持语义的搜索。</p>
+<p>NPL 视角：怎样从文本中抽取语义和结构化数据。</p>
+<p>深度学习 -&gt; 学习</p>
+<p>知识图谱 -&gt; 推理</p>
+<p><strong>各种知识图谱项目：</strong></p>
+<p>CYC：常识知识库。</p>
+<p>包括了术语 Terms(词)、断言 Assertions(句子)</p>
+<p>Wordnet: 英语词义消歧。</p>
+<p>ConceptNet：常识知识库。</p>
+<p>主要依靠互联网众包、专家创建、游戏三种方法构建。</p>
+<p>以三元组 (主谓宾) 形式的关系型知识构成，更加接近自然语言。</p>
+<p>Freebase：通过开源免费吸引用户。</p>
+<p>Wikidata：目标是构建全世界最大的免费知识库。</p>
+<p>DBPedia：数据库版本的 Wikipedia。</p>
+<p>YAGO：集成了 Wikipedia、Wordnet、GeoNames 三个来源的数据。</p>
+<p>考虑了时间和空间维度的扩展。</p>
+<p>Babelnet：多语言词典知识库。</p>
+<p>NELL：互联网挖掘方法从 Web 自动抽取三元组知识。</p>
+<p>Concept Graph：以概念层次体系为中心的知识图谱。</p>
+<p>OpenKG：中文知识图谱。</p>
+<p>Zhishi.me：合成中文数据库。</p>
+<p>cnSchema：开放的中文知识图谱 Schema。</p>
+<p><strong>知识图谱技术概览：</strong></p>
+<p>数据来源：文本、结构化数据库、多媒体、传感器、众包 -&gt;KG Data。</p>
+<p>基于数理逻辑的知识表示 -&gt; 基于向量空间学习的分布式知识表示。</p>
+<p>语义网知识表示框架：</p>
+<p><img src="https://img-blog.csdn.net/2018081015282914?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt></p>
+<p>RDF：Triple-based Assertion model</p>
+<p>主语、宾语是节点，谓语是边。</p>
+<p>RDF Graph：Directed Labeled Graph</p>
+<p>基本数据模型：有向标记图。</p>
+<p>RDFS：Simple Vocabulary and Schema(类比数据库表、字段的设计)</p>
+<p>OWL：本体 (Ontology) 是一个概念和关系的描述，是对其形式化的定义。通过规范描述。</p>
+<p>OWL extends RDF Schema</p>
+<p>SPARQL：RDF 的查询语言。类 SQL 的声明式的查询语言。</p>
+<p>子图匹配。</p>
+<p>JSON-LD：数据交换格式。适用于作为程序之间做数据交换。</p>
+<p>RDFa、HTML5 MicroData：在网页中嵌入语义数据。</p>
+<p>KG 的分布式表示：</p>
+<p>KG Embedding：KG 的分布式表示，在保留语义的同时，将知识图谱中的实体和关系映射到连续的稠密的低维向量空间。</p>
+<p>张量分解、神经网络、距离模型 (翻译模型)。</p>
+<p>知识抽取：NLP + KR：</p>
+<p>非结构化文本数据 -&gt; 文本预处理 -&gt; 分词、词性标注、语法解析、依存分析 -&gt;NER 命名实体识别、Entity Linking 实体链接 -&gt; 关系抽取、事件抽取 -&gt;KR：三元组、多元关系、模态知识</p>
+<p>基于知识工程 (正则、模板匹配、规则约束)</p>
+<p>基于本体抽取 (知识挖掘，PRA)</p>
+<p>基于模型的抽取 (模型、训练)</p>
+<p>知识存储：</p>
+<p>基于干系数据库的存储、基于原生图的存储。</p>
+<p>知识问答：</p>
+<p>KBQA 基于知识库的问题回答。</p>
+<p>语义解析 -&gt; 语义表示 -&gt; 查询数据库 -&gt; 返回用户</p>
+<p>知识推理：</p>
+<p>基于已知事实推出未知事实的计算过程。</p>
+<p>缺省推理、连续变化推理、空间推理、因果关系推理。</p>
+<p>基于描述逻辑的推理 - 本体推理：</p>
+<p>描述逻辑是一种用于知识表示的逻辑语言和以其为对象的推理方法。</p>
+<p>知识融合：</p>
+<p>在不同数据集中找出同一个实体。</p>
+<p>Dedupe 基于 python 的工具包。</p>
+<p>LIMES 不要求两个数据集的实体具有相似的结构。</p>
+<p>知识众包：</p>
+<p>Wikibase、Schema.ORG</p>
+<p>典型案例简介：</p>
+<p>Open PHACTS：药物研发的开放数据访问平台。</p>
+<p>SAP：企业知识图谱应用。</p>
+<p>BBC ONTOLOGIES：更好的搜索体验。</p>
+<hr>
+<h2 id="知识表示与知识建模"><a href="#知识表示与知识建模" class="headerlink" title="知识表示与知识建模"></a>知识表示与知识建模</h2><p><strong>早期知识表示简介</strong>：</p>
+<p>知识是智能的基础，提供推理能力。</p>
+<p>相对正确性、不确定性、可表示性、可利用性。</p>
+<p>常识性知识、领域性知识；</p>
+<p>事实性知识、过程性知识、控制知识；</p>
+<p>确定性知识、不确定性知识。</p>
+<p><strong>早期知识表示方法</strong>：</p>
+<p>1、First-Order Logic</p>
+<p>Horn逻辑：</p>
+<p>原子：<code>has_child(Helen,Jack)</code></p>
+<p>Rules:<code>has_child(X,Y):-has_son(X,Y)</code></p>
+<p>Tbox：内涵知识、Abox：断言</p>
+<p>2、Production Rule:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">IF...THEN...</span><br></pre></td></tr></table></figure></p>
+<p>CF为知识的强度</p>
+<p>3、Framework:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;框架名&gt;</span><br><span class="line"></span><br><span class="line">槽名：侧面名  值1，值2，...，值p1</span><br><span class="line"></span><br><span class="line">........................</span><br><span class="line"></span><br><span class="line">约束：约束条件1</span><br><span class="line"></span><br><span class="line">             .........</span><br><span class="line"></span><br><span class="line">          约束条件n</span><br></pre></td></tr></table></figure></p>
+<p>4、Semantic Network:</p>
+<p>节点-弧-节点</p>
+<p>用谓词逻辑表示</p>
+<p>基于语义网Semantic Web得知识表示框架：</p>
+<p>W3C推荐的语义网标准栈：</p>
+<p>表示-查询-推理-置信</p>
+<p>最主要的方面A web of link data：SPARQL、RDF</p>
+<p>use RDF as data format</p>
+<p>use URLs as names for things</p>
+<p>use HTTP URLs so that people can look up those names</p>
+<p>RDF：资源描述框架</p>
+<p>Resource：页面、图片、视频等任何具有URL标识符</p>
+<p>Description：属性、特征和资源之间的关系</p>
+<p>Framework：模型、语言和这些描述的语法</p>
+<p>在RDF中知识总是以三元组triple形式出现:</p>
+<p><code>(subject、predicate、object)</code></p>
+<p>RDF本身也是一个图模型<code>(vertex，edge，vertex)</code></p>
+<p>in RDF resources and properties are identified by URLs</p>
+<p>通过namespace减少前缀冗余进行URLs的缩写</p>
+<p>in RDF values of properties can also be literals i.e. strings of characters：(CCF ADL,theme,”KG”)，此时”KG”称之为字面值literal，其他为resource</p>
+<p>in RDF literals values of properties can also be typed with XML datatypes</p>
+<p><code>字符串</code>+<code>类型约束</code></p>
+<p>在CCF ADL上演讲了三小时：</p>
+<p>ex:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ccf_adl——ex-schema:nbHours——&quot;3&quot;^^xsd:interger</span><br></pre></td></tr></table></figure></p>
+<p>RDF空白节点blank nodes：</p>
+<p>匿名的资源，作为链接某一个非匿名的资源的桥梁</p>
+<p>A是某一次知识图谱讲座的讲者：</p>
+<p>ex:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">A——ex-schema:speaker——_:x——ex-schema:theme——ex:KG</span><br></pre></td></tr></table></figure></p>
+<p>二跳，可以表示更复杂的多元关系</p>
+<p>RDF是数据模型，不是序列化格式。</p>
+<p>可以用XML、Turtle、N-Triples等方式表示。</p>
+<p>开放世界假设：没有定义的内容只代表不知道，而不是不存在。</p>
+<p>分布式定义的知识可以自动合并。</p>
+<p>带标注的RDF(变种)annotated RDF：</p>
+<p><code>(s,p,o)</code>:标志</p>
+<p>(特朗普，就职，总统)：2017年1月</p>
+<p>RDFS(schema)：</p>
+<p>在RDF的基础上提供了一个术语、概念等的定义方式，以及哪些属性可以应用到哪些对象上。</p>
+<p>规范了概念层schema的内容。</p>
+<p>为RDF定义了如下词汇：</p>
+<p><code>class,subclassof,type,property,subpropertyof,domain,range</code></p>
+<p>OWL和OWL2</p>
+<p>Web Ontology Language</p>
+<p>三个子语言：lite/DL/Full</p>
+<p>exp是命名空间<code>http://www.example.org</code>的别称。</p>
+<p>等价性声明：</p>
+<p>exp:运动员 owl:equivalentCalss exp:体育选手</p>
+<p>传递关系：</p>
+<p>exp:ancestor rdf:type owl:TransitiveProperty</p>
+<p>互反关系：</p>
+<p>exp:ancestor  owl:inverseOf exp:descendant</p>
+<p>函数性属性(唯一性)：</p>
+<p>exp:hasMother rdf:type owl:FunctionalProperty</p>
+<p>OWL2：OWL的新版本</p>
+<p>SPARQL：</p>
+<p>RDF的查询语言：基于RDF数据模型。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PREFIX:    <span class="comment">#声明</span></span><br><span class="line"></span><br><span class="line">FROM    <span class="comment">#dataset(graph)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">WHERE</span>&#123; ...... &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span></span><br></pre></td></tr></table></figure></p>
+<p>RDF中的资源以<code>？</code>或者<code>$</code>表示<strong>变量</strong></p>
+<p>查询所有选秀CS328的学生：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">PREFIX exp:http://www.example.org/</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> ?student</span><br><span class="line"></span><br><span class="line"><span class="keyword">WHERE</span>&#123;</span><br><span class="line"></span><br><span class="line">    ?student <span class="keyword">exp</span>:studies <span class="keyword">exp</span>:CS328.</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>查询所有的收购关系：<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> ?P ?X</span><br><span class="line"></span><br><span class="line"><span class="keyword">WHERE</span>&#123;</span><br><span class="line"></span><br><span class="line">    ?P finance:control ?c.</span><br><span class="line"></span><br><span class="line">    ?c finance:acquire ?X.</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>ontology可以填充知识与查询之间的语义间隙。</p>
+<p>把member和relative的语义间隙给填充了。<br><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">WHERE</span>&#123;</span><br><span class="line"></span><br><span class="line">    ?x <span class="keyword">member</span> ?y.</span><br><span class="line"></span><br><span class="line">    ?z founder ?y.</span><br><span class="line"></span><br><span class="line">    ?z <span class="keyword">relative</span> ?x.</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>写成<strong>规则</strong>的形式：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hold_share(X,Y):-control(X,Y)</span><br><span class="line"></span><br><span class="line">conn_trans(Y,Z):-hold_share(X,Y),hold_share(X,Z)</span><br></pre></td></tr></table></figure></p>
+<p><strong>JSON-LD</strong>:</p>
+<p>JavaScript Object Notation for Linked Data</p>
+<p>基于JSON表示和传输互联数据Linked Data的方法。</p>
+<p>JSON-LD通过引入规范的术语表示，使得数据交换和机器理解成为基础</p>
+<p>JSON中的：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="attr">"name"</span>:<span class="string">"tai_park"</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>变成JSON-LD中的：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="attr">"http://schema.org/name"</span>:<span class="string">"tai_park"</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>围绕某类知识提供共享的术语。</p>
+<p>RDFa:</p>
+<p>网页标记语言，扩展了XHTML的几个属性。<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">span</span> <span class="attr">property</span>=<span class="string">"dc:title"</span>&gt;</span>Wikinomics<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>HTML5 Microdata：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">section</span> <span class="attr">itemscope</span> <span class="attr">itemtype</span>=<span class="string">"http://data-vocabulary.org/Person"</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">h1</span> <span class="attr">itemprop</span>=<span class="string">"name"</span>&gt;</span>Andy<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>RDF+SPARQL 对比 ER+SQL：</p>
+<p>RDF：关系显示定义(语义存在于数据中)——数据变更较为方便(图增加边更为方便)</p>
+<p>ER：关系隐式声明(语义存在于人脑中)</p>
+<p>ER+SQL：Dumb Data-&gt;Smart Application Code</p>
+<p>RDF+SPARQL：Smart Data-&gt;Uniform Inference Engine</p>
+<p>典型知识库项目的知识表示：</p>
+<p><strong>DBpedia</strong>：</p>
+<p>dbo：有约束的定义</p>
+<p>dbr：资源</p>
+<p>dbp：没有约束而仅有数据层的定义</p>
+<p><strong>TAGO2</strong>：</p>
+<p>上层-&gt;维基百科内容-&gt;lable用以实体消歧</p>
+<p><strong>Freebase</strong>：</p>
+<p>data/schema/Queries</p>
+<p>复合值类型CVT：处理多元关系。一个CVT就是一个有唯一MID的Object，也可以有多个Types。</p>
+<p><strong>Wikidata</strong>：</p>
+<p>有顶层的对象：Entity</p>
+<p>时空约束：qualifiers/reference</p>
+<p><strong>NELL</strong>：</p>
+<p>文本抽取并用图整合</p>
+<p>基于<strong>Protege本体工具</strong>的知识建模实践：</p>
+<p>模式层/实例层</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://link.hhtjim.com/163/5146554.mp3"></li>
+                    
+                        <li title="1" data-url="http://link.hhtjim.com/qq/001faIUs4M2zna.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#知识图谱与语义技术概述："><span class="toc-number">1.</span> <span class="toc-text">知识图谱与语义技术概述：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#知识表示与知识建模"><span class="toc-number">2.</span> <span class="toc-text">知识表示与知识建模</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-135683623-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>
