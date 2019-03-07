@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>欢迎来到Tai Park的博客 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="
+· 阿泰同学 ·· 计算机技术研一在读 ·· 熟练掌握机器学习、数据挖掘、区块链、知识图谱等词的书写方法 ·· 国家一级退堂鼓演员 ·· 诚信肥宅 ·· 暴雪全家桶拥有者 ·· 教研室可爱等级天花,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">数据挖掘实列几则</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">数据挖掘实列几则</h1>
+        <div class="stuff">
+            <span>九月 25, 2018</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/数据挖掘/">数据挖掘</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="一、数据认知"><a href="#一、数据认知" class="headerlink" title="一、数据认知"></a>一、数据认知</h1><p>此次实验分配的任务为数据聚类，涉及数据集为三组，名称分别为 “Seeds Data Set”，“Diabetes 130-US Hospitals for Years 1999-2008 Data Set” 与“Dow Jones Index Data Set”。接下来依次介绍三个数据集的详细信息。</p>
+<h2 id="Seeds-Data-Set"><a href="#Seeds-Data-Set" class="headerlink" title="Seeds Data Set"></a>Seeds Data Set</h2><p>“Seeds Data Set”是对三种不同品种的小麦籽粒几何形状进行描述的数据集，它构建了七个实值属性。该数据集应聚为三类不同品种的小麦籽粒种类，分别名为 “Kama”、“Rosa” 与“Canadian”，在该数据集中每种实列数各为 70。该数据集的基本情况如表 1.1 所示。</p>
+<p>表 1.1 Seeds Data Set 数据集基本情况</p>
+<table>
+<thead>
+<tr>
+<th>数据集特点：</th>
+<th>多元</th>
+<th>实例数量：</th>
+<th>210</th>
+<th>领域：</th>
+<th>生活类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>属性特征：</td>
+<td>真实</td>
+<td>属性数量：</td>
+<td>7</td>
+<td>上传日期：</td>
+<td>2012.9.29</td>
+</tr>
+<tr>
+<td>相关任务：</td>
+<td>分类 / 聚类</td>
+<td>缺值：</td>
+<td>N/A</td>
+<td>浏览次数：</td>
+<td>214401</td>
+</tr>
+</tbody>
+</table>
+<p>该数据集的 7 个几何属性分别如表 1.2 所示。其中紧凑度 C 的计算公式为：<img src="https://img-blog.csdnimg.cn/20190307122456867.png" alt></p>
+<p>其中 A 为籽粒面积，P 为籽粒周长。</p>
+<p>表 1.2 Seeds Data Set 数据集属性中英文对照表</p>
+<table>
+<thead>
+<tr>
+<th>属性中文名</th>
+<th>属性英文名</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>面积</td>
+<td>Area,A</td>
+</tr>
+<tr>
+<td>周长</td>
+<td>Perimeter,P</td>
+</tr>
+<tr>
+<td>紧凑度</td>
+<td>Compactness,C</td>
+</tr>
+<tr>
+<td>籽粒长度</td>
+<td>Length of kernel</td>
+</tr>
+<tr>
+<td>籽粒宽度</td>
+<td>Width of kernel</td>
+</tr>
+<tr>
+<td>不对称系数</td>
+<td>Asymmetry coefficient</td>
+</tr>
+<tr>
+<td>核槽长度</td>
+<td>Length of kernel groove</td>
+</tr>
+</tbody>
+</table>
+<h2 id="Diabetes-130-US-Hospitals-for-Years-1999-2008-Data-Set"><a href="#Diabetes-130-US-Hospitals-for-Years-1999-2008-Data-Set" class="headerlink" title="Diabetes 130-US Hospitals for Years 1999-2008 Data Set"></a>Diabetes 130-US Hospitals for Years 1999-2008 Data Set</h2><p>“Diabetes 130-US Hospitals for Years 1999-2008 Data Set” 是对 1999 至 2008 年间不同经过医院实验室测试的十万名糖尿病患者进行描述的数据集，它经过临床专家的筛选后仅保留了 55 个最可能与糖尿病病情相关的属性。该数据集的基本情况如表 1.3 所示。</p>
+<p>表 1.3 Diabetes 130-US Hospitals for Years 1999-2008 Data Set 数据集基本情况</p>
+<table>
+<thead>
+<tr>
+<th>数据集特点：</th>
+<th>多元</th>
+<th>实例数量：</th>
+<th>100000</th>
+<th>领域：</th>
+<th>生活类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>属性特征：</td>
+<td>整数</td>
+<td>属性数量：</td>
+<td>55</td>
+<td>上传日期：</td>
+<td>2014.5.3</td>
+</tr>
+<tr>
+<td>相关任务：</td>
+<td>分类 / 聚类</td>
+<td>缺值：</td>
+<td>是</td>
+<td>浏览次数：</td>
+<td>21200</td>
+</tr>
+</tbody>
+</table>
+<p>该数据集的 55 个属性分别如表 1.4 所示。其中的 “24 features for medications” 一栏中包含了 24 种药物的施药状况，如二甲双胍、瑞格列奈、那格列奈、氯丙帕胺等共 24 个属性值。详细的 24 种药物专有名词见表 1.4 该栏的属性描述单元格。</p>
+<p>表 1.4  Diabetes 130-US Hospitals for Years 1999-2008 Data Set 数据集属性描述</p>
+<table>
+<thead>
+<tr>
+<th>属性英文名</th>
+<th>属性描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Encounter ID</td>
+<td>Unique identifier of an encounter</td>
+</tr>
+<tr>
+<td>Patient number</td>
+<td>Unique identifier of a patient</td>
+</tr>
+<tr>
+<td>Race</td>
+<td>Values: Caucasian, Asian, African American, Hispanic, and other</td>
+</tr>
+</tbody>
+</table>
+<p>……</p>
+<h2 id="Dow-Jones-Index-Data-Set"><a href="#Dow-Jones-Index-Data-Set" class="headerlink" title="Dow Jones Index Data Set"></a>Dow Jones Index Data Set</h2><p>“Dow Jones Index Data Set” 是对 2013 年 1 至 6 月特定的公司道格琼斯指数每周股票数据进行描述的数据集。其中第一季度（1 至 3 月）可以作为训练集使用，第二季度（4 至 6 月）可以作为测试集使用，它共有 16 个属性。该数据集的基本情况如表 1.5 所示。</p>
+<p>表 1.3 Dow Jones Index Data Set 数据集基本情况</p>
+<table>
+<thead>
+<tr>
+<th>数据集特点：</th>
+<th>多元</th>
+<th>实例数量：</th>
+<th>750</th>
+<th>领域：</th>
+<th>经济类</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>属性特征：</td>
+<td>真实</td>
+<td>属性数量：</td>
+<td>16</td>
+<td>上传日期：</td>
+<td>2013</td>
+</tr>
+<tr>
+<td>相关任务：</td>
+<td>分类 / 聚类</td>
+<td>缺值：</td>
+<td>N/A</td>
+<td>浏览次数：</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<p>该数据集的 16 个属性及其属性描述如图 1.6 所示。</p>
+<p>表 1.6 Dow Jones Index Data Set 数据集属性描述</p>
+<table>
+<thead>
+<tr>
+<th>属性英文名</th>
+<th>属性描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Quarter</td>
+<td>the yearly quarter (1 = Jan-Mar; 2 = Apr=Jun)</td>
+</tr>
+<tr>
+<td>Stock</td>
+<td>the stock symbol</td>
+</tr>
+<tr>
+<td>Date</td>
+<td>the last business day of the work</td>
+</tr>
+<tr>
+<td>Open</td>
+<td>the price of the stock at the beginning of the week</td>
+</tr>
+<tr>
+<td>High</td>
+<td>the highest price of the stock during the week</td>
+</tr>
+<tr>
+<td>Low</td>
+<td>the lowest price of the stock during the week</td>
+</tr>
+</tbody>
+</table>
+<p>……</p>
+<h1 id="二、数据预处理"><a href="#二、数据预处理" class="headerlink" title="二、数据预处理"></a>二、数据预处理</h1><p>此次实验使用 Python 作为编程语言进行数据处理与挖掘。使用的版本为 Python 3.6。由于数据集内容并非完全规整，在数据导入阶段需要根据数据集的特点进行不同的数据预处理。</p>
+<h2 id="2-1-Seeds-Data-Set-的数据预处理"><a href="#2-1-Seeds-Data-Set-的数据预处理" class="headerlink" title="2.1 Seeds Data Set 的数据预处理"></a>2.1 Seeds Data Set 的数据预处理</h2><p>首先检查数据文本，未发现空缺数据，之后导入 “Seeds Data Set” 的数据并两两属性交叉对其进行绘图观察，绘制的散点图如图 2.1 所示。从图中能够看出该数据集的数据较为规整，未出现噪音数据及离群数据。又因为该数据集实列数较少、属性值????????????????????????????????????????????????????</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122457517.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt><br>图 2.1 Seed Data Set 数据散点图</p>
+<p>绘制图 2.1 使用了 Python 中的 matplotlib.pyplot 包，使用版本为 2.0.2。绘制代码如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_seed</span><span class="params">()</span>:</span></span><br><span class="line"></span><br><span class="line">    figure, ax = plt.subplots(<span class="number">6</span>, <span class="number">6</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">6</span>):</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">6</span>):</span><br><span class="line"></span><br><span class="line">            Y = np.array(seeds_values[:, [i, j]])</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> l <span class="keyword">in</span> range(<span class="number">0</span>, <span class="number">210</span>):</span><br><span class="line"></span><br><span class="line">                ax[i][j].scatter(Y[l][<span class="number">0</span>], Y[l][<span class="number">1</span>], s=<span class="number">1</span>, color=<span class="string">'mediumseagreen'</span>)</span><br><span class="line"></span><br><span class="line">            print(Y)</span><br><span class="line"></span><br><span class="line">            print(<span class="string">"___"</span>)</span><br><span class="line"></span><br><span class="line">    plt.show()</span><br></pre></td></tr></table></figure></p>
+<h2 id="2-2-Diabetes-130-US-Hospitals-for-Years-1999-2008-Data-Set-的数据预处理"><a href="#2-2-Diabetes-130-US-Hospitals-for-Years-1999-2008-Data-Set-的数据预处理" class="headerlink" title="2.2 Diabetes 130-US Hospitals for Years 1999-2008 Data Set 的数据预处理"></a>2.2 Diabetes 130-US Hospitals for Years 1999-2008 Data Set 的数据预处理</h2><p><img src="https://i.loli.net/2019/03/07/5c80aac54546d.png" alt="图片1"><br>图 2.2 Diabetes 130-US Hospitals for Years 1999-2008 Data Set 数据集中的空缺数据</p>
+<p>首先检查数据文本，发现有空缺数据，且以 “？” 的形式显示，如图 2.2 所示。由于该数据集中的某些属性中存在着大量的空缺数据，所以在导入数据后需要替换空缺数据，代码如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">unchanged = pd.read_csv(path,encoding=<span class="string">'utf-8-sig'</span>)</span><br><span class="line"></span><br><span class="line">unchanged.replace(regex=<span class="string">'\?'</span>,value=np.nan,inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure></p>
+<p>之后通过观察数据发现有些实例由于丢失的数据量太大，已经失去了进行聚类的意义，故设置了阈值为 0.7 对数据进行清洗，即若一条实列数据的空缺值超过了 30%，就跳过此条数据，代码如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cleaned_data = unchanged.dropna(axis=<span class="number">1</span>,thresh=len(unchanged)*<span class="number">0.7</span>)</span><br></pre></td></tr></table></figure></p>
+<p>由于该数据集的属性过多且一些属性空缺值太多（如 weight 列的空缺比例达到了 97%），故在查询了相关资料后确定了六条与糖尿病相关性最大且空缺比例较低的良好属性（表 3.1）作为此次数据挖掘的主要待挖掘属性，以期在减少计算量的同时保证结果的鲁棒性。</p>
+<p>表 3.1 此次数据挖掘确定的主要属性</p>
+<table>
+<thead>
+<tr>
+<th>属性英文名</th>
+<th>属性描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Time in hospital</td>
+<td>Integer number of days between admission and discharge</td>
+</tr>
+<tr>
+<td>Number of lab procedures</td>
+<td>Number of lab tests performed during the encounter</td>
+</tr>
+<tr>
+<td>Number of procedures</td>
+<td>Number of procedures (other than lab tests) performed during the encounter</td>
+</tr>
+<tr>
+<td>Number of medications</td>
+<td>Number of distinct generic names administered during the encounter</td>
+</tr>
+<tr>
+<td>Number of diagnoses</td>
+<td>Number of diagnoses entered to the system</td>
+</tr>
+<tr>
+<td>Number of emergency visits</td>
+<td>Number of emergency visits of the patient in the year preceding the encounter</td>
+</tr>
+</tbody>
+</table>
+<p>之后选择了前 1000 条数据对以上六条属性进行两属性的散点图绘制，结果如图 2.3 所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122458640.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 2.3 Diabetes 130-US Hospitals for Years 1999-2008 Data Set 前 1000 条实例的数据散点图</p>
+<h2 id="2-3-Dow-Jones-Index-Data-Set-的数据预处理"><a href="#2-3-Dow-Jones-Index-Data-Set-的数据预处理" class="headerlink" title="2.3 Dow Jones Index Data Set 的数据预处理"></a>2.3 Dow Jones Index Data Set 的数据预处理</h2><p>首先检查数据文本，发现有数据空缺，由于空缺数据条数较少，故将空缺数据删去，并去除与之相关性较弱的 “Quarter”、“Stock” 与“Date”三列。之后对带有美元符号 “$” 的数据进行去除美元符号的处理并绘制散点图，最后结果如图 2.4 所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122506453.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 2.4 Dow Jones Index Data Set 实列的数据散点图</p>
+<h1 id="三、聚类算法"><a href="#三、聚类算法" class="headerlink" title="三、聚类算法"></a>三、聚类算法</h1><p>此次实验使用了三种聚类算法对三个目标数据集进行聚类操作，分别为基于划分的 K-Means 聚类算法、基于密度的 Mean-Shift 聚类算法与基于高斯混合模型（GMM）的 EM 聚类算法。接下来对三种算法的实现做详细的介绍。</p>
+<h2 id="3-1-K-Means-聚类算法"><a href="#3-1-K-Means-聚类算法" class="headerlink" title="3.1 K-Means 聚类算法"></a>3.1 K-Means 聚类算法</h2><p>K-Means 算法是典型的基于划分的聚类算法，在该算法中每个簇的中心都用簇中所有对象的均值（Mean）表示。该算法的输入为簇的数目与包含 n 个对象的数据集，输出为 k 个簇的集合。具体步骤如图3.1所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122457140.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 3.1 K-Means 算法步骤</p>
+<p>第一步为从 D 中任意选择 k 个对象作为初始簇中心。具体做法为给定一个数组，找到数组中每个坐标的最小值与最大值，框定其范围，之后在范围内随机生成 k 个随机点，返回范围内的随机点组成的数组，数组中的点为随机选中的初始簇的中心。代码如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">generate_k</span><span class="params">(data,k)</span>:</span></span><br><span class="line"></span><br><span class="line">    centers = []</span><br><span class="line"></span><br><span class="line">    dimensions = len(data[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    min_max = defaultdict(int)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> point <span class="keyword">in</span> data:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(dimensions):</span><br><span class="line"></span><br><span class="line">            val = point[i]</span><br><span class="line"></span><br><span class="line">            min_key = <span class="string">'min_%d'</span> % i</span><br><span class="line"></span><br><span class="line">            max_key = <span class="string">'max_%d'</span> % i</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> min_key <span class="keyword">not</span> <span class="keyword">in</span> min_max <span class="keyword">or</span> val &lt;min_max[min_key]:</span><br><span class="line"></span><br><span class="line">                min_max[min_key] = val</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> max_key <span class="keyword">not</span> <span class="keyword">in</span> min_max <span class="keyword">or</span> val &gt; min_max[max_key]:</span><br><span class="line"></span><br><span class="line">                min_max[max_key] = val</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> _k <span class="keyword">in</span> range(k):</span><br><span class="line"></span><br><span class="line">        rand_point = []</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(dimensions):</span><br><span class="line"></span><br><span class="line">            min_val = min_max[<span class="string">'min_%d'</span> % i]</span><br><span class="line"></span><br><span class="line">            max_val = min_max[<span class="string">'max_%d'</span> % i]</span><br><span class="line"></span><br><span class="line">            rand_point.append(ra.uniform(min_val,max_val))</span><br><span class="line"></span><br><span class="line">        centers.append(rand_point)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> centers</span><br></pre></td></tr></table></figure></p>
+<p>第二步为根据簇中对象的均值，将每个对象分配到最相似的簇。具体做法为给定数据集与其他点之间的点列表，将每个点的索引分配为与其最接近的中心点的索引，其中确定索引归属的目标函数为平方和误差函数（sum of the squared error,SSE）：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122457103.png" alt></p>
+<p>实现 SSE 计算的对应代码如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">distance</span><span class="params">(a,b)</span>:</span></span><br><span class="line"></span><br><span class="line">    dimensions = len(a)</span><br><span class="line"></span><br><span class="line">    _sum = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> dimension <span class="keyword">in</span> range(dimensions):</span><br><span class="line"></span><br><span class="line">        difference_sq = (a[dimension] - b[dimension]) ** <span class="number">2</span></span><br><span class="line"></span><br><span class="line">        _sum += difference_sq</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> sqrt(_sum)</span><br></pre></td></tr></table></figure></p>
+<p>取令SSE最小的中心点索引值作为其点的索引值保存入返回数组中，返回数组为包含每个点索引值的数组（如图3.2）。通过这一步能够得到每个点所在的最相似簇。代码如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">assign_data_points</span><span class="params">(data,center)</span>:</span></span><br><span class="line"></span><br><span class="line">    assignments = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> point <span class="keyword">in</span> data:</span><br><span class="line"></span><br><span class="line">        shortest = (<span class="number">65536</span>,)</span><br><span class="line"></span><br><span class="line">        shortest_index = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(len(center)):</span><br><span class="line"></span><br><span class="line">            val = (distance(point,center[i]),)</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> val &lt; shortest:</span><br><span class="line"></span><br><span class="line">                shortest = val</span><br><span class="line"></span><br><span class="line">                shortest_index = i</span><br><span class="line"></span><br><span class="line">        assignments.append(shortest_index)</span><br><span class="line"></span><br><span class="line">        print(assignments)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> assignments</span><br></pre></td></tr></table></figure></p>
+<p><img src="https://img-blog.csdnimg.cn/2019030712245773.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 3.2 返回数组 assignments 的运行实例</p>
+<p>第三步为更新簇均值，重新计算每个簇中对象的均值。首先需要获取更新后的中心点，代码如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">update_data_center</span><span class="params">(data,target_names)</span>:</span></span><br><span class="line"></span><br><span class="line">    new_means = co.defaultdict(list)</span><br><span class="line"></span><br><span class="line">    center = []</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> target_names,point <span class="keyword">in</span> zip(target_names,data):</span><br><span class="line"></span><br><span class="line">        new_means[target_names].append(point)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> data <span class="keyword">in</span> new_means.values():</span><br><span class="line"></span><br><span class="line">        center.append(avg_data_center(data))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> center</span><br></pre></td></tr></table></figure></p>
+<p>获取了新的中心点之后需要再次计算每个簇中点的均值，此时应该调用函数 <code>assign_data_points()</code> 并循环迭代下去，直到 assignments 不再变化为止。该迭代逻辑实现为：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">old_assignments = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> assigments != old_assignments:</span><br><span class="line"></span><br><span class="line">    new_centers = update_data_center(data,assigments)</span><br><span class="line"></span><br><span class="line">    old_assignments = assigments</span><br><span class="line"></span><br><span class="line">    assigments = assign_data_points(data,new_centers)</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-2-Mean-Shift-聚类算法"><a href="#3-2-Mean-Shift-聚类算法" class="headerlink" title="3.2 Mean-Shift 聚类算法"></a>3.2 Mean-Shift 聚类算法</h2><p>Mean-Shift 是基于密度的聚类算法，其本质是一个迭代过程，最终能找出一组数据密度分布的极值。</p>
+<p>首先确定 Mean-Shift 所需的属性。定义 Mean-Shift 向量，给定 d 维空间 Rd 的 n 个样本点 ,i=1,…,n, 在空间中任选一点 x，那么 Mean-Shift 向量的基本形式定义为:</p>
+<p><img src="https://img-blog.csdnimg.cn/2019030712245773.png" alt></p>
+<p>设<img src="https://img-blog.csdnimg.cn/2019030712245799.png" alt>是一个半径为 h 的高维球区域，它是满足以下关系的 y 点的集合：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122457100.png" alt></p>
+<p>k 为在 n 个点的样本<img src="https://img-blog.csdnimg.cn/20190307122457102.png" alt>中，有 k 个点落在<img src="https://img-blog.csdnimg.cn/20190307122457280.png" alt>区域中。</p>
+<p>Mean-Shift 的过程是在 d 维空间中任选一个点，以这个点为圆心，h 为半径做一个高维球。落在这个球内的所有点和圆心都会产生一个向量，向量是以圆心为起点落在球内的点位终点。然后把这些向量都相加。相加的结果就是 Mean-shift 向量。该过程如图 3.3 所示，黄色箭头就是相加得出的Mean-shift向量。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122457359.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 3.3 Mean-Shift 向量</p>
+<p>然后再以这个 Mean-Shift 向量的终点为圆心，继续上述过程，又可以得到一个 Mean-Shift 向量，如图 3.4 所示。重复这一过程直到向量为 0 或移动量低于阈值，运动停止。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122457266.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 3.4 以新的 Mean-Shift 向量终点为圆心继续计算</p>
+<p>将上述 Mean-Shift 聚类过程画为流程图，如图 3.5 所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122457233.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 3.5 Mean-Shift 算法步骤</p>
+<p>第一步为确定参数的初值。其中 radius 为圆的半径；radius_step 用于在计算簇时确定单步执行的间隔数；weights 是一个仅包含数字的权重列表，在对其进行 weights.reverse() 操作后能够将其倒序，这样权重最高的索引便会在最前了；threshold 是用于确定某个簇是否已经收敛的阈值；max_iter 是防止程序陷入死循环或大数循环而设置的最大的迭代次数；final_clusters 用于保存运行 fit() 后的簇；cluster_mapping 用于保存训练的数据点到每个点最终映射的簇的值以便对数据进行可视化操作。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">self.radius = radius</span><br><span class="line"></span><br><span class="line">self.radius_step = radius_step</span><br><span class="line"></span><br><span class="line">self.weights = [i*<span class="number">100</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(self.radius_step)]</span><br><span class="line"></span><br><span class="line">self.weights.reverse()</span><br><span class="line"></span><br><span class="line">self.threshold = <span class="number">.0000000001</span></span><br><span class="line"></span><br><span class="line">self.max_iter = <span class="number">600</span></span><br><span class="line"></span><br><span class="line">self.final_clusters = []</span><br><span class="line"></span><br><span class="line">self.cluster_mapping = &#123;&#125;</span><br></pre></td></tr></table></figure></p>
+<p>第二步需要循环遍历现有的簇的圆心并计算其到其他点的距离，在完成所有点的计算后需要重新计算新的簇并与点至旧簇圆心的位置进行比较，观察其是否需要移动，若需要的移动量低于阈值则停止。<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> _ <span class="keyword">in</span> range(self.max_iter):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> label <span class="keyword">in</span> clusters:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> point <span class="keyword">in</span> data:</span><br><span class="line"></span><br><span class="line">            distance = np.linalg.norm(point - clusters[label][<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">            weight_index = min(int(distance / self.radius), self.radius_step<span class="number">-1</span>)</span><br><span class="line"></span><br><span class="line">            weight = self.weights[weight_index]</span><br><span class="line"></span><br><span class="line">            clusters[label][<span class="number">0</span>] += weight*point</span><br><span class="line"></span><br><span class="line">            clusters[label][<span class="number">1</span>] += weight</span><br><span class="line"></span><br><span class="line">    prev_clusters = dict(clusters)</span><br><span class="line"></span><br><span class="line">    clusters = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> label <span class="keyword">in</span> prev_clusters:</span><br><span class="line"></span><br><span class="line">        cluster_info = prev_clusters[label]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> prev_clusters[label][<span class="number">1</span>] == <span class="number">0</span>:</span><br><span class="line"></span><br><span class="line">            print(<span class="string">"odd"</span>, prev_clusters[label])</span><br><span class="line"></span><br><span class="line">        new_cluster = np.sum(cluster_info[<span class="number">0</span>], axis=<span class="number">0</span>) / cluster_info[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">        old_cluster = prev_clusters[label][<span class="number">2</span>]</span><br><span class="line"></span><br><span class="line">        clusters[label] = [[new_cluster], <span class="number">1</span>, new_cluster, old_cluster]</span><br></pre></td></tr></table></figure></p>
+<p>若找到的圆心太多，则需要重新运行<code>fit()</code>，但是理论上找到的圆心太少该函数可能不会重新运行。代码如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">refit</span><span class="params">(self, data, percent, new_radius=<span class="number">.008</span>)</span>:</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"ran a refit because percent centroids was: &#123;&#125;%"</span>.format(percent*<span class="number">100</span>))</span><br><span class="line"></span><br><span class="line">    print(<span class="string">"Old radius was &#123;&#125; and now we are switching to &#123;&#125;"</span>.format(self.radius,         new_radius))</span><br><span class="line"></span><br><span class="line">    self.radius = new_radius</span><br><span class="line"></span><br><span class="line">    self.cluster_mapping = &#123;&#125;</span><br><span class="line"></span><br><span class="line">    self.fit(data)</span><br></pre></td></tr></table></figure></p>
+<h2 id="3-3-EM-聚类算法"><a href="#3-3-EM-聚类算法" class="headerlink" title="3.3 EM 聚类算法"></a>3.3 EM 聚类算法</h2><p>基于高斯混合模型（GMM）的最大期望（EM）聚类属于软分配的一种。不同于 K-Means 的硬分配，EM 聚类给出每个样本被分配到每个簇的概率，最后从中选取一个最大的概率对应的簇作为该样本被分配到的簇。</p>
+<p>由中心极限定理可知，当数据量很大时，同种数据的统计特性都趋于高斯分布，若要进行聚类，就可以首先假设第 k 类的数据服从高斯分布，其概率密度为<img src="https://img-blog.csdnimg.cn/20190307122457209.png" alt>，并有一个出现的先验概率<img src="https://img-blog.csdnimg.cn/20190307122457388.png" alt>，而 K 个类别的线性叠加就组成了 GMM 的概率密度函数：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122457225.png" alt></p>
+<p>其中<img src="https://img-blog.csdnimg.cn/20190307122457180.png" alt>为先验概率，<img src="https://img-blog.csdnimg.cn/20190307122457205.png" alt>为似然函数的均值，<img src="https://img-blog.csdnimg.cn/20190307122457204.png" alt>为方差。在上述参数已知的情况下，可求得每一个样本<img src="https://img-blog.csdnimg.cn/20190307122457226.png" alt>属于某个类别 k 的概率。当前样本出现的联合概率密度为：</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122457252.png" alt></p>
+<p>之后采用 EM 这种迭代优化的方法求得较为理想的簇。EM 算法包括两步：</p>
+<p>1、Expectation：对每类都任意假设一组参数 (<img src="https://img-blog.csdnimg.cn/20190307122457409.png" alt>,<img src="https://img-blog.csdnimg.cn/20190307122457200.png" alt>,<img src="https://img-blog.csdnimg.cn/20190307122457225.png" alt>)，并假设每个数据都存在相应的 “隐变量”（即每个数据各自的类别）<img src="https://img-blog.csdnimg.cn/20190307122457333.png" alt>，然而隐变量的真值是未知的，所以就可根据当前观测值以及假设的参数，用隐变量的条件期望<img src="https://img-blog.csdnimg.cn/20190307122457334.png" alt>来代替隐变量<img src="https://img-blog.csdnimg.cn/20190307122457340.png" alt>并求得其值。</p>
+<p>2、Maximization：将得到的隐变量<img src="https://img-blog.csdnimg.cn/20190307122458206.png" alt>看作正确的划分，结合当前数据，用最大似然的方法估计参数<img src="https://img-blog.csdnimg.cn/20190307122458420.png" alt>,<img src="https://img-blog.csdnimg.cn/20190307122458211.png" alt>,<img src="https://img-blog.csdnimg.cn/20190307122458433.png" alt>。</p>
+<p>EM 聚类算法的聚类过程如图 3.6 所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122503169.jpeg?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 3.6 EM 聚类算法的聚类过程</p>
+<p>将上述 EM 聚类算法画为流程图，如图 3.7 所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122459216.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 3.7  EM 算法步骤</p>
+<p>第一步是对数据进行再处理，将数据缩放到 0-1 之间，代码如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">scale_data</span><span class="params">(Y)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(Y.shape[<span class="number">1</span>]):</span><br><span class="line"></span><br><span class="line">        max_ = Y[:, i].max()</span><br><span class="line"></span><br><span class="line">        min_ = Y[:, i].min()</span><br><span class="line"></span><br><span class="line">        Y[:, i] = (Y[:, i] - min_) / (max_ - min_)</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> Y</span><br></pre></td></tr></table></figure></p>
+<p>第二步为初始化点（模型）的参数。在需要输入的参数中，shape(N,D) 是表示样本规模的二元组，其内容为（样本数，特征数）；K 为模型的个数。输出参数中的 mu 为均值多维数组，每行表示一个样本各个特征的均值；cov 为协方差矩阵的数组；alpha 为模型响应度数组。代码如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">init_params</span><span class="params">(shape, K)</span>:</span></span><br><span class="line"></span><br><span class="line">    N, D = shape</span><br><span class="line"></span><br><span class="line">    mu = np.random.rand(K, D)</span><br><span class="line"></span><br><span class="line">    cov = np.array([np.eye(D)] * K)</span><br><span class="line"></span><br><span class="line">    alpha = np.array([<span class="number">1.0</span> / K] * K)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mu, cov, alpha</span><br></pre></td></tr></table></figure></p>
+<p>第三步为 EM 算法中的 E 步，用以计算每个点对样本的响应度。需要输入的参数除了 mu、cov 与 alpha 外还有样本矩阵 Y。该步算法流程如图 3.8 所示，首先获取样本数与模型数，样本数与模型数均需大于 1 以避免返回结果的不一致。之后需要通过样本数与模型数初始化全为 0 的响应度矩阵 gamma，在计算过个模型所有样本出现的概率（利用 scipy.stats 中的 multivariate_normal 进行计算）后计算每个样本的响应度并填入响应度矩阵中。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122458936.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 3.8 EM 算法中的 E 步计算过程<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getExpectation</span><span class="params">(Y, mu, cov, alpha)</span>:</span></span><br><span class="line"></span><br><span class="line">    N = Y.shape[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    K = alpha.shape[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> N &gt; <span class="number">1</span>, <span class="string">"There must be more than one sample!"</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">assert</span> K &gt; <span class="number">1</span>, <span class="string">"There must be more than one gaussian model!"</span></span><br><span class="line"></span><br><span class="line">    gamma = np.mat(np.zeros((N, K)))</span><br><span class="line"></span><br><span class="line">    prob = np.zeros((N, K))</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(K):</span><br><span class="line"></span><br><span class="line">        prob[:, k] = phi(Y, mu[k], cov[k])</span><br><span class="line"></span><br><span class="line">    prob = np.mat(prob)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(K):</span><br><span class="line"></span><br><span class="line">        gamma[:, k] = alpha[k] * prob[:, k]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N):</span><br><span class="line"></span><br><span class="line">        gamma[i, :] /= np.sum(gamma[i, :])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> gamma</span><br></pre></td></tr></table></figure></p>
+<p>第四步为 EM 算法中的 M 步，输入样本矩阵 Y 与响应度矩阵 gamma 后更新每个点的参数，返回更新后的 mu、cov 与 alpha。代码如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">maximize</span><span class="params">(Y, gamma)</span>:</span></span><br><span class="line"></span><br><span class="line">    N, D = Y.shape</span><br><span class="line"></span><br><span class="line">    K = gamma.shape[<span class="number">1</span>]</span><br><span class="line"></span><br><span class="line">    mu = np.zeros((K, D))</span><br><span class="line"></span><br><span class="line">    cov = []</span><br><span class="line"></span><br><span class="line">    alpha = np.zeros(K)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> k <span class="keyword">in</span> range(K):</span><br><span class="line"></span><br><span class="line">        Nk = np.sum(gamma[:, k])</span><br><span class="line"></span><br><span class="line">        mu[k, :] = np.sum(np.multiply(Y, gamma[:, k]), axis=<span class="number">0</span>) / Nk</span><br><span class="line"></span><br><span class="line">        cov_k = (Y - mu[k]).T * np.multiply((Y - mu[k]), gamma[:, k]) / Nk</span><br><span class="line"></span><br><span class="line">        cov.append(cov_k)</span><br><span class="line"></span><br><span class="line">        alpha[k] = Nk / N</span><br><span class="line"></span><br><span class="line">    cov = np.array(cov)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> mu, cov, alpha</span><br></pre></td></tr></table></figure></p>
+<p>#四、模型测试</p>
+<p>本次实验利用“Seeds Data Set”，“Diabetes 130-US Hospitals for Years 1999-2008 Data Set”与“Dow Jones Index Data Set”三个数据集对基于划分的K-Means聚类算法、基于密度的Mean-Shift聚类算法与基于高斯混合模型（GMM）的EM聚类算法分别进行了测试，具体测试结果将在接下几节进行总结。</p>
+<h2 id="4-1-Seeds-Data-Set-的测试结果"><a href="#4-1-Seeds-Data-Set-的测试结果" class="headerlink" title="4.1 Seeds Data Set 的测试结果"></a>4.1 Seeds Data Set 的测试结果</h2><h3 id="4-1-1-Seeds-Data-Set-数据集的-K-Means-聚类测试"><a href="#4-1-1-Seeds-Data-Set-数据集的-K-Means-聚类测试" class="headerlink" title="4.1.1 Seeds Data Set 数据集的 K-Means 聚类测试"></a>4.1.1 Seeds Data Set 数据集的 K-Means 聚类测试</h3><p>对 Seeds Data Set 数据集进行 K-Means 聚类测试，将每两个属性作为一组进行绘图，令 k=3 进行测试后结果如图 4.1 所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122508712.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 4.1 Seeds Data Set 数据集的 K-Means 聚类结果</p>
+<p>由于其左上与右下两部分数据重复，为了减少计算量在接下来绘图的过程中皆将结果总图绘制成图 4.2 的模式。</p>
+<p><img src="https://img-blog.csdnimg.cn/2019030712250835.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 4.2 精简后的 Seeds Data Set 数据集的 K-Means 聚类结果</p>
+<p>记录下其多次运行后的结果并计算其准确率，结果如表4.1所示。从表中可以发现在前四次运行时准确率基本稳定在89%左右，但是第五次测试时出现了异常情况。</p>
+<p>表 4.1  K-Means 准确率统计</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>第一类</th>
+<th>第二类</th>
+<th>第三类</th>
+<th>准确率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一次</td>
+<td>68</td>
+<td>81</td>
+<td>61</td>
+<td>89.52%</td>
+</tr>
+<tr>
+<td>第二次</td>
+<td>67</td>
+<td>82</td>
+<td>61</td>
+<td>88.57%</td>
+</tr>
+<tr>
+<td>第三次</td>
+<td>72</td>
+<td>77</td>
+<td>61</td>
+<td>91.42%</td>
+</tr>
+<tr>
+<td>第四次</td>
+<td>67</td>
+<td>82</td>
+<td>61</td>
+<td>88.57%</td>
+</tr>
+<tr>
+<td>第五次</td>
+<td>128</td>
+<td>82</td>
+<td>0</td>
+<td>33.34%</td>
+</tr>
+<tr>
+<td>平均准确率</td>
+<td></td>
+<td></td>
+<td></td>
+<td>78.28%</td>
+</tr>
+</tbody>
+</table>
+<p>第五次测试出的结果图如图 4.3 所示。该错误聚类体现出了 K-Means 算法的缺陷，即 k 个初始点中心点的取值会影响 K-Means 的结果，最后生成的结果往往很大程度上取决于一开始 k 个中心点的位置，在中心点选取不理想的情况下容易陷入局部最优解。因此对中心点需要不断进行调整，但是在数据量非常大时这一过程的工作量是相当大的。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122508286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt>图 4.3 错误的 Seeds Data Set 数据集的 K-Means 聚类结果</p>
+<h3 id="4-1-2-Seeds-Data-Set-数据集的-Mean-Shift-聚类测试"><a href="#4-1-2-Seeds-Data-Set-数据集的-Mean-Shift-聚类测试" class="headerlink" title="4.1.2 Seeds Data Set 数据集的 Mean-Shift 聚类测试"></a>4.1.2 Seeds Data Set 数据集的 Mean-Shift 聚类测试</h3><p>对 Seeds Data Set 数据集进行 Mean-Shift 聚类测试，在 K-Means 获得数据的基础上选取合适的列进行测试。由于 Mean-Shift 聚类需要调整各类参数，所以需要设置不同参数多次进行测试。</p>
+<p>首先取 r=0.006 情况下对应 K-Means 结果第一列的聚类情况，聚类结果如图 4.4 所示。从图中可以看出当 r=0.06 时对不同的数据会聚为数量不等的簇。原因是Mean-Shift为基于密度的聚类，聚成簇的数量是算法自行确定的。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122506729.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 4.4 r=0.006 情况下的 Mean-Shift 聚类情况</p>
+<p>之后固定数据并改变 r 的取值，观察聚类的变化。取第 1 与第 6 个数据进行聚类并绘图，其中取 r 值分别为 r=0.05、r=0.01、r=0.009、r=0.006、r=0.005。结果如图 4.5 所示。能够看出随着 r 值的减小，获得簇的数量越来越多。当 r=0.05 时只能聚为一类，而 r=0.005 时聚为了六类。所以对于基于密度的聚类算法来说，初始值的设定左右着最终得出的聚类结果。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122508286.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 4.5 取不同 r 值情况下的 Mean-Shift 聚类情况</p>
+<h3 id="4-1-3-Seeds-Data-Set-数据集的-EM-聚类测试"><a href="#4-1-3-Seeds-Data-Set-数据集的-EM-聚类测试" class="headerlink" title="4.1.3 Seeds Data Set 数据集的 EM 聚类测试"></a>4.1.3 Seeds Data Set 数据集的 EM 聚类测试</h3><p>对 Seeds Data Set 数据集进行 EM 聚类测试，将每两个属性作为一组进行绘图，令 k=3 进行测试后结果如图 4.6 所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122508602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 4.6 Seeds Data Set 数据集的 EM 聚类结果</p>
+<p>在执行多次 EM 算法后获得在不同数据中 EM 聚类算法的准确率，如表 4.2 所示。在大部分情况下 EM 聚类的准确率略高于 K-Means 聚类，但是也会出现如第四次出现的低准确率的问题。且 EM 算法计算时间相较于 K-Means 算法更多，收敛较慢，不适合大规模数据集及高维数据集，但是结果比K-Means更稳定些。</p>
+<p>表 4.2 EM 准确率统计</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>第一类</th>
+<th>第二类</th>
+<th>第三类</th>
+<th>准确率</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>第一次</td>
+<td>47</td>
+<td>64</td>
+<td>99</td>
+<td>86.19%</td>
+</tr>
+<tr>
+<td>第二次</td>
+<td>79</td>
+<td>77</td>
+<td>54</td>
+<td>92.38%</td>
+</tr>
+<tr>
+<td>第三次</td>
+<td>67</td>
+<td>67</td>
+<td>76</td>
+<td>97.14%</td>
+</tr>
+<tr>
+<td>第四次</td>
+<td>116</td>
+<td>78</td>
+<td>16</td>
+<td>74.28%</td>
+</tr>
+<tr>
+<td>第五次</td>
+<td>57</td>
+<td>81</td>
+<td>72</td>
+<td>93.81%</td>
+</tr>
+<tr>
+<td>第六次</td>
+<td>74</td>
+<td>79</td>
+<td>57</td>
+<td>93.81</td>
+</tr>
+<tr>
+<td>第七次</td>
+<td>87</td>
+<td>53</td>
+<td>70</td>
+<td>91.90%</td>
+</tr>
+<tr>
+<td>第八次</td>
+<td>63</td>
+<td>54</td>
+<td>93</td>
+<td>89.04%</td>
+</tr>
+<tr>
+<td>第九次</td>
+<td>65</td>
+<td>47</td>
+<td>98</td>
+<td>86.67%</td>
+</tr>
+<tr>
+<td>第十次</td>
+<td>82</td>
+<td>79</td>
+<td>49</td>
+<td>90.00%</td>
+</tr>
+<tr>
+<td>平均准确率</td>
+<td></td>
+<td></td>
+<td></td>
+<td>89.52%</td>
+</tr>
+</tbody>
+</table>
+<h2 id="4-2-Diabetes-130-US-Hospitals-for-Years-1999-2008-Data-Set-的测试结果"><a href="#4-2-Diabetes-130-US-Hospitals-for-Years-1999-2008-Data-Set-的测试结果" class="headerlink" title="4.2 Diabetes 130-US Hospitals for Years 1999-2008 Data Set 的测试结果"></a>4.2 Diabetes 130-US Hospitals for Years 1999-2008 Data Set 的测试结果</h2><p>首先对 10 万条数据进行特定行、列组合的 K-Means 聚类（K=6）。结果如图 4.7 所示。之后再提取 5000 条数据、500 条数据分别进行 K-Means 聚类，结果如图 4.8 与图 4.9 所示。通过对比我们可与发现取数据集中的 500 至 5000 条数据与 10 万条数据的聚类结果大体一致，故在接下来的聚类操作中可适当减少聚类总数以减少计算量。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122508194.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 4.7 10 万条数据的 K-Means 聚类</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122508602.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 4.8 5000 条数据的 K-Means 聚类</p>
+<p><img src="https://img-blog.csdnimg.cn/2019030712250859.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 4.9 500 条数据的 K-Means 聚类</p>
+<p>从图中可看出第二个参数与第四个参数所构成的散点图能够被很好的聚类，故在 Mean-Shift 与 EM 算法中使用该组作为主要聚类对象。当 Mean-Shift 取 r=0.05 时获得的图如图 4.10 所示，当取 r=0.03 时获得的图如图 4.11 所示。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122504615.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 4.10 1000 条数据的、r=0.05 的 Mean-Shift 聚类</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122503740.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 4.11 1000 条数据的、r=0.03 的 Mean-Shift 聚类</p>
+<h2 id="4-3-Dow-Jones-Index-Data-Set-的测试结果"><a href="#4-3-Dow-Jones-Index-Data-Set-的测试结果" class="headerlink" title="4.3 Dow Jones Index Data Set 的测试结果"></a>4.3 Dow Jones Index Data Set 的测试结果</h2><p>该数据集的三种聚类方式所得结果分别如图 4.12、图 4.13、图 4.14 所示，其中 K-Means 聚类算法与 Mean-Shift 聚类算法使用了特征较为明显的两类进行聚类，EM聚类算法使用了所有类型交叉组合进行聚类。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122503684.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 4.12 Dow Jones Index Data Set 数据集的 K-Means 聚类结果</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122504779.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 4.13 Dow Jones Index Data Set 数据集的 Mean-Shift 聚类结果</p>
+<p><img src="https://img-blog.csdnimg.cn/20190307122508654.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM2MzI5OTcz,size_16,color_FFFFFF,t_70" alt></p>
+<p>图 4.14 Dow Jones Index Data Set 数据集的 EM 聚类结果</p>
+<h1 id="五、总结"><a href="#五、总结" class="headerlink" title="五、总结"></a>五、总结</h1><p>通过此次实验实践了三种较为简单的数据挖掘算法，深刻理解了所实验算法的优劣。其中 K-Means 算法的优点为简单高效且当簇接近高斯分布时效果较好，缺点是 k 值再现实聚类时大多难以估计，且初始的中心点对聚类结果影响很大；Mean-Shift 算法时基于密度的聚类算法，无法给定 k 值，会导致簇的数量不好控制，另外算法收敛的速度很大程度上与选取圆的 r 有关；EM 算法的思路是在概率模型中寻找参数的最大似然估计，收敛速度较慢但稳定性较 K-Means 来说更好。</p>
+<p>此次实验让我对数据挖掘的常用算法有了一定的掌握，对数据挖掘的思路有了初步的认识，对以后的科研生活有积极的推进作用。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://m7.music.126.net/20190307120559/28eea443b16d5aac911c2bedb4441f5d/ymusic/005c/5208/5658/760eae6e77eb4cb515d2a23be161ad0c.mp3"></li>
+                    
+                        <li title="1" data-url="http://m8c.music.126.net/20190307120751/9957492b4b508cc912318bd6e967fad0/ymusic/0ca4/1dd7/df4b/86e8bf58a5a367aad23e84bef976bba3.mp3"></li>
+                    
+                        <li title="2" data-url="http://m7.music.126.net/20190307120521/f19a94819dd89cb7dc17c9b5907598f5/ymusic/07fa/a2a1/35ea/732937117d6d0a8c13a81bb40184662e.mp3"></li>
+                    
+                        <li title="3" data-url="http://m8.music.126.net/20190307120508/c75905cce2905f40c2634b502eb2fbd4/ymusic/59c5/8f95/298d/11d842f39fb503bb9b29c37ad4080a14.mp3"></li>
+                    
+                        <li title="4" data-url="http://m8.music.126.net/20190307120912/89230064e2f4f58cb12677b722111a37/ymusic/259e/f1e2/7b19/5eb98ca23b1e60066e21dc4e23f75afe.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、数据认知"><span class="toc-number">1.</span> <span class="toc-text">一、数据认知</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Seeds-Data-Set"><span class="toc-number">1.1.</span> <span class="toc-text">Seeds Data Set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Diabetes-130-US-Hospitals-for-Years-1999-2008-Data-Set"><span class="toc-number">1.2.</span> <span class="toc-text">Diabetes 130-US Hospitals for Years 1999-2008 Data Set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Dow-Jones-Index-Data-Set"><span class="toc-number">1.3.</span> <span class="toc-text">Dow Jones Index Data Set</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、数据预处理"><span class="toc-number">2.</span> <span class="toc-text">二、数据预处理</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Seeds-Data-Set-的数据预处理"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Seeds Data Set 的数据预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-Diabetes-130-US-Hospitals-for-Years-1999-2008-Data-Set-的数据预处理"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 Diabetes 130-US Hospitals for Years 1999-2008 Data Set 的数据预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-Dow-Jones-Index-Data-Set-的数据预处理"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 Dow Jones Index Data Set 的数据预处理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、聚类算法"><span class="toc-number">3.</span> <span class="toc-text">三、聚类算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-K-Means-聚类算法"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 K-Means 聚类算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-Mean-Shift-聚类算法"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 Mean-Shift 聚类算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-EM-聚类算法"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 EM 聚类算法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-Seeds-Data-Set-的测试结果"><span class="toc-number">3.4.</span> <span class="toc-text">4.1 Seeds Data Set 的测试结果</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-1-Seeds-Data-Set-数据集的-K-Means-聚类测试"><span class="toc-number">3.4.1.</span> <span class="toc-text">4.1.1 Seeds Data Set 数据集的 K-Means 聚类测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-2-Seeds-Data-Set-数据集的-Mean-Shift-聚类测试"><span class="toc-number">3.4.2.</span> <span class="toc-text">4.1.2 Seeds Data Set 数据集的 Mean-Shift 聚类测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-1-3-Seeds-Data-Set-数据集的-EM-聚类测试"><span class="toc-number">3.4.3.</span> <span class="toc-text">4.1.3 Seeds Data Set 数据集的 EM 聚类测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-Diabetes-130-US-Hospitals-for-Years-1999-2008-Data-Set-的测试结果"><span class="toc-number">3.5.</span> <span class="toc-text">4.2 Diabetes 130-US Hospitals for Years 1999-2008 Data Set 的测试结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-Dow-Jones-Index-Data-Set-的测试结果"><span class="toc-number">3.6.</span> <span class="toc-text">4.3 Dow Jones Index Data Set 的测试结果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、总结"><span class="toc-number">4.</span> <span class="toc-text">五、总结</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-135683623-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>
