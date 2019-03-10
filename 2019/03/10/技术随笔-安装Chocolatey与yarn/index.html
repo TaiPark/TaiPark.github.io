@@ -36,7 +36,7 @@
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">随笔-安装Chocolatey、yarn与萌妹子</h3>
+    <h3 class="subtitle">随笔-安装Chocolatey、yarn与小姐姐</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -54,7 +54,7 @@
     <div class="section">
         <div class="article">
     <div class="main">
-        <h1 class="title">随笔-安装Chocolatey、yarn与萌妹子</h1>
+        <h1 class="title">随笔-安装Chocolatey、yarn与小姐姐</h1>
         <div class="stuff">
             <span>三月 10, 2019</span>
             
@@ -86,6 +86,13 @@
 <hr>
 <p>安装小姐姐直接输入<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yarn add hexo-helper-live2d</span><br></pre></td></tr></table></figure></p>
 <p>下载速度是真的快我吹爆<br><img src="https://i.loli.net/2019/03/10/5c850fbd004bd.jpg" alt="QQ截图20190310212240"></p>
+<hr>
+<ul>
+<li>排坑4：配置小姐姐之后没有反应。</li>
+<li>出坑4：用<code>管理员身份</code>在blog根目录下执行<code>yarn add hexo-helper-live2d</code>，不使用管理员身份可能导致安装失败从而hexo爆炸的情况。<br>之后要选择你喜欢的小姐姐：<a href="https://huaji8.top/post/live2d-plugin-2.0/" target="_blank" rel="noopener">挑选小姐姐</a>。<br>以初音小姐姐为例，在blog根目录下输入：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install live2d-widget-model-miku</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>之后对<code>_config.yml</code>配置即可,注意<code>use</code>后面要换成你的小姐姐名字：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">live2d:</span><br><span class="line">  enable: true</span><br><span class="line">  scriptFrom: local</span><br><span class="line">  pluginRootPath: live2dw/</span><br><span class="line">  pluginJsPath: lib/</span><br><span class="line">  pluginModelPath: assets/</span><br><span class="line">  tagMode: false</span><br><span class="line">  debug: false</span><br><span class="line">  model:</span><br><span class="line">    use: live2d-widget-model-miku</span><br><span class="line">  display:</span><br><span class="line">    position: right</span><br><span class="line">    width: 150</span><br><span class="line">    height: 300</span><br><span class="line">  mobile:</span><br><span class="line">    show: true</span><br></pre></td></tr></table></figure></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
@@ -122,7 +129,7 @@
 
     </div>
 </div>
-<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"live2d-widget-model-wanko"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</body>
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
 <script src="/js/plugin.js"></script>
