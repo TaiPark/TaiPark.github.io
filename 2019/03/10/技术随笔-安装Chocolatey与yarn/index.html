@@ -63,11 +63,11 @@
 
         </div>
         <div class="content markdown">
-            <h3 id="起因：妄图给hexo网页添加一个看板娘小姐姐"><a href="#起因：妄图给hexo网页添加一个看板娘小姐姐" class="headerlink" title="起因：妄图给hexo网页添加一个看板娘小姐姐"></a>起因：妄图给hexo网页添加一个看板娘小姐姐</h3><p>看板娘小姐姐链接在此：<a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md" target="_blank" rel="noopener">看板娘小姐姐</a><br>然后就一路被骗到了Chocolatey官网里…</p>
+            <p><strong>起因：妄图给hexo网页添加一个看板娘小姐姐</strong><br>看板娘小姐姐链接在此：<a href="https://github.com/EYHN/hexo-helper-live2d/blob/master/README.zh-CN.md" target="_blank" rel="noopener">看板娘小姐姐</a><br>然后就一路被骗到了Chocolatey官网里…</p>
 <hr>
 <ul>
 <li>排坑1：Chocolatey使用管理员身份安装，直接在User环境下使用cmd安装会报错。</li>
-<li>出坑1：以win10为例，过程为：开始 -&gt; Windows系统 -&gt; 右键’更多’ -&gt;以管理员身份运行<br>之后复制如下言论进cmd即可自动安装：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString(&apos;https://chocolatey.org/install.ps1&apos;))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;</span><br></pre></td></tr></table></figure>
+<li>出坑1：以win10为例，过程为：开始 -&gt; Windows系统 -&gt; 右键<code>更多</code>-&gt;以管理员身份运行<br>之后复制如下言论进cmd即可自动安装：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">@&quot;%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe&quot; -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command &quot;iex ((New-Object System.Net.WebClient).DownloadString(&apos;https://chocolatey.org/install.ps1&apos;))&quot; &amp;&amp; SET &quot;PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin&quot;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <hr>
@@ -96,8 +96,10 @@
 <hr>
 <ul>
 <li>排坑5：<code>hexo g -d</code>时报错：ERROR Plugin load failed: hexo-deployer-git</li>
-<li>出坑：执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure></li>
+<li>出坑：执行<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-deployer-git --save</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
+<p>最后的效果：<br><img src="https://i.loli.net/2019/03/12/5c872adf498e3.jpg" alt="QQ截图20190312114316"></p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
@@ -126,7 +128,7 @@
     </div>
     
         <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#起因：妄图给hexo网页添加一个看板娘小姐姐"><span class="toc-number">1.</span> <span class="toc-text">起因：妄图给hexo网页添加一个看板娘小姐姐</span></a></li></ol>
+            
         </div>
     
 </div>
