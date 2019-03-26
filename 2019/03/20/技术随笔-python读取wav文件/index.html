@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>share - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="瑞士军刀
+
+
+网址
+简介
+
+
+
+
+nicetool
+收集打造各种简单易用在线工具，无需注册和下载安装即可使用
+
+
+虫部落快搜
+搜索引擎大合集
+
+
+好人卡简单导航
+没有广告的清爽网站导航，有新世界的大,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">随笔-python读取wav文件</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">随笔-python读取wav文件</h1>
+        <div class="stuff">
+            <span>三月 20, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/随笔/">随笔</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p>首先需要<code>pip</code>一下wave库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install wave</span><br></pre></td></tr></table></figure></p>
+<p>安装完成后<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> wave</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开WAV文档</span></span><br><span class="line">f = wave.open(<span class="string">r"D:\2016071808484828.wav"</span>, <span class="string">"rb"</span>)</span><br><span class="line"><span class="comment"># 读取格式信息</span></span><br><span class="line"><span class="comment"># (nchannels, sampwidth, framerate, nframes, comptype, compname)</span></span><br><span class="line">params = f.getparams()</span><br><span class="line">nchannels, sampwidth, framerate, nframes = params[:<span class="number">4</span>]</span><br><span class="line"><span class="comment"># 读取波形数据</span></span><br><span class="line">str_data = f.readframes(nframes)</span><br><span class="line">f.close()</span><br><span class="line"><span class="comment">#将波形数据转换为数组</span></span><br><span class="line">wave_data = np.fromstring(str_data, dtype=np.short)</span><br><span class="line">wave_data.shape = <span class="number">-1</span>, <span class="number">2</span></span><br><span class="line">wave_data = wave_data.T</span><br><span class="line">time = np.arange(<span class="number">0</span>, nframes) * (<span class="number">1.0</span> / framerate)</span><br><span class="line"><span class="comment"># 绘制波形</span></span><br><span class="line">plt.subplot(<span class="number">211</span>) </span><br><span class="line">plt.plot(time, wave_data[<span class="number">0</span>])</span><br><span class="line">plt.subplot(<span class="number">212</span>) </span><br><span class="line">plt.plot(time, wave_data[<span class="number">1</span>], c=<span class="string">"g"</span>)</span><br><span class="line">plt.xlabel(<span class="string">"time (seconds)"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
+<p>run一下<br>结果如图所示<br><img src="https://i.loli.net/2019/03/26/5c99a2db02f51.png" alt="QQ图片20190326115234"></p>
+<hr>
+<h3 id="bug记录："><a href="#bug记录：" class="headerlink" title="bug记录："></a>bug记录：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;wav.py&quot;, line 21, in &lt;module&gt;</span><br><span class="line">    plt.plot(time, wave_data[0])</span><br><span class="line">  File &quot;D:\Anaconda\lib\site-packages\matplotlib\pyplot.py&quot;, line 2811, in plot</span><br><span class="line">    is not None else &#123;&#125;), **kwargs)</span><br><span class="line">  File &quot;D:\Anaconda\lib\site-packages\matplotlib\__init__.py&quot;, line 1810, in inner</span><br><span class="line">    return func(ax, *args, **kwargs)</span><br><span class="line">  File &quot;D:\Anaconda\lib\site-packages\matplotlib\axes\_axes.py&quot;, line 1611, in plot</span><br><span class="line">    for line in self._get_lines(*args, **kwargs):</span><br><span class="line">  File &quot;D:\Anaconda\lib\site-packages\matplotlib\axes\_base.py&quot;, line 393, in _grab_next_args</span><br><span class="line">    yield from self._plot_args(this, kwargs)</span><br><span class="line">  File &quot;D:\Anaconda\lib\site-packages\matplotlib\axes\_base.py&quot;, line 370, in _plot_args</span><br><span class="line">    x, y = self._xy_from_xy(x, y)</span><br><span class="line">  File &quot;D:\Anaconda\lib\site-packages\matplotlib\axes\_base.py&quot;, line 231, in _xy_from_xy</span><br><span class="line">    &quot;have shapes &#123;&#125; and &#123;&#125;&quot;.format(x.shape, y.shape))</span><br><span class="line">ValueError: x and y must have same first dimension, but have shapes (3755200,) and (1877600,)</span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://m7.music.126.net/20190313150737/4e30cae567d1cab6b24edf533ccb6554/ymusic/0483/4838/35b5/7878359858baaa442edce682763addc7.mp3"></li>
+                    
+                        <li title="1" data-url="http://m8c.music.126.net/20190313151059/5bea8436041e778ca62d3803ff775f39/ymusic/cd09/5c39/e781/db207aa33fe7fc06b3a4cc48e55c7cf3.mp3"></li>
+                    
+                        <li title="2" data-url="http://m8c.music.126.net/20190313151146/a7606624c0ef4fd6e8c8e9ae41d1b1e3/ymusic/30c8/0299/3da3/d3b66580808011c0ce746a4d3bc32f25.mp3"></li>
+                    
+                        <li title="3" data-url="http://m8c.music.126.net/20190313151242/913a724025681bd2e7d081b6652e8789/ymusic/5f85/6204/e7dd/db0a3e79d134101a577c1329845c5055.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#bug记录："><span class="toc-number">1.</span> <span class="toc-text">bug记录：</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-135683623-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>
+
+<!--鼠标点击-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>
