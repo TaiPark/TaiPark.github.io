@@ -53,7 +53,7 @@ nicetool
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">随笔-python读取wav文件</h3>
+    <h3 class="subtitle">仿真学笔记</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -71,23 +71,37 @@ nicetool
     <div class="section">
         <div class="article">
     <div class="main">
-        <h1 class="title">随笔-python读取wav文件</h1>
+        <h1 class="title">仿真学笔记</h1>
         <div class="stuff">
-            <span>三月 20, 2019</span>
+            <span>三月 26, 2019</span>
             
-  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/随笔/">随笔</a></li></ul>
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/仿真/">仿真</a></li></ul>
 
 
         </div>
         <div class="content markdown">
-            <h3 id="起因：声纳渗流检测项目要用这个玩意"><a href="#起因：声纳渗流检测项目要用这个玩意" class="headerlink" title="起因：声纳渗流检测项目要用这个玩意"></a>起因：声纳渗流检测项目要用这个玩意</h3><p>吐槽一下万恶的<code>.dat</code>文件，要是啥都编译不了记得扔进<code>cool edit pro</code>里看下是不是音频文件。</p>
+            <h3 id="sSs级任务："><a href="#sSs级任务：" class="headerlink" title="sSs级任务："></a>sSs级任务：</h3><ul>
+<li>一个船闸，7:00到18:00开放。船舶首先要通过取票系统拿到自己的号，在等待区等待。一共有3个航道，其中2个航道同时工作，哪个航道排到几号，这个号码的船就去哪个航道，叫号系统按顺序叫号，叫号不会发生重复现象；第3个航道当排队超过10艘船时开放，排队规则同前两个。</li>
+<li>要求：设计排队系统，到达和服务采用不同的模式，要求选取合适的分布参数，分别仿真平时和忙时的情况，进行终止型仿真，并统计分析该系统的性能指标。给定一个仿真置信区间，进行结果分析。</li>
+</ul>
 <hr>
-<p>首先需要<code>pip</code>一下wave库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install wave</span><br></pre></td></tr></table></figure></p>
-<p>安装完成后<br><figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> wave</span><br><span class="line"><span class="keyword">from</span> matplotlib <span class="keyword">import</span> pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打开WAV文档</span></span><br><span class="line">f = wave.open(<span class="string">r"D:\2016071808484828.wav"</span>, <span class="string">"rb"</span>)</span><br><span class="line"><span class="comment"># 读取格式信息</span></span><br><span class="line"><span class="comment"># (nchannels, sampwidth, framerate, nframes, comptype, compname)</span></span><br><span class="line">params = f.getparams()</span><br><span class="line">nchannels, sampwidth, framerate, nframes = params[:<span class="number">4</span>]</span><br><span class="line"><span class="comment"># 读取波形数据</span></span><br><span class="line">str_data = f.readframes(nframes)</span><br><span class="line">f.close()</span><br><span class="line"><span class="comment">#将波形数据转换为数组</span></span><br><span class="line">wave_data = np.fromstring(str_data, dtype=np.short)</span><br><span class="line">wave_data.shape = <span class="number">-1</span>, <span class="number">2</span></span><br><span class="line">wave_data = wave_data.T</span><br><span class="line">time = np.arange(<span class="number">0</span>, nframes) * (<span class="number">1.0</span> / framerate)</span><br><span class="line"><span class="comment"># 绘制波形</span></span><br><span class="line">plt.subplot(<span class="number">211</span>) </span><br><span class="line">plt.plot(time, wave_data[<span class="number">0</span>])</span><br><span class="line">plt.subplot(<span class="number">212</span>) </span><br><span class="line">plt.plot(time, wave_data[<span class="number">1</span>], c=<span class="string">"g"</span>)</span><br><span class="line">plt.xlabel(<span class="string">"time (seconds)"</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure></p>
-<p>run一下<br>结果如图所示<br><img src="https://i.loli.net/2019/03/26/5c99a2db02f51.png" alt="QQ图片20190326115234"></p>
+<h3 id="基本概念："><a href="#基本概念：" class="headerlink" title="基本概念："></a>基本概念：</h3><ul>
+<li>离散事件系统：<br>系统中的状态只是在离散时间点上发生变化, 而且这些离散时间点一般是不确定的。</li>
+<li>实体：<br>– 临时实体：在系统中只存在一段时间的实体。这类实体由系统外部到达系统, 通过系统, 最终离开系统；<br>– 永久实体：永久驻留在系统中的实体。只要系统处于活动状态, 这些实体就存在, 或者说, 永久实体是系统处于活动的必要条件。</li>
+<li>事件：<br>引起系统状态发生变化的行为。</li>
+<li>活动：<br>由若干个有序事件及活动组成。</li>
+<li>仿真钟：<br>– 离散事件动态系统的状态本来就只在离散时间点上发生变化，因而不需要进行离散化处理；<br>– 由于引起状态变化的事件发生时间的随机性，仿真钟的推进步长则完全是随机的；<br>– 两个相邻发生的事件之间系统状态不会发生任何变化，因而仿真钟可以跨过这些“不活动”周期；<br>– 仿真钟的推进呈现跳跃性，推进速度具有随机性。</li>
+<li>统计计数器：<br>– 某一次仿真运行得到的状态变化过程只不过是随机过程的一次取样,它们只有在统计意义下才有参考价值；<br>– 在仿真模型中, 需要有一个统计计数部件, 以便统计系统中的有关变量。</li>
+</ul>
 <hr>
-<h3 id="bug记录："><a href="#bug记录：" class="headerlink" title="bug记录："></a>bug记录：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;wav.py&quot;, line 21, in &lt;module&gt;</span><br><span class="line">    plt.plot(time, wave_data[0])</span><br><span class="line">  File &quot;D:\Anaconda\lib\site-packages\matplotlib\pyplot.py&quot;, line 2811, in plot</span><br><span class="line">    is not None else &#123;&#125;), **kwargs)</span><br><span class="line">  File &quot;D:\Anaconda\lib\site-packages\matplotlib\__init__.py&quot;, line 1810, in inner</span><br><span class="line">    return func(ax, *args, **kwargs)</span><br><span class="line">  File &quot;D:\Anaconda\lib\site-packages\matplotlib\axes\_axes.py&quot;, line 1611, in plot</span><br><span class="line">    for line in self._get_lines(*args, **kwargs):</span><br><span class="line">  File &quot;D:\Anaconda\lib\site-packages\matplotlib\axes\_base.py&quot;, line 393, in _grab_next_args</span><br><span class="line">    yield from self._plot_args(this, kwargs)</span><br><span class="line">  File &quot;D:\Anaconda\lib\site-packages\matplotlib\axes\_base.py&quot;, line 370, in _plot_args</span><br><span class="line">    x, y = self._xy_from_xy(x, y)</span><br><span class="line">  File &quot;D:\Anaconda\lib\site-packages\matplotlib\axes\_base.py&quot;, line 231, in _xy_from_xy</span><br><span class="line">    &quot;have shapes &#123;&#125; and &#123;&#125;&quot;.format(x.shape, y.shape))</span><br><span class="line">ValueError: x and y must have same first dimension, but have shapes (3755200,) and (1877600,)</span><br></pre></td></tr></table></figure>
-<p><strong>解决方式：</strong><br>格式工厂不靠谱，还是用<code>cool edit pro</code>转wav格式吧。</p>
+<h3 id="排队系统："><a href="#排队系统：" class="headerlink" title="排队系统："></a>排队系统：</h3><ul>
+<li>实体到达模式：<br>用到达时间间隔来描述, 可分为确定性到达及随机性到达。<br>随机性到达采用概率分布来描述, 最常采用的<strong>泊松到达</strong>。<br>平稳泊松过程。</li>
+<li>服务模式：<br>描述服务台为顾客服务的时间：可以是确定性的, 也可能是随机的。</li>
+<li>排队规则：<br>– FIFO——先到先服务;<br>– LIFO——后到先服务;<br>– 按优先级别服务——根据队列中实体的重要程度选择最优先服务者。</li>
+<li>服务流程：<br>多个服务台, 多个队列, 如何从某一个队列中选择某一个实体服务, 包括实体可否换队及换队规则等<br>排队系统中的上述四个特征, 一般用符号<code>GI/G/S</code>来表示, 其中:<br>– GI(General Independent)—-到达模式。到达时间间隔服从指数分布, 用M表示，Erlang分布用表示, 表示Erlang分布的维数;确定性时间间隔用表示。<br>– G(General)—-服务时间的分布, 分布函数的符号与GI相同。<br>– S—-单队多服务台的数目, 且按FIFO规则服务。</li>
+<li>性能指标：<br>– 稳态平均延时间d<br>– 实体通过系统的稳态平均滞留时间w<br>– 稳态平均队长Q<br>– 系统中稳态平均实体数L<br>存在条件：服务台利用率小于1。</li>
+</ul>
+<hr>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
@@ -114,7 +128,7 @@ nicetool
     </div>
     
         <div class="side">
-            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#起因：声纳渗流检测项目要用这个玩意"><span class="toc-number">1.</span> <span class="toc-text">起因：声纳渗流检测项目要用这个玩意</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bug记录："><span class="toc-number">2.</span> <span class="toc-text">bug记录：</span></a></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#sSs级任务："><span class="toc-number">1.</span> <span class="toc-text">sSs级任务：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本概念："><span class="toc-number">2.</span> <span class="toc-text">基本概念：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排队系统："><span class="toc-number">3.</span> <span class="toc-text">排队系统：</span></a></li></ol>
         </div>
     
 </div>
