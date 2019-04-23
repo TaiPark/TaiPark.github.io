@@ -1,0 +1,253 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>share - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="瑞士军刀
+
+
+网址
+简介
+
+
+
+
+nicetool
+收集打造各种简单易用在线工具，无需注册和下载安装即可使用
+
+
+虫部落快搜
+搜索引擎大合集
+
+
+好人卡简单导航
+没有广告的清爽网站导航，有新世界的大,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Git</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Git</h1>
+        <div class="stuff">
+            <span>四月 23, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/git/">git</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h3 id="建立仓库"><a href="#建立仓库" class="headerlink" title="建立仓库"></a>建立仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+<h3 id="添加文件到仓库"><a href="#添加文件到仓库" class="headerlink" title="添加文件到仓库"></a>添加文件到仓库</h3><p>工作区-&gt;暂存区<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add &lt;file&gt;</span><br></pre></td></tr></table></figure></p>
+<h3 id="提交文件到仓库"><a href="#提交文件到仓库" class="headerlink" title="提交文件到仓库"></a>提交文件到仓库</h3><p>暂存区-&gt;分支<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git commit -m &quot;wrote a file&quot;</span><br></pre></td></tr></table></figure></p>
+<p>可以多次add文件，然后一次性提交。</p>
+<h3 id="查看仓库当前状态"><a href="#查看仓库当前状态" class="headerlink" title="查看仓库当前状态"></a>查看仓库当前状态</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status</span><br></pre></td></tr></table></figure>
+<h3 id="查看修改内容"><a href="#查看修改内容" class="headerlink" title="查看修改内容"></a>查看修改内容</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git diff &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="查看提交日志"><a href="#查看提交日志" class="headerlink" title="查看提交日志"></a>查看提交日志</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git log</span><br><span class="line">git log --pretty=oneline</span><br></pre></td></tr></table></figure>
+<h3 id="回退"><a href="#回退" class="headerlink" title="回退"></a>回退</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git reset -hard HEAD^</span><br><span class="line">git reset -hard &lt;版本号前几位&gt;</span><br></pre></td></tr></table></figure>
+<p>上版本：HEAD^<br>上上版本：HEAD^^<br>上100版本：HEAD~100</p>
+<h3 id="查看历史命令"><a href="#查看历史命令" class="headerlink" title="查看历史命令"></a>查看历史命令</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reflog</span><br></pre></td></tr></table></figure>
+<h3 id="撤销"><a href="#撤销" class="headerlink" title="撤销"></a>撤销</h3><ul>
+<li><p>工作区撤销：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -- &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<p>  让文件回到最近一次<code>git commit</code>或<code>git add</code>状态<br>  <br></p>
+</li>
+<li><p>暂存区撤销：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git reset HEAD &lt;file&gt;</span><br></pre></td></tr></table></figure>
+<p>  把暂存区的修改回退到工作区。当我们用<code>HEAD</code>时，表示最新的版本。</p>
+<h3 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm &lt;file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<h3 id="链接Github"><a href="#链接Github" class="headerlink" title="链接Github"></a>链接Github</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote add origin git@github.com:&lt;地址&gt;.git</span><br></pre></td></tr></table></figure>
+<h3 id="push到github"><a href="#push到github" class="headerlink" title="push到github"></a>push到github</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
+<p>第一次推送master分支加上-u，会关联本地master与远程master<br>之后只要本地提交后<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure></p>
+<p>即可</p>
+<h3 id="pull到本地"><a href="#pull到本地" class="headerlink" title="pull到本地"></a>pull到本地</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@github.com:&lt;地址&gt;.git</span><br></pre></td></tr></table></figure>
+<h3 id="创建与合并分支"><a href="#创建与合并分支" class="headerlink" title="创建与合并分支"></a>创建与合并分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">创建dev分支（git checkout命令加上-b参数表示创建并切换）：</span><br><span class="line">git checkout -b dev</span><br><span class="line"></span><br><span class="line">查看当前分支（当前分支上加*）：</span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line">在dev分支上提交：</span><br><span class="line">git add readme.txt</span><br><span class="line">git commit -m &quot;branch test&quot;</span><br><span class="line"></span><br><span class="line">切回master：</span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line">合并master和dev（git merge命令用于合并指定分支到当前分支）：</span><br><span class="line">git merge dev</span><br><span class="line"></span><br><span class="line">合并完成，删除dev：</span><br><span class="line">git branch -d dev</span><br><span class="line"></span><br><span class="line">查看分支（仅有master了）：</span><br><span class="line">git branch</span><br></pre></td></tr></table></figure>
+<h3 id="冲突"><a href="#冲突" class="headerlink" title="冲突"></a>冲突</h3><p>当Git无法自动合并分支时，就必须首先解决冲突。解决冲突后，再提交，合并完成。<br>解决冲突就是把Git合并失败的文件手动编辑为我们希望的内容，再提交。</p>
+<p>用<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git log --graph</span><br></pre></td></tr></table></figure></p>
+<p>命令可以看到分支合并图。</p>
+<h3 id="保留分支"><a href="#保留分支" class="headerlink" title="保留分支"></a>保留分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">禁用Fast forward</span><br><span class="line">git merge --no-ff -m &quot;merge with no-ff&quot; dev</span><br><span class="line"></span><br><span class="line">log查看</span><br><span class="line">git log --graph --pretty=oneline --abbrev-commit</span><br></pre></td></tr></table></figure>
+<p>在实际开发中，我们应该按照几个基本原则进行分支管理：<br>首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；<br>干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；<br>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。<br>所以，团队合作的分支看起来就像这样：<br><img src="https://cdn.liaoxuefeng.com/cdn/files/attachments/001384909239390d355eb07d9d64305b6322aaf4edac1e3000/0" alt="开发原则"></p>
+<h3 id="储藏"><a href="#储藏" class="headerlink" title="储藏"></a>储藏</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git stash</span><br></pre></td></tr></table></figure>
+<h3 id="修复Bug分支"><a href="#修复Bug分支" class="headerlink" title="修复Bug分支"></a>修复Bug分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">储藏dev现场：</span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line">需要在master分支修改bug，创建临时分支：</span><br><span class="line">git checkout master</span><br><span class="line">git checkout -b issue-101</span><br><span class="line"></span><br><span class="line">修复bug结束后提交:</span><br><span class="line">git add &lt;文件&gt;</span><br><span class="line">git commit -m &quot;fix bug 101&quot;</span><br><span class="line"></span><br><span class="line">切换到master后合并：</span><br><span class="line">git checkout master</span><br><span class="line">git merge --no-ff &quot;merged bug fix 101&quot; issue-101</span><br><span class="line"></span><br><span class="line">回到dev：</span><br><span class="line">git checkout dev</span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line">查看工作现场：</span><br><span class="line">git stash list</span><br><span class="line"></span><br><span class="line">恢复现场：</span><br><span class="line">1.恢复并删除：git stach pop</span><br><span class="line">2.恢复不删除：git stash apply，需要用git stash drop删除</span><br></pre></td></tr></table></figure>
+<h3 id="Feature分支"><a href="#Feature分支" class="headerlink" title="Feature分支"></a>Feature分支</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">准备开发：</span><br><span class="line">git checkout -b feature-vulcan</span><br><span class="line">开发完成：</span><br><span class="line">git add vulcan.py</span><br><span class="line">git status</span><br><span class="line">git commit -m &quot;add vulcan&quot;</span><br><span class="line">切回dev合并：</span><br><span class="line">git checkout dev</span><br><span class="line">销毁（-D 强行删除）：</span><br><span class="line">git branch -D feature-vulcan</span><br></pre></td></tr></table></figure>
+<h3 id="Github多人协作"><a href="#Github多人协作" class="headerlink" title="Github多人协作"></a>Github多人协作</h3><ul>
+<li><p>查看远程库信息：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote</span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>推送分支：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin &lt;分支名&gt;</span><br></pre></td></tr></table></figure>
+<p>  <code>master</code>分支是主分支，因此要时刻与远程同步；<br>  <code>dev</code>分支是开发分支，团队所有成员都需要在上面工作，所以也需要与远程同步；</p>
+</li>
+<li><p>远程拿dev</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b dev origin/dev</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>合dev</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add env.txt</span><br><span class="line">git commit -m &quot;add env&quot;</span><br><span class="line">git push origin dev</span><br></pre></td></tr></table></figure>
+<p>  你的小伙伴的最新提交和你试图推送的提交有冲突，解决办法也很简单，Git已经提示我们，先用git pull把最新的提交从origin/dev抓下来，然后，在本地合并，解决冲突，再推送：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull</span><br></pre></td></tr></table></figure>
+<p>  git pull也失败了，原因是没有指定本地dev分支与远程origin/dev分支的链接，根据提示，设置dev和origin/dev的链接：</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git branch --set-upstream-to=origin/dev dev</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>因此，多人协作的工作模式通常是这样：</p>
+<p>首先，可以试图用<code>git push origin &lt;branch-name&gt;</code>推送自己的修改；<br>如果推送失败，则因为远程分支比你的本地更新，需要先用<code>git pull</code>试图合并；<br>如果合并有冲突，则解决冲突，并在本地提交；<br>没有冲突或者解决掉冲突后，再用<code>git push origin &lt;branch-name&gt;</code>推送就能成功！<br>如果<code>git pull</code>提示<code>no tracking information</code>，则说明本地分支和远程分支的链接关系没有创建，用命令<code>git branch --set-upstream-to &lt;branch-name&gt; origin/&lt;branch-name&gt;</code>。</p>
+<h3 id="rebase"><a href="#rebase" class="headerlink" title="rebase"></a>rebase</h3><p>整理log<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rebase</span><br></pre></td></tr></table></figure></p>
+<h3 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">git branch</span><br><span class="line">git checkout master</span><br><span class="line"></span><br><span class="line">加标签：</span><br><span class="line">git tag v1.0</span><br><span class="line"></span><br><span class="line">查看标签：</span><br><span class="line">git tag</span><br><span class="line"></span><br><span class="line">打以前版本的标签：</span><br><span class="line">git log --pretty=oneline --abbrev-commit</span><br><span class="line">git tag v0.9 &lt;版本号前几位&gt;</span><br><span class="line"></span><br><span class="line">-a:标签名</span><br><span class="line">-m：说明文字</span><br><span class="line">git tag -a v0.1 -m &quot;version 0.1 released&quot; 1094adb</span><br><span class="line"></span><br><span class="line">查看标签信息：</span><br><span class="line">git show v0.9</span><br><span class="line"></span><br><span class="line">删除标签：</span><br><span class="line">git tag -d v0.1</span><br><span class="line"></span><br><span class="line">推送远程标签：</span><br><span class="line">git push origin v1.0</span><br><span class="line"></span><br><span class="line">一次推送所有远程标签：</span><br><span class="line">git push origin --tags</span><br><span class="line"></span><br><span class="line">删除远程标签：</span><br><span class="line">git push origin :refs/tags/v0.9</span><br></pre></td></tr></table></figure>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://m7.music.126.net/20190313150737/4e30cae567d1cab6b24edf533ccb6554/ymusic/0483/4838/35b5/7878359858baaa442edce682763addc7.mp3"></li>
+                    
+                        <li title="1" data-url="http://m8c.music.126.net/20190313151059/5bea8436041e778ca62d3803ff775f39/ymusic/cd09/5c39/e781/db207aa33fe7fc06b3a4cc48e55c7cf3.mp3"></li>
+                    
+                        <li title="2" data-url="http://m8c.music.126.net/20190313151146/a7606624c0ef4fd6e8c8e9ae41d1b1e3/ymusic/30c8/0299/3da3/d3b66580808011c0ce746a4d3bc32f25.mp3"></li>
+                    
+                        <li title="3" data-url="http://m8c.music.126.net/20190313151242/913a724025681bd2e7d081b6652e8789/ymusic/5f85/6204/e7dd/db0a3e79d134101a577c1329845c5055.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#建立仓库"><span class="toc-number">1.</span> <span class="toc-text">建立仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#添加文件到仓库"><span class="toc-number">2.</span> <span class="toc-text">添加文件到仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#提交文件到仓库"><span class="toc-number">3.</span> <span class="toc-text">提交文件到仓库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看仓库当前状态"><span class="toc-number">4.</span> <span class="toc-text">查看仓库当前状态</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看修改内容"><span class="toc-number">5.</span> <span class="toc-text">查看修改内容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看提交日志"><span class="toc-number">6.</span> <span class="toc-text">查看提交日志</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#回退"><span class="toc-number">7.</span> <span class="toc-text">回退</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看历史命令"><span class="toc-number">8.</span> <span class="toc-text">查看历史命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#撤销"><span class="toc-number">9.</span> <span class="toc-text">撤销</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#删除"><span class="toc-number">10.</span> <span class="toc-text">删除</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#链接Github"><span class="toc-number">11.</span> <span class="toc-text">链接Github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#push到github"><span class="toc-number">12.</span> <span class="toc-text">push到github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pull到本地"><span class="toc-number">13.</span> <span class="toc-text">pull到本地</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#创建与合并分支"><span class="toc-number">14.</span> <span class="toc-text">创建与合并分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#冲突"><span class="toc-number">15.</span> <span class="toc-text">冲突</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#保留分支"><span class="toc-number">16.</span> <span class="toc-text">保留分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#储藏"><span class="toc-number">17.</span> <span class="toc-text">储藏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#修复Bug分支"><span class="toc-number">18.</span> <span class="toc-text">修复Bug分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Feature分支"><span class="toc-number">19.</span> <span class="toc-text">Feature分支</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Github多人协作"><span class="toc-number">20.</span> <span class="toc-text">Github多人协作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rebase"><span class="toc-number">21.</span> <span class="toc-text">rebase</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#标签"><span class="toc-number">22.</span> <span class="toc-text">标签</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-135683623-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>
+
+<!--鼠标点击-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>
