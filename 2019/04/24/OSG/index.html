@@ -1,0 +1,205 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>share - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="瑞士军刀
+
+
+网址
+简介
+
+
+
+
+nicetool
+收集打造各种简单易用在线工具，无需注册和下载安装即可使用
+
+
+虫部落快搜
+搜索引擎大合集
+
+
+好人卡简单导航
+没有广告的清爽网站导航，有新世界的大,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">OSG</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">OSG</h1>
+        <div class="stuff">
+            <span>四月 24, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/图像/">图像</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <p><em>该文档为计算机图形图像技术实践课堂笔记</em></p>
+<h3 id="OSG简介"><a href="#OSG简介" class="headerlink" title="OSG简介"></a>OSG简介</h3><p>OpenSceneGraph（简称OSG）使用OpenGL技术开发，是一套基于C++平台的应用程序接口（API），它让程序员能够更加快速、便捷地创建高性能、跨平台的交互式图形程序。它作为中间件（middleware）为应用软件提供了各种高级渲染特性，IO，以及空间结构组织函数；而更低层次的OpenGL硬件抽象层（HAL）实现了底层硬件显示的驱动。</p>
+<h3 id="OSG编译过程"><a href="#OSG编译过程" class="headerlink" title="OSG编译过程"></a>OSG编译过程</h3><p><a href="https://www.cnblogs.com/HUNTUN/p/5601699.html" target="_blank" rel="noopener">编译过程</a></p>
+<h3 id="OSG核心库"><a href="#OSG核心库" class="headerlink" title="OSG核心库"></a>OSG核心库</h3><p>OpenThreads：多线程库<br>osgAnimation：人物关节库<br>osgDB：几何库<br>osgFX：特效扩展库<br>osgGA：用户界面及用户界面适配器<br>osgManipulator：操作器，控制节点属性<br>osgParticle：粒子库<br>osgPlugins：插件<br>osgShadow：阴影库<br>osgSim：仿真库<br>osgTerrain：地形库<br>osgText：文字<br>osgUI：三维UI<br>osgUtil：工具<br>osgViewer：视景器工具库</p>
+<hr>
+<h3 id="OSG常用类"><a href="#OSG常用类" class="headerlink" title="OSG常用类"></a>OSG常用类</h3><p>Node：场景图形中的基类<br>Group：子树的父亲<br>Geode：叶子节点<br>LOD：根据观察点决定子节点复杂度<br>StateSet：状态集合<br>Modes：打开关闭OpenGL的固定功能</p>
+<hr>
+<h3 id="互操作"><a href="#互操作" class="headerlink" title="互操作"></a>互操作</h3><p>可以在别的语言中操作OSG模型</p>
+<hr>
+<h3 id="内存管理"><a href="#内存管理" class="headerlink" title="内存管理"></a>内存管理</h3><p>垃圾回收机制：<br>“废弃物”收集系统，内存引用计数器，节点采用引用记数的方式。记数为0时对象自动释放，同时引起连锁效果，若父节点删除，则子节点删除。<br>节点皆继承<code>Referenced</code>类，类中自带一个内存引用计数器，<code>ref_ptr&lt;&gt;</code>智能指针模板类使引用记数加一。<br><strong>不要</strong>使用标准C++指针变量来长时间保存继承自Referenced类的对象指针。<br>如果要保存节点用<code>ref_ptr&lt;&gt;</code>，使其计数器值为1，则不会被回收。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://m7.music.126.net/20190313150737/4e30cae567d1cab6b24edf533ccb6554/ymusic/0483/4838/35b5/7878359858baaa442edce682763addc7.mp3"></li>
+                    
+                        <li title="1" data-url="http://m8c.music.126.net/20190313151059/5bea8436041e778ca62d3803ff775f39/ymusic/cd09/5c39/e781/db207aa33fe7fc06b3a4cc48e55c7cf3.mp3"></li>
+                    
+                        <li title="2" data-url="http://m8c.music.126.net/20190313151146/a7606624c0ef4fd6e8c8e9ae41d1b1e3/ymusic/30c8/0299/3da3/d3b66580808011c0ce746a4d3bc32f25.mp3"></li>
+                    
+                        <li title="3" data-url="http://m8c.music.126.net/20190313151242/913a724025681bd2e7d081b6652e8789/ymusic/5f85/6204/e7dd/db0a3e79d134101a577c1329845c5055.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#OSG简介"><span class="toc-number">1.</span> <span class="toc-text">OSG简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSG编译过程"><span class="toc-number">2.</span> <span class="toc-text">OSG编译过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSG核心库"><span class="toc-number">3.</span> <span class="toc-text">OSG核心库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OSG常用类"><span class="toc-number">4.</span> <span class="toc-text">OSG常用类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#互操作"><span class="toc-number">5.</span> <span class="toc-text">互操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#内存管理"><span class="toc-number">6.</span> <span class="toc-text">内存管理</span></a></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-135683623-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>
+
+<!--鼠标点击-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>
