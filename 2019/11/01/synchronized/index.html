@@ -1,0 +1,219 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>share - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="瑞士军刀
+
+
+网址
+简介
+
+
+
+
+nicetool
+收集打造各种简单易用在线工具，无需注册和下载安装即可使用
+
+
+虫部落快搜
+搜索引擎大合集
+
+
+好人卡简单导航
+没有广告的清爽网站导航，有新世界的大,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">深入理解synchronized</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">深入理解synchronized</h1>
+        <div class="stuff">
+            <span>十一月 01, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/java/">java</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="synchronized"><a href="#synchronized" class="headerlink" title="synchronized"></a>synchronized</h1><h2 id="java中的锁"><a href="#java中的锁" class="headerlink" title="java中的锁"></a>java中的锁</h2><h3 id="1-ReentrantLock"><a href="#1-ReentrantLock" class="headerlink" title="1.ReentrantLock"></a>1.ReentrantLock</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ReentrantLock lock = <span class="keyword">new</span> ReentrantLock();</span><br><span class="line">lock.lock();</span><br><span class="line">xxx</span><br><span class="line">lock.unlock();</span><br></pre></td></tr></table></figure>
+<p>lock() -&gt; syn.Acquire(1) -&gt; !tryAcquire(1) -&gt; 获取当前线程 -&gt; 拿到getState(默认为0) -&gt; if(c == 0):1.没人给它加锁;2.其他线程正好执行完了把锁释放了(c == 0)，准备通知下一位(公平锁：排队；非公平锁：抢) -&gt; 判断要不要排队 -&gt; fasle表示没有队列 -&gt; 直接拿锁 -&gt; <code>cas</code>改锁(0-&gt;1) -&gt;拿锁 -&gt; 返回</p>
+<p>所有代码都在JAVA级别解决了，cas是CPU指令，很快。只有线程1执行的时候线程2来了之后才会native代码park()来阻塞(调用内核态)</p>
+<p>LOCK：<br>加锁成功 -&gt; 让Lock()方法正常返回；<br>加锁失败 -&gt; 让Lock()方法阻塞。<br>修改参数</p>
+<h3 id="2-synchronized"><a href="#2-synchronized" class="headerlink" title="2.synchronized"></a>2.synchronized</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">A a = <span class="keyword">new</span> A();</span><br><span class="line"><span class="keyword">synchronized</span>(a)&#123;</span><br><span class="line">    xxxx</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>锁的是<code>对象a</code>不是代码<br>synchronized的参数体现在对象头中<br>对象头是不是属于对象的一部分？对象在堆上的布局：<br>jol-core-0.10：查看对象布局<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">log.debug(ClassLayout.parseInstance(a).toPrintable()）;</span><br></pre></td></tr></table></figure></p>
+<ul>
+<li>对象头(12字节96bit-&gt;64位虚拟机) + 实例数据 + 对齐填充(补齐8bit的倍数)</li>
+<li>对象头中：对象标记(8字节64bit) + 类元信息(4字节32bit -&gt; JVM没有开启指针压缩的话是64bit)</li>
+<li>对象标记中：HashCode(小端存储模式，反过来了) + GC标记 + GC次数(4bit，最大的年龄是15) + synchronized状态(1bit是否可偏向+2bit锁状态) + 偏向锁持有者</li>
+<li>类元信息中：类.class文件放到元空间中，有个地址返回过来，这一段信息存在类元信息中 -&gt; 是一个指针(klass pointer)，它可以压缩</li>
+</ul>
+<p>synchronized在JDK1.6前是重量锁，1.6后优化</p>
+<p>线程互斥在JAVA不能完成，JAVA不能操作线程，要调用os，必须要从用户态进入到内核态（要保留现场）</p>
+<p>1.无锁不可偏向状态 0 01  （计算了HashCode,不够存偏向线程ID了）<br>2.无锁可偏向状态   1 01 （未计算HashCode）<br>3.偏向锁状态       1 01 （未计算HashCode，且存了偏向线程的ID）<br>4.轻量锁            00<br>5.重量锁            10</p>
+<p>两位无法表示，所以加了前一位偏向标识。<br>锁的膨胀基本上时不可逆的，在什么时候是可逆的？ -&gt; epoch</p>
+<h4 id="偏向锁"><a href="#偏向锁" class="headerlink" title="偏向锁"></a>偏向锁</h4><p>这个锁从头到尾只有一个线程访问<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">static</span> A a;</span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    a = <span class="keyword">new</span> A();</span><br><span class="line">    lock();</span><br><span class="line">    Thread t1 = <span class="keyword">new</span> Thread()&#123;</span><br><span class="line">        <span class="meta">@Override</span></span><br><span class="line">        <span class="function"><span class="keyword">public</span> <span class="title">run</span><span class="params">()</span></span>&#123;</span><br><span class="line">            lock();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;;</span><br><span class="line">    t1.start();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">synchronized</span>(a)&#123;</span><br><span class="line">        System.out.println(<span class="string">"lock"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="轻量锁"><a href="#轻量锁" class="headerlink" title="轻量锁"></a>轻量锁</h4><ul>
+<li>没有资源竞争的情况下 -&gt; 交替执行 -&gt; cas替换锁里信息</li>
+<li>加了hashCode() -&gt; 偏向锁但不能偏向的状态</li>
+</ul>
+<h4 id="重量锁"><a href="#重量锁" class="headerlink" title="重量锁"></a>重量锁</h4><p>有资源竞争了 -&gt; 同时执行</p>
+<p><img src="https://i.loli.net/2020/03/31/fX6v4tKdRoIMrHn.png" alt="微信截图_20200331213227"><br>首位0：不可偏向 首位1：可偏向 -&gt;可不可偏向不是有没有偏向<br>后两位01 偏向锁：有没有被偏向？要看有没有存线程ID<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">a = <span class="keyword">new</span> A();</span><br><span class="line"><span class="comment">// 此时是101 -&gt; 无锁可偏向状态</span></span><br><span class="line">a.hashCode();</span><br><span class="line"><span class="comment">// 此时是001 -&gt; 偏向锁但不能偏向</span></span><br><span class="line"><span class="keyword">synchronized</span>(a)&#123;</span><br><span class="line">    <span class="comment">//此时是000 直接膨胀成轻量级锁</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>-XX:+PrintFlagsInitial -&gt; -XX:BiasedLockingStartupDelay=4000 -&gt;偏向延迟默认4秒，JDK11关闭了偏向延迟,为什么要延迟？<br>如果锁总是被同一个线程持有，那么它的性能高，若它被别人持久，就会有一个偏向锁的撤销，然后升级，比较麻烦。运行main()的时候就有线程要启动，若不延迟的话运行后可能要撤销升级很多次</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://m7.music.126.net/20190313150737/4e30cae567d1cab6b24edf533ccb6554/ymusic/0483/4838/35b5/7878359858baaa442edce682763addc7.mp3"></li>
+                    
+                        <li title="1" data-url="http://m8c.music.126.net/20190313151059/5bea8436041e778ca62d3803ff775f39/ymusic/cd09/5c39/e781/db207aa33fe7fc06b3a4cc48e55c7cf3.mp3"></li>
+                    
+                        <li title="2" data-url="http://m8c.music.126.net/20190313151146/a7606624c0ef4fd6e8c8e9ae41d1b1e3/ymusic/30c8/0299/3da3/d3b66580808011c0ce746a4d3bc32f25.mp3"></li>
+                    
+                        <li title="3" data-url="http://m8c.music.126.net/20190313151242/913a724025681bd2e7d081b6652e8789/ymusic/5f85/6204/e7dd/db0a3e79d134101a577c1329845c5055.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#synchronized"><span class="toc-number">1.</span> <span class="toc-text">synchronized</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#java中的锁"><span class="toc-number">1.1.</span> <span class="toc-text">java中的锁</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-ReentrantLock"><span class="toc-number">1.1.1.</span> <span class="toc-text">1.ReentrantLock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-synchronized"><span class="toc-number">1.1.2.</span> <span class="toc-text">2.synchronized</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#偏向锁"><span class="toc-number">1.1.2.1.</span> <span class="toc-text">偏向锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#轻量锁"><span class="toc-number">1.1.2.2.</span> <span class="toc-text">轻量锁</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#重量锁"><span class="toc-number">1.1.2.3.</span> <span class="toc-text">重量锁</span></a></li></ol></li></ol></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-135683623-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>
+
+<!--鼠标点击-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>

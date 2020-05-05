@@ -1,0 +1,218 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>share - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="瑞士军刀
+
+
+网址
+简介
+
+
+
+
+nicetool
+收集打造各种简单易用在线工具，无需注册和下载安装即可使用
+
+
+虫部落快搜
+搜索引擎大合集
+
+
+好人卡简单导航
+没有广告的清爽网站导航，有新世界的大,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">浅谈MySQL优化</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">浅谈MySQL优化</h1>
+        <div class="stuff">
+            <span>十二月 12, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/数据库/">数据库</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="MySQL优化"><a href="#MySQL优化" class="headerlink" title="MySQL优化"></a>MySQL优化</h1><h2 id="慢查询分析"><a href="#慢查询分析" class="headerlink" title="慢查询分析"></a>慢查询分析</h2><p>超过long_query_time阈值的SQL语句的日志。<br>开启慢查询windows=&gt;<code>my.ini</code>或者linux=&gt;<code>my.conf</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">slow_query_log=1</span><br><span class="line">slow_query_log_file=&quot;&quot;</span><br><span class="line">long_query_time=10</span><br></pre></td></tr></table></figure></p>
+<p>log中：用户名、用户IP、线程ID、执行花费时间、执行获得锁的时间…<br>常用的慢查询分析工具：<br>从慢到快倒序的排序，TOP N的功能<br><code>mysqldumpslow.pl</code>，通过perl命令运行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-s 按照那种方式排序</span><br><span class="line">    c：访问计数</span><br><span class="line">    l：锁定时间</span><br><span class="line">    r:返回记录</span><br><span class="line">    al：平均锁定时间</span><br><span class="line">    ar：平均访问记录数</span><br><span class="line">    at：平均查询时间</span><br><span class="line">-t 是top n的意思，返回多少条数据。</span><br><span class="line">-g 可以跟上正则匹配模式，大小写不敏感。</span><br></pre></td></tr></table></figure></p>
+<h2 id="优化思路"><a href="#优化思路" class="headerlink" title="优化思路"></a>优化思路</h2><ul>
+<li>服务器硬件</li>
+<li>MySQL服务器优化</li>
+<li>SQL本身优化</li>
+<li>反范式设计优化</li>
+<li>索引优化<h2 id="SQL语句本身优化"><a href="#SQL语句本身优化" class="headerlink" title="SQL语句本身优化"></a>SQL语句本身优化</h2>先查看表结构再分析<br>不要随便写<code>子查询</code><br>一张200W的表一张3W的表，关联子查询，尝试改成关联查询<h2 id="反范式化设计"><a href="#反范式化设计" class="headerlink" title="反范式化设计"></a>反范式化设计</h2>三大范式：</li>
+</ul>
+<ol>
+<li>数据库表中所有字段都只有单一属性（不能有name-age列，而是拆分成name和age两个列），单一属性的列都是由基本数据类型构成的，设计出来的表都是简单的二维表；</li>
+<li>表中只有一个业务主键，不能存在非主键列只对部分主键的依赖关系（一对多外键，多对多中间表）；</li>
+<li>每一个非主属性既不部分依赖也不传递依赖于业务主键（主键是客户订单ID，所有属性都应该依赖于订单ID，但是表里有客户编号和客户姓名，若客户姓名改了客户编号也要改，就是说客户编号和客户姓名关联，不满足第三大范式，把客户姓名列移除，放到客户表中）。<br>三大范式减少了表之间的冗余，新增、删除、修改的数据量少了，易维护了。但是<strong>对查询来说可能会变慢</strong>。<br>字段允许<strong>适当冗余</strong>，以提高查询性能，但必须考虑数据一致。以空间换时间。<br>商品类目名称使用频率高，字段长度短，名称基本一不变，可在相关联的表中冗余存储类目名称，避免关联查询。<h2 id="索引优化"><a href="#索引优化" class="headerlink" title="索引优化"></a>索引优化</h2>索引是帮助MySQL高效获取数据的数据结构。<br>树形结构，MySQL中的索引是树形结构，innodb支持B+Tree，等值查询时会做自适应Hash。</li>
+</ol>
+<ul>
+<li>普通索引（一个索引只包含单列）</li>
+<li>唯一索引（主键索引不允许有空值，唯一索引允许有一个空值）</li>
+<li>复合索引（一个索引包含多个列）</li>
+<li>聚簇（集）索引（在同一个结构中保存了B-Tree索引和数据行）</li>
+<li>非聚簇（集）索引</li>
+</ul>
+<p>把字段变成符合索引，要注意<code>最左原则</code><br>是否用到索引 -&gt; <code>EXPLAIN + SQL</code> -&gt; <code>key</code><br>是否充分用到索引 -&gt; 是否用到了全部的索引字段 -&gt; <code>key_len</code> -&gt; 本身长度+字符类型+是否为null+字符集 -&gt; 看长度是否是所有字段的长度相加</p>
+<p>尽量全值匹配<br>Like查询当心，<code>like &quot;1%&quot;</code>能用到，<code>like &quot;%1&quot;</code>用不到<br>覆盖索引（查询字段全部是索引列时，<code>like &quot;%1&quot;</code>也能用到索引）尽量用<br>字符类型加双引号才能用到索引<br>范围条件（where、between…and等用到的字段）放（索引的）最后</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://m7.music.126.net/20190313150737/4e30cae567d1cab6b24edf533ccb6554/ymusic/0483/4838/35b5/7878359858baaa442edce682763addc7.mp3"></li>
+                    
+                        <li title="1" data-url="http://m8c.music.126.net/20190313151059/5bea8436041e778ca62d3803ff775f39/ymusic/cd09/5c39/e781/db207aa33fe7fc06b3a4cc48e55c7cf3.mp3"></li>
+                    
+                        <li title="2" data-url="http://m8c.music.126.net/20190313151146/a7606624c0ef4fd6e8c8e9ae41d1b1e3/ymusic/30c8/0299/3da3/d3b66580808011c0ce746a4d3bc32f25.mp3"></li>
+                    
+                        <li title="3" data-url="http://m8c.music.126.net/20190313151242/913a724025681bd2e7d081b6652e8789/ymusic/5f85/6204/e7dd/db0a3e79d134101a577c1329845c5055.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MySQL优化"><span class="toc-number">1.</span> <span class="toc-text">MySQL优化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#慢查询分析"><span class="toc-number">1.1.</span> <span class="toc-text">慢查询分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#优化思路"><span class="toc-number">1.2.</span> <span class="toc-text">优化思路</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SQL语句本身优化"><span class="toc-number">1.3.</span> <span class="toc-text">SQL语句本身优化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#反范式化设计"><span class="toc-number">1.4.</span> <span class="toc-text">反范式化设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#索引优化"><span class="toc-number">1.5.</span> <span class="toc-text">索引优化</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-135683623-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>
+
+<!--鼠标点击-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>

@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>share - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="瑞士军刀
+
+
+网址
+简介
+
+
+
+
+nicetool
+收集打造各种简单易用在线工具，无需注册和下载安装即可使用
+
+
+虫部落快搜
+搜索引擎大合集
+
+
+好人卡简单导航
+没有广告的清爽网站导航，有新世界的大,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">论海量数据存储</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">论海量数据存储</h1>
+        <div class="stuff">
+            <span>八月 24, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/大数据/">大数据</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="有限资源下的海量存储与快速查找"><a href="#有限资源下的海量存储与快速查找" class="headerlink" title="有限资源下的海量存储与快速查找"></a>有限资源下的海量存储与快速查找</h2><h3 id="面试题分析"><a href="#面试题分析" class="headerlink" title="面试题分析"></a>面试题分析</h3><ul>
+<li>在亿级URL中寻找黑名单</li>
+<li>将亿级乱序自然数排序<h4 id="存储的问题"><a href="#存储的问题" class="headerlink" title="存储的问题"></a>存储的问题</h4></li>
+<li><strong>链表</strong><ul>
+<li>插入删除很快</li>
+<li>若查找的元素在中部、尾部，需要将链表中的元素全部遍历 =&gt; 速度慢</li>
+</ul>
+</li>
+<li><strong>HashMap</strong><ul>
+<li>Hash碰撞，jdk1.8之前是头插法，之后尾插法</li>
+<li>随着碰撞的越来越多，链表存储越来越长，jdk1.8后进行升级，大于8的时候变成红黑树 =&gt; 速度快</li>
+<li>数组结构的存放模式能够通过下标快速获取数据</li>
+<li>不能满足海量数据的存储，因为太大了内存放不下，1万个int占用了1M的空间，10亿的数据需要10万兆</li>
+</ul>
+</li>
+<li><p><strong>BitMap</strong></p>
+<ul>
+<li><p>存储1 3 5 7：<br>用int存储 4个int<br>用bit存储 1byte</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">bit[] b = <span class="keyword">new</span> bit[<span class="number">8</span>];</span><br><span class="line">b[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">b[<span class="number">3</span>] = <span class="number">1</span>;</span><br><span class="line">b[<span class="number">5</span>] = <span class="number">1</span>;</span><br><span class="line">b[<span class="number">7</span>] = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">return</span> bit[<span class="number">1</span>] == <span class="number">1</span> ? <span class="keyword">true</span>:<span class="keyword">false</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>BitMap</strong>的思想：天然有序的状态，解决乱序自然数排序的问题</p>
+</li>
+<li>存储 1 3 5 7E<br>随着集合内最大元素的增大而增大，此时消耗的空间远大于基本的数据结构</li>
+<li>100W用户，1台MySQL统计日活，如何去统计？<br>用户有不重复的ID，若ID是数字可以通过位图法，只要登录了把用户ID的位置改成1.只要统计1的数字值即可得到日活用户</li>
+</ul>
+</li>
+<li><strong>布隆过滤器</strong><ul>
+<li>需求：在亿级URL中寻找黑名单</li>
+<li>布隆过滤器底层是一个二进制的数组结构，当有元素进来会变成1</li>
+<li>URL地址会经过多个hash()，拿到数字下标，并修改 =&gt; 多个hash增大随机性，减少hash碰撞的概率 =&gt; 数据增加误判率增加</li>
+<li>hash()势必会有哈希碰撞，不存在的值可能经过hash()拿到的值都为1 =&gt; 误判 =&gt; <strong>判断存在的不一定存在，判断不存在的一定不存在</strong></li>
+<li>随着位数组的长度越来越长，误判率越来越低</li>
+<li>存放的不是完整的数据，占用内存少，且新增查询够快，删除很麻烦 =&gt; 有位置共享，若删除置0，其他的元素去读可能就当做不存在了 =&gt; 第一种删除方法：用计数器映射，有元素来+1，删除-1（一般不用） =&gt; 第二种方法：不管，使用布隆过滤器需要元素的更改不是很频繁（new一个布隆过滤器然后替换）</li>
+<li>Google Guava包：提供布隆过滤器（传入预计插入数据与预计误判率），原生数据的各种操作。</li>
+</ul>
+</li>
+<li><p><strong>Redis的BitMaps</strong></p>
+<ul>
+<li>统计日活月活</li>
+<li><p>用户登录时update +1，是非关键性任务（热点数据问题），单节点的MySQL数据库并发比较好的是500-700，仅5000个人登录需要10台MySQL =&gt; 解决问题可以使用缓存数据库，用Redis分摊压力 =&gt; Redis并发高</p>
+  <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#标记登录用户</span></span><br><span class="line">setbit 20200324daily 1 1 </span><br><span class="line"><span class="comment">#查看共有多少人登录</span></span><br><span class="line">bitcount 20200324daily 0 -1 </span><br><span class="line"><span class="comment">#查看某用户是否登录</span></span><br><span class="line">getbit 20200324daily 1 </span><br><span class="line"><span class="comment">#查看连续三天登录的用户</span></span><br><span class="line">bitop and lianxusantian 20200324daily 20200325daily 20200326daily </span><br><span class="line">bitcount lianxusantian </span><br><span class="line">getbit lianxusantian 1</span><br></pre></td></tr></table></figure>
+<p>  UUID在位图法中处理 =&gt; 1、二进制表示 =&gt; 2、做一个不重复的数字ID的映射</p>
+</li>
+<li>bitcon寻址过程通过布隆过滤器可以做到</li>
+<li><strong>Redis为什么要实现BitMap？</strong><br>缓存穿透、缓存雪崩、缓存击穿的问题<br><strong>缓存雪崩</strong>：缓存雪崩是指缓存中数据大批量到过期时间，而查询数据量巨大，引起数据库压力过大甚至down机。和缓存击穿不同的是，缓存击穿指并发查同一条数据，缓存雪崩是不同数据都过期了，很多数据都查不到从而查数据库。 =&gt; 用<code>setnx(k,v),60s</code>，若有10W条数据都是60s =&gt; 60s后数据过期，而Redis中没有数据了，MySQL就需要承载压力导致宕机<br><strong>缓存穿透</strong>：缓存穿透是指缓存和数据库中都没有的数据，而用户不断发起请求，如发起为id为“-1”的数据或id为特别大不存在的数据。这时的用户很可能是攻击者，攻击会导致数据库压力过大。 =&gt; 发送Redis中没有的数据，Redis会去MySQL中找，导致数据库宕机 =&gt; 在Redis前面加一个<em>布隆过滤器</em>，请求来的时候先用其过滤，若是有的话再走正常的流程<br><strong>缓存击穿</strong>：缓存击穿是指缓存中没有但数据库中有的数据（一般是缓存时间到期），这时由于并发用户特别多，同时读缓存没读到数据，又同时去数据库去取数据，引起数据库压力瞬间增大，造成过大压力。</li>
+<li><strong>Redis逻辑思路</strong><br>1.MySQL中哪些是热点数据？<br>2.数据结构的问题？<br>3.如何大量导入Redis？ =&gt; pipeline管道模式<br>4.Redis测试，有没有达到解决热点数据的问题？ =&gt; 慢查询优化 =&gt; 上线之前进行压测 =&gt; value越大，并发能力越差 =&gt; Redis大value的问题 =&gt; 大于10k的KV就是大value，影响并发性能 =&gt; 用户并发到某个Key时如何抗住？<br>5.单节点的Redis变成集群方法 =&gt; 主从、哨兵、Cluster<br>6.数据一致性问题<h4 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h4></li>
+</ul>
+</li>
+<li>数据的离散性：选择性越多优化越差，如果在一列加上索引需要看一下当前一列不重复的值是多少，总共有多少值，进行比例越大，比例越大代表离散性越好</li>
+<li>like百分号加到前面：所有元素都要看，索引是无用的</li>
+<li>like百分号加到后面：有了一定的选择性</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://m7.music.126.net/20190313150737/4e30cae567d1cab6b24edf533ccb6554/ymusic/0483/4838/35b5/7878359858baaa442edce682763addc7.mp3"></li>
+                    
+                        <li title="1" data-url="http://m8c.music.126.net/20190313151059/5bea8436041e778ca62d3803ff775f39/ymusic/cd09/5c39/e781/db207aa33fe7fc06b3a4cc48e55c7cf3.mp3"></li>
+                    
+                        <li title="2" data-url="http://m8c.music.126.net/20190313151146/a7606624c0ef4fd6e8c8e9ae41d1b1e3/ymusic/30c8/0299/3da3/d3b66580808011c0ce746a4d3bc32f25.mp3"></li>
+                    
+                        <li title="3" data-url="http://m8c.music.126.net/20190313151242/913a724025681bd2e7d081b6652e8789/ymusic/5f85/6204/e7dd/db0a3e79d134101a577c1329845c5055.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#有限资源下的海量存储与快速查找"><span class="toc-number">1.</span> <span class="toc-text">有限资源下的海量存储与快速查找</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#面试题分析"><span class="toc-number">1.1.</span> <span class="toc-text">面试题分析</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#存储的问题"><span class="toc-number">1.1.1.</span> <span class="toc-text">存储的问题</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#补充："><span class="toc-number">1.1.2.</span> <span class="toc-text">补充：</span></a></li></ol></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-135683623-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>
+
+<!--鼠标点击-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>

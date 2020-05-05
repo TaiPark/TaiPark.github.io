@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>share - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="瑞士军刀
+
+
+网址
+简介
+
+
+
+
+nicetool
+收集打造各种简单易用在线工具，无需注册和下载安装即可使用
+
+
+虫部落快搜
+搜索引擎大合集
+
+
+好人卡简单导航
+没有广告的清爽网站导航，有新世界的大,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">Java JVM杂记</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">Java JVM杂记</h1>
+        <div class="stuff">
+            <span>一月 16, 2020</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/java/">java</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="JVM底层原理与性能调优"><a href="#JVM底层原理与性能调优" class="headerlink" title="JVM底层原理与性能调优"></a>JVM底层原理与性能调优</h2><h3 id="JVM是什么"><a href="#JVM是什么" class="headerlink" title="JVM是什么"></a>JVM是什么</h3><h4 id="综述"><a href="#综述" class="headerlink" title="综述"></a>综述</h4><ul>
+<li>同样的.class在不同机器上的机器码不一样 =&gt; JVM从软件层面屏蔽不同操作系统上在底层硬件与指令的区别</li>
+<li>.class文件被<strong>类加载子系统</strong>加载在<strong>运行时数据区中</strong>(JVM管理的虚拟内存)，放在方法区里。</li>
+<li>虚拟内存中的堆：放对象的</li>
+<li><strong>线程私有</strong>：虚拟机栈、本地方法栈、程序计数器 =&gt; 线程起了就有，线程亡了就没了，很好管理的，所以<strong>不需要垃圾回收</strong>。</li>
+<li>JVM中不能运行哪种语言？JVM只认识.class，Python不能在JVM上运行<h4 id="虚拟机栈"><a href="#虚拟机栈" class="headerlink" title="虚拟机栈"></a>虚拟机栈</h4></li>
+<li>是用来运行<strong>方法</strong>的 =&gt; 栈的特点是先进后出FILO</li>
+<li>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">work()&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">1</span>;  <span class="comment">//局部变量表（基础数据类型）</span></span><br><span class="line">    <span class="keyword">int</span> z = x * <span class="number">10</span>;     <span class="comment">//操作过程</span></span><br><span class="line">&#125;</span><br><span class="line">main()&#123;</span><br><span class="line">    Person person = <span class="keyword">new</span> Person();    <span class="comment">//person也是局部变量（引用）</span></span><br><span class="line">    person.work();  <span class="comment">//各种work()，多态</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  Run =&gt; 起一个线程，在线程中会创建一个<em>虚拟机栈</em> =&gt; 类中有两个方法，虚拟机栈中用两个<strong>栈帧</strong>对应 =&gt; 一个方法对应一个栈帧 =&gt; 先进<code>main()</code>再进<code>work()</code>，<code>main()</code>在栈底，<code>work()</code>在栈顶 =&gt; <code>work()</code>先出栈 =&gt; <code>main()</code>方法运行完，<code>main()</code>出栈，JVM不退出</p>
+</li>
+<li>虚拟机栈是有大小限制的，一般是1M，虚拟机栈的大小可以用<code>-Xss</code>参数修改</li>
+<li><strong>栈帧</strong>里：<br><strong>局部变量表</strong>（八大基础数据类型/引用）【Long类型拆成高低位存放在局部变量表中】<br><strong>操作数栈</strong>（各类操作过程都放在操作数栈里）<br><strong>动态链接</strong>（解决多态问题）<br><strong>返回地址</strong>（汇编查看：最终调用要调用ireturn）<h4 id="程序计数器"><a href="#程序计数器" class="headerlink" title="程序计数器"></a>程序计数器</h4>如何确定ireturn到何处？ =&gt; <strong>程序计数器</strong>中记录行数，一个int类型足够记录程序了 =&gt; 程序计数器不会发生OOM<h4 id="本地方法栈"><a href="#本地方法栈" class="headerlink" title="本地方法栈"></a>本地方法栈</h4>处理过程和虚拟机栈一样，唯一的不同时运行的native()方法。<br>比如<code>Object</code>中都有<code>public native int hashCode()</code>，本质上是调用C++，只要符合Java虚拟机规范就能动态链接上，放在Java的本地方法栈中。<h4 id="本地内存"><a href="#本地内存" class="headerlink" title="本地内存"></a>本地内存</h4>共10G，栈区2G，方法区加堆区5G，本地内存还剩3G =&gt; NIO/Kafka使用的技术：<code>ByteBuffer.allocateDirect</code>可以分配直接内存 =&gt; 零copy<h4 id="堆"><a href="#堆" class="headerlink" title="堆"></a>堆</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person person = <span class="keyword">new</span> Person()</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p><code>new Person()</code>会在<strong>堆</strong>中创建一个对象，<code>Person person</code>引用在<strong>虚拟机栈中局部变量表</strong>中，指向堆中new出的对象。<br>main()方法运行完，JVM不退出 =&gt; 垃圾回收</p>
+<h3 id="垃圾回收"><a href="#垃圾回收" class="headerlink" title="垃圾回收"></a>垃圾回收</h3><h4 id="什么样的对象被回收？"><a href="#什么样的对象被回收？" class="headerlink" title="什么样的对象被回收？"></a>什么样的对象被回收？</h4><p>可达性分析算法 =&gt; <code>GC ROOTS</code> =&gt; <code>main()</code>还在运行时，<code>Person()</code>就是一个GC ROOTS,这样的对象不会被回收（局部变量表引用的对象，静态变量/常量/本地方法栈亦可）=&gt; 凡与它有关的（使用=，引用关系），都属于可达，对象存活<br><code>main()</code>运行完了，栈帧没了，局部变量表肯定没了 =&gt; GC ROOTS没了 =&gt; 回收</p>
+<h4 id="垃圾回收算法有哪些？"><a href="#垃圾回收算法有哪些？" class="headerlink" title="垃圾回收算法有哪些？"></a>垃圾回收算法有哪些？</h4><p>回收主要针对<code>堆</code></p>
+<h5 id="1-复制回收算法"><a href="#1-复制回收算法" class="headerlink" title="1.复制回收算法"></a>1.复制回收算法</h5><p>有一半的预留空间 =&gt; 开启预留空间 =&gt; 复制不可回收的可达对象到预留空间 =&gt; 复制前的地方全变成预留空间 =&gt; 新空间接受对象</p>
+<ul>
+<li>优点：快</li>
+<li>缺点：空间利用率只有一半<h5 id="2-标记清除算法"><a href="#2-标记清除算法" class="headerlink" title="2.标记清除算法"></a>2.标记清除算法</h5>在回收的时刻根据可达性算法标记不可回收的对象 =&gt; 清除可回收的对象</li>
+<li>优点：100%空间利用率</li>
+<li>缺点：产生内存碎片<h5 id="3-标记整理算法"><a href="#3-标记整理算法" class="headerlink" title="3.标记整理算法"></a>3.标记整理算法</h5>标记后进行内存整理 =&gt; 物理移动，非常消耗性能</li>
+<li>优点：空间利用率100%且无碎片</li>
+<li><p>缺点：效率低</p>
+<h4 id="垃圾回收算法怎么用？"><a href="#垃圾回收算法怎么用？" class="headerlink" title="垃圾回收算法怎么用？"></a>垃圾回收算法怎么用？</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Person person = <span class="keyword">new</span> Person()</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>YoungGen(1/3) OldGen(2/3)<br>Eden(8/10) s0(1/10) s1(1/10)</p>
+</li>
+<li>90%以上的对象会被回收 =&gt; 经过复制算法不会从Eden去到s0区 =&gt; 若Eden放不下，空间不够直接去老年代</li>
+<li>对象优先在Eden区分配（复制算法，空间不够触发GC）=&gt; 复制后进入s0区 =&gt; 复制算法s0-s1来回晃，15次进老年代 =&gt; 15次通过参数设置，记录年龄的对象头最大是4位的1111，最大就15次</li>
+<li>老年代采用什么算法与<strong>垃圾回收器</strong>有关：<br>最早是<strong>Serial/Serial Old</strong>，<strong>单线程</strong>的暂停用户线程（Stop the world）后GC；<br>之后诞生了<strong>Parallel Scavenge/Parallel Old</strong>，<strong>多线程</strong>的暂停后GC；<br>随着内存增大，Stop the world时间很长（以前通过重启规避GC），即相应的最大时长变长，所以采用了新的<strong>ParNew/CMS</strong>，目的是减少Stop the world；<br><strong>CMS</strong>采用<em>标记清除算法</em>，将标记分为<strong>初始标记</strong>（标记GC ROOTS直接连的根，很快的<em>Stop the world</em>），根底下的内容<strong>并发标记</strong>，但是在这段时间内可能会有变化，所以再进行一次<strong>重新标记</strong>（查看并发标记时产生的垃圾，时间短<em>Stop the world</em>），之后的<strong>并发清理</strong>，再<strong>重置线程</strong>。它用标记清除算法有内存碎片，发现内存碎片很多，它就会在老年代中使用<strong>Serial Old</strong>来代替整理，有很大的不确定性。<br>jdk1.8之后出现<strong>G1</strong>算法。<h3 id="GC调优"><a href="#GC调优" class="headerlink" title="GC调优"></a>GC调优</h3>生产上<br><code>-XX:-HeapDumpOnOutOfMemoryError</code>：建议开启，一旦OOM就导出日志<br><code>-XX:+PrintGC</code>：看一下是不是FullGC<br>分析GC的频次高不高，耗时高不高</li>
+<li>本质上有三种方式：<br>1.根据需求调优JVM规划（堆内存大概设置到多少，若能预估出堆的内存，Max和Min建议设成一样的，不然需要GC才能拓展，会产生Stop the world）<br>2.优化运行时JVM环境，卡顿（堆的大小、新生代比例，吞吐量优先要设置很大的新生代，因为复制回收效率高，响应时间优先考虑CMS与G1）<br>3.OOM</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://m7.music.126.net/20190313150737/4e30cae567d1cab6b24edf533ccb6554/ymusic/0483/4838/35b5/7878359858baaa442edce682763addc7.mp3"></li>
+                    
+                        <li title="1" data-url="http://m8c.music.126.net/20190313151059/5bea8436041e778ca62d3803ff775f39/ymusic/cd09/5c39/e781/db207aa33fe7fc06b3a4cc48e55c7cf3.mp3"></li>
+                    
+                        <li title="2" data-url="http://m8c.music.126.net/20190313151146/a7606624c0ef4fd6e8c8e9ae41d1b1e3/ymusic/30c8/0299/3da3/d3b66580808011c0ce746a4d3bc32f25.mp3"></li>
+                    
+                        <li title="3" data-url="http://m8c.music.126.net/20190313151242/913a724025681bd2e7d081b6652e8789/ymusic/5f85/6204/e7dd/db0a3e79d134101a577c1329845c5055.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#JVM底层原理与性能调优"><span class="toc-number">1.</span> <span class="toc-text">JVM底层原理与性能调优</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#JVM是什么"><span class="toc-number">1.1.</span> <span class="toc-text">JVM是什么</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#综述"><span class="toc-number">1.1.1.</span> <span class="toc-text">综述</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#虚拟机栈"><span class="toc-number">1.1.2.</span> <span class="toc-text">虚拟机栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#程序计数器"><span class="toc-number">1.1.3.</span> <span class="toc-text">程序计数器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#本地方法栈"><span class="toc-number">1.1.4.</span> <span class="toc-text">本地方法栈</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#本地内存"><span class="toc-number">1.1.5.</span> <span class="toc-text">本地内存</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#堆"><span class="toc-number">1.1.6.</span> <span class="toc-text">堆</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#垃圾回收"><span class="toc-number">1.2.</span> <span class="toc-text">垃圾回收</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#什么样的对象被回收？"><span class="toc-number">1.2.1.</span> <span class="toc-text">什么样的对象被回收？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#垃圾回收算法有哪些？"><span class="toc-number">1.2.2.</span> <span class="toc-text">垃圾回收算法有哪些？</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-复制回收算法"><span class="toc-number">1.2.2.1.</span> <span class="toc-text">1.复制回收算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-标记清除算法"><span class="toc-number">1.2.2.2.</span> <span class="toc-text">2.标记清除算法</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-标记整理算法"><span class="toc-number">1.2.2.3.</span> <span class="toc-text">3.标记整理算法</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#垃圾回收算法怎么用？"><span class="toc-number">1.2.3.</span> <span class="toc-text">垃圾回收算法怎么用？</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#GC调优"><span class="toc-number">1.3.</span> <span class="toc-text">GC调优</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-135683623-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>
+
+<!--鼠标点击-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>

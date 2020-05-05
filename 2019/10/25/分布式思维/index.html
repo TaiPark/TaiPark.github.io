@@ -1,0 +1,207 @@
+
+<!DOCTYPE html>
+<html lang class="loading">
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>share - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="TaiPark,"> 
+    <meta name="description" content="瑞士军刀
+
+
+网址
+简介
+
+
+
+
+nicetool
+收集打造各种简单易用在线工具，无需注册和下载安装即可使用
+
+
+虫部落快搜
+搜索引擎大合集
+
+
+好人卡简单导航
+没有广告的清爽网站导航，有新世界的大,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">论分布式思维</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class="main">
+        <h1 class="title">论分布式思维</h1>
+        <div class="stuff">
+            <span>十月 25, 2019</span>
+            
+  <ul class="post-tags-list"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/分布式/">分布式</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h2 id="集群与分布式"><a href="#集群与分布式" class="headerlink" title="集群与分布式"></a>集群与分布式</h2><h3 id="1-单机结构横向复制-gt-集群结构"><a href="#1-单机结构横向复制-gt-集群结构" class="headerlink" title="1.单机结构横向复制 -&gt; 集群结构"></a>1.单机结构横向复制 -&gt; <strong>集群</strong>结构</h3><p>集群结构横向复制服务器，会有一个负载的问题，硬件负载均衡H5，或者常用的Nginx。<br>数据库也需要做主从，主DB负责写操作，从DB负责读操作，从主DB向从DB进行数据同步。数据库的压力主要来自于增删改查中的查询操作（特别是多表联合时，数据量膨胀）。如何控制主从？在读操作上加<code>@read</code>，写操作加<code>@write</code>，然后再自定义标签来指向不同的DB。<br>集群算不算分布式？<strong>不算</strong><br>【商品、用户、订单】若仅仅是商品服务的读跟不上了，要把所有的服务复制一份，那就浪费了，要做服务的拆分，把带商品模块的web服务器单独拿出来。但是用户、订单服务有时候也会需要调用商品信息，不仅仅是自己要用，别的模块可能也要使用。所以把商品的服务单独拿出来，变成多个服务层的服务器。</p>
+<h3 id="2-纵向切分任务-gt-分布式结构"><a href="#2-纵向切分任务-gt-分布式结构" class="headerlink" title="2.纵向切分任务 -&gt; 分布式结构"></a>2.纵向切分任务 -&gt; <strong>分布式</strong>结构</h3><p>分布式的发展就是把service层吃紧的service独立成单独服务（jar包启动）。<br><img src="https://i.loli.net/2020/04/05/7s1bK5mNMngYrUE.png" alt="微信截图_20200405100308"><br>每个服务都可能是一个集群（可复制多份），需要<strong>负载路由</strong>，需要<strong>服务发现</strong>。<code>Zookeeper</code>可以实现服务发现。<br><strong>DB中数据量大</strong>：分库/分区/分表操作。如果用<code>MySQL</code>写分库分表的话，对SQL语句是有影响的（库、表的名字会变，需要更改业务代码，有侵入性），一般用<code>Mycat</code>中间件，使分库分表像没有分的时候一样使用。做分区的话对SQL语句是没有侵入性的，但是分区对库没有办法减压。MySQL单表到达700W，性能会急剧下降。</p>
+<h3 id="3-微服务模式"><a href="#3-微服务模式" class="headerlink" title="3.微服务模式"></a>3.微服务模式</h3><p>分布式只是把service层拆出来了，用微服务来拆：producer下有自己的control/dao/service/DB（DB里的东西是不开放给其他服务的，都要通过接口访问），独立为一个<strong>完整的服务</strong>，从http到DB是全套的。<br><img src="https://i.loli.net/2020/04/05/ICkrSZ6i4gelPWU.png" alt="微信截图_20200405100700"><br><strong>服务治理</strong>：dubbo/Spring Cloud<br>跨系统（rpc）调用框架：RMI调用、webService、http请求，网络或其他方法达到服务间访问。在dubbo中实现了多种调用（最推荐dubbo协议），Spring Cloud使用http协议调用。</p>
+<h3 id="4-前端变化"><a href="#4-前端变化" class="headerlink" title="4.前端变化"></a>4.前端变化</h3><p>一种是给一个url，返回的是一整个html页面，另一种是返回json，利用ajax局部刷新，页面体验更好。<br>现在更多是<strong>MVVM</strong>模式，前后端分离的过程，前端只写静态的页面，打包后布在静态服务器上（<code>apache</code>/<code>nginx</code>），浏览器通过访问静态服务器得到静态页面，html页面会发ajax请求到后台服务器，后端只要发json即可渲染出页面。<br>会<strong>跨域</strong>，有解决方案：<br>最简单的方案是使用hash(ip)，在ip不变得情况下会一直与一台服务器交流，不跨域，但是可能会造成负载不均衡。<br>另一种方法是共享session。<code>Tomcat</code>自己的插件能够实现，<code>Spring-session</code>插件能够实现session共享，利用<code>Redis</code>能实现session共享。<br><img src="https://i.loli.net/2020/04/05/TPgkVNdnpofhG8Q.png" alt="微信截图_20200405103500"></p>
+<h3 id="5-架构依据"><a href="#5-架构依据" class="headerlink" title="5.架构依据"></a>5.架构依据</h3><p>系统目标的并发数（tps：每秒处理的事务数）是多少？单个<code>Tomcat</code>约规划500tps。<br>系统要承受多少数据量？<code>MySQL</code>单表700W，超过了要考虑分库分表或者做缓存。<br><strong>全站搜索</strong>：不指定业务表的搜索，任何一个数据like匹配。一般使用<code>ES</code>/<code>solr</code>搜索中间件。<br>总体架构：<br><img src="https://i.loli.net/2020/04/05/Bvsc4ZxFrpnHy3C.png" alt="微信截图_20200405103644"></p>
+<ol>
+<li>能做<strong>缓存</strong>么？网络cdn可以缓存静态资源，服务接口可以缓存数据，数据库层面可以在查库时缓存。<br>缓存服务器：<code>Redis</code>、<code>Memcache</code>等。<br>缓存使用方式：<br><img src="https://i.loli.net/2020/04/05/hHBTYPS4uQGM6xm.png" alt="微信截图_20200405105218"></li>
+<li>考虑<strong>集群</strong>解决，多个服务器来扛。是比较重的模式，比较浪费成本。</li>
+<li>拆分高负载独立模块，利用<strong>分布式</strong></li>
+<li>大表数据切片，<code>Redis</code>/<code>es</code>/<code>fastdfs</code>等中间件可以进行数据分片。首先规划数据柱，若有6个柱（DB0，DB1…），可以两个库每库3柱，也可以动态改变为三个库每库2柱。这是发生在<code>Redis</code>内部的，对路由层来说不可见。扩容是柱子的数量是不变的，柱子的容量会变大。</li>
+<li>使用中间件<h3 id="6-MQ方案"><a href="#6-MQ方案" class="headerlink" title="6.MQ方案"></a>6.MQ方案</h3>传话筒，所有的服务只要关注自己的队列即可。<br>假如ABCD服务器都在线上运行了，在MQ的解决方案里只需要变化MQ的配置，就能切断路由，不需要其他的改变。解耦。<br><img src="https://i.loli.net/2020/04/05/oCg1DziMNyOH4pq.png" alt="微信截图_20200405131600"></li>
+</ol>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="true">
+                <source type="audio/mpeg" src>
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title="0" data-url="http://m7.music.126.net/20190313150737/4e30cae567d1cab6b24edf533ccb6554/ymusic/0483/4838/35b5/7878359858baaa442edce682763addc7.mp3"></li>
+                    
+                        <li title="1" data-url="http://m8c.music.126.net/20190313151059/5bea8436041e778ca62d3803ff775f39/ymusic/cd09/5c39/e781/db207aa33fe7fc06b3a4cc48e55c7cf3.mp3"></li>
+                    
+                        <li title="2" data-url="http://m8c.music.126.net/20190313151146/a7606624c0ef4fd6e8c8e9ae41d1b1e3/ymusic/30c8/0299/3da3/d3b66580808011c0ce746a4d3bc32f25.mp3"></li>
+                    
+                        <li title="3" data-url="http://m8c.music.126.net/20190313151242/913a724025681bd2e7d081b6652e8789/ymusic/5f85/6204/e7dd/db0a3e79d134101a577c1329845c5055.mp3"></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id="gitalk-container" class="comment link" data-ae="false" data-ci data-cs data-r data-o data-a data-d="false">查看评论</div>
+
+
+    </div>
+    
+        <div class="side">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#集群与分布式"><span class="toc-number">1.</span> <span class="toc-text">集群与分布式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-单机结构横向复制-gt-集群结构"><span class="toc-number">1.1.</span> <span class="toc-text">1.单机结构横向复制 -&gt; 集群结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-纵向切分任务-gt-分布式结构"><span class="toc-number">1.2.</span> <span class="toc-text">2.纵向切分任务 -&gt; 分布式结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-微服务模式"><span class="toc-number">1.3.</span> <span class="toc-text">3.微服务模式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-前端变化"><span class="toc-number">1.4.</span> <span class="toc-text">4.前端变化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-架构依据"><span class="toc-number">1.5.</span> <span class="toc-text">5.架构依据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-MQ方案"><span class="toc-number">1.6.</span> <span class="toc-text">6.MQ方案</span></a></li></ol></li></ol>
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/miku.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Google Analytics -->
+<script type="text/javascript">
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-135683623-1', 'auto');
+  ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+
+</html>
+
+<!--鼠标点击-->
+<canvas class="fireworks" style="position: fixed;left: 0;top: 0;z-index: 1; pointer-events: none;" ></canvas> 
+<script type="text/javascript" src="//cdn.bootcss.com/animejs/2.2.0/anime.min.js"></script> 
+<script type="text/javascript" src="/js/fireworks.js"></script>
